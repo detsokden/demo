@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonitori · Boutique Hotels & Retreats · Cambodia</title>
+  <meta name="description" content="Sonitori – luxury boutique hotels in Siem Reap and Phnom Penh, Cambodia. Book direct for best rates, welcome drinks, and exclusive perks." />
+  <link rel="canonical" href="https://www.sonitori.com/" />
+  <link rel="icon" type="image/png" href="uploads/top-logo.png" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Sonitori · Boutique Hotels & Retreats · Cambodia" />
+  <meta property="og:description" content="Luxury boutique hotels in Siem Reap and Phnom Penh. Book direct for exclusive perks." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.sonitori.com/" />
+  <meta property="og:image" content="https://www.sonitori.com/uploads/section2/sr-noise.webp" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Flaticon Icons -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Self-hosted, minified, and cached -->
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+</head>
+<body>
+
+  <div class="scroll-wrapper" id="scrollWrapper">
+    <div class="scroll-track" id="scrollTrack">
+      <div class="scroll-thumb" id="scrollThumb" tabindex="0" role="scrollbar" aria-orientation="vertical" aria-valuenow="0"></div>
+    </div>
+  </div>
+
+  <div class="loading-overlay" id="loadingOverlay">
+    <img src="uploads/Logo-white.png" alt="Sonitori Boutique Hotels Cambodia" width="200" />
+    <div class="loader-sub">Boutique Hotels · Cambodia</div>
+  </div>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="brand" aria-label="Sonitori Home">
+      <div class="logo"></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#destinations">Destinations</a></li>
+      <li><a href="#why-direct">Why Book Direct</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviewsSection">Reviews</a></li>
+      <li><a href="#mapSection">Location</a></li>
+      <li><button class="nav-cta" id="navBookBtn">Book Now <i class="fas fa-arrow-right" aria-hidden="true"></i></button></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- Redesigned mobile nav drawer -->
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile navigation">
+    <div class="mobile-nav-header">
+      <div class="mobile-nav-logo"></div>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="mobile-nav-rule" aria-hidden="true">
+      <svg viewBox="0 0 400 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,10 Q20,2 40,10 T80,10 T120,10 T160,10 T200,10 T240,10 T280,10 T320,10 T360,10 T400,10" />
+      </svg>
+    </div>
+
+    <div class="mobile-nav-links">
+      <a href="#destinations" class="mobile-link"><span class="mobile-link-num">01</span><span class="mobile-link-text">Destinations</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      <a href="#why-direct" class="mobile-link"><span class="mobile-link-num">02</span><span class="mobile-link-text">Why Book Direct</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      <a href="#gallery" class="mobile-link"><span class="mobile-link-num">03</span><span class="mobile-link-text">Gallery</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      <a href="#reviewsSection" class="mobile-link"><span class="mobile-link-num">04</span><span class="mobile-link-text">Reviews</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      <a href="#mapSection" class="mobile-link"><span class="mobile-link-num">05</span><span class="mobile-link-text">Location</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+
+    <div class="mobile-nav-footer">
+      <div class="mobile-nav-badge"><i class="fas fa-shield-alt" aria-hidden="true"></i> Best Rate Guaranteed, Booking Direct</div>
+      <button class="nav-cta-mobile" id="mobileBookBtn">Book Now <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <div class="bottom-nav" id="bottomNav" role="complementary" aria-label="Quick booking">
+    <div class="bottom-nav-inner">
+      <span class="best-rate-text"><i class="fas fa-shield-alt" aria-hidden="true"></i> Best Rate Guarantee</span>
+      <button class="book-btn-nav" id="bottomBookBtn"><i class="fas fa-calendar-plus" aria-hidden="true"></i> Book Now</button>
+    </div>
+  </div>
+
+  <section class="hero" id="hero" aria-label="Welcome to Sonitori">
+    <div class="hero-slideshow">
+      <div class="hero-slide active" style="background-image:url('uploads/section2/pp-noise.webp');" role="img" aria-label="Sonitori Phnom Penh hotel exterior"></div>
+      <div class="hero-slide" style="background-image:url('uploads/section2/sr-noise.webp');" role="img" aria-label="Sonitori Siem Reap hotel exterior"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-frame"></div>
+    <div class="hero-content" id="heroContent">
+      <div class="eyebrow">Two Destinations, One Cambodia</div>
+      <h1>Stay where the <em>stone</em> still remembers.</h1>
+      <p>From the temple gates of Siem Reap to the riverside calm of Phnom Penh — boutique stays built on quiet Khmer hospitality.</p>
+      <button class="hero-cta" id="heroBookBtn">Reserve Your Stay <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+    </div>
+    <div class="scroll-indicator"><div class="line"></div>Scroll</div>
+  </section>
+
+  <div class="container">
+    <div class="carved-rule" id="carvedRule1">
+      <svg viewBox="0 0 1400 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0,20 Q35,2 70,20 T140,20 T210,20 T280,20 T350,20 T420,20 T490,20 T560,20 T630,20 T700,20 T770,20 T840,20 T910,20 T980,20 T1050,20 T1120,20 T1190,20 T1260,20 T1330,20 T1400,20" />
+      </svg>
+    </div>
+  </div>
+
+  <section class="destinations" id="destinations" aria-label="Our destinations">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Choose Your Stay</div>
+        <h2>Your <em>destination</em> awaits</h2>
+        <p>Two distinct experiences, each carrying the same quiet attention to detail.</p>
+      </div>
+      <div class="dest-grid">
+        <a href="siemreap/" class="dest-card">
+          <img src="uploads/section2/sr-noise.webp" alt="Sonitori Siem Reap - tropical boutique hotel with rooftop pool and social room" loading="lazy" />
+          <div class="frame-line"></div>
+          <div class="overlay">
+            <span class="tag"><i class="fas fa-star" aria-hidden="true"></i> New</span>
+            <div class="dest-name">Siem Reap</div>
+            <div class="dest-location">Gateway to Angkor Wat</div>
+            <div class="dest-features">
+              <span><i class="fi fi-rr-swimming-pool" aria-hidden="true"></i> Rooftop</span>
+              <span><i class="fi fi-rr-utensils" aria-hidden="true"></i> Restaurant</span>
+              <span><i class="fi fi-rr-users" aria-hidden="true"></i> Social Room</span>
+            </div>
+            <span class="btn-dest">Explore Siem Reap <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+        <a href="phnompenh/" class="dest-card">
+          <img src="uploads/section2/pp-noise.webp" alt="Sonitori Phnom Penh - city boutique hotel with tropical pool and cafe" loading="lazy" />
+          <div class="frame-line"></div>
+          <div class="overlay">
+            <span class="tag"><i class="fas fa-city" aria-hidden="true"></i> City</span>
+            <div class="dest-name">Phnom Penh</div>
+            <div class="dest-location">Capital City Lifestyle</div>
+            <div class="dest-features">
+              <span><i class="fi fi-rr-swimming-pool" aria-hidden="true"></i> Tropical Pool</span>
+              <span><i class="fi fi-rr-mug-hot-alt" aria-hidden="true"></i> Café</span>
+              <span><i class="fi fi-rr-bed" aria-hidden="true"></i> Boutique Rooms</span>
+            </div>
+            <span class="btn-dest">Explore Phnom Penh <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-direct" id="why-direct" aria-label="Benefits of booking direct">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Book Direct</div>
+        <h2>Why book <em>direct</em></h2>
+        <p>Benefits reserved for guests who come to us first.</p>
+      </div>
+    </div>
+    <div class="direct-grid">
+      <div class="direct-item"><div class="icon-wrap"><i class="fi fi-tr-cheap-dollar" aria-hidden="true"></i></div><h4>Best Rate</h4><p>Lowest price, every time.</p></div>
+      <div class="direct-item"><div class="icon-wrap"><i class="fi fi-tr-glass-citrus" aria-hidden="true"></i></div><h4>Welcome Drink</h4><p>Complimentary on arrival.</p></div>
+      <div class="direct-item"><div class="icon-wrap"><i class="fi fi-tr-replace" aria-hidden="true"></i></div><h4>Flexible Booking</h4><p>Free cancellation, 48h.</p></div>
+      <div class="direct-item"><div class="icon-wrap"><i class="fi fi-tr-membership" aria-hidden="true"></i></div><h4>Member Perks</h4><p>Exclusive upgrades.</p></div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery" aria-label="Photo gallery of our properties">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Visual Journey</div>
+        <h2>Gallery</h2>
+        <p>Moments of stillness, across both properties.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="g-item" data-index="0"><img src="phnompenh/uploads/section2/aw.webp" alt="Sonitori Phnom Penh - elegant boutique hotel room with natural light and modern furnishings" loading="lazy" /></div>
+        <div class="g-item" data-index="1"><img src="phnompenh/uploads/section2/cw.webp" alt="Sonitori Phnom Penh - tropical pool surrounded by lush greenery and sun loungers" loading="lazy" /></div>
+        <div class="g-item" data-index="2"><img src="phnompenh/uploads/section2/dw.webp" alt="Sonitori Phnom Penh - cozy hotel room interior with warm lighting and comfortable bedding" loading="lazy" /></div>
+        <div class="g-item" data-index="3"><img src="siemreap/uploads/section3/S5A2652-HDR.webp" alt="Sonitori Siem Reap - peaceful courtyard garden with traditional Khmer architecture" loading="lazy" /></div>
+        <div class="g-item" data-index="4"><img src="siemreap/uploads/section3/S5A2820-HDR.webp" alt="Sonitori Siem Reap - luxurious pool area with tropical landscaping and daybeds" loading="lazy" /></div>
+        <div class="g-item" data-index="5"><img src="siemreap/uploads/top-page-photo.webp" alt="Sonitori Siem Reap - boutique hotel exterior showcasing modern Khmer design" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery">
+    <button class="lightbox-close" id="closeLightbox" aria-label="Close gallery"><i class="fas fa-times" aria-hidden="true"></i></button>
+    <button class="lightbox-nav lightbox-prev" id="prevBtn" aria-label="Previous image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+    <button class="lightbox-nav lightbox-next" id="nextBtn" aria-label="Next image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+    <div class="lightbox-content"><img id="lightboxImg" src="" alt="" /></div>
+  </div>
+
+  <div class="container">
+    <div class="carved-rule" id="carvedRule2">
+      <svg viewBox="0 0 1400 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0,20 Q35,2 70,20 T140,20 T210,20 T280,20 T350,20 T420,20 T490,20 T560,20 T630,20 T700,20 T770,20 T840,20 T910,20 T980,20 T1050,20 T1120,20 T1190,20 T1260,20 T1330,20 T1400,20" />
+      </svg>
+    </div>
+  </div>
+
+  <section class="reviews-section" id="reviewsSection" aria-label="Guest reviews">
+    <div class="reviews-wrapper">
+      <div class="reviews-left">
+        <div class="eyebrow">Newly Opened</div>
+        <h2>Our first guests, in their own words</h2>
+        <p>We just opened our doors — every review below is one of our very first guests, unfiltered.</p>
+        <div class="reviews-stats">
+          <div class="stat-item"><span class="stat-number">4.9</span><span class="stat-label">Average Rating</span></div>
+          <div class="stat-item"><span class="stat-number" data-nocount>2026</span><span class="stat-label">Opened</span></div>
+        </div>
+      </div>
+      <div class="reviews-right">
+        <div class="review-comment comment-1">
+          <div class="quote-icon" aria-hidden="true">"</div>
+          <div class="comment-rating"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+          <p class="comment-text"><strong>A peaceful place to relax after the temples.</strong> The pool and courtyard create a wonderfully calm atmosphere, and the staff were warm and attentive throughout our stay.</p>
+          <div class="comment-author">
+            <div class="author-avatar" style="background:var(--moss);" aria-hidden="true">Hol</div>
+            <div><div class="author-name">Hol SokHeng</div><div class="author-from">Holiday · Friends</div></div>
+          </div>
+        </div>
+        <div class="review-comment comment-2">
+          <div class="quote-icon" aria-hidden="true">"</div>
+          <div class="comment-rating"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+          <p class="comment-text"><strong>Great location, friendly staff, very comfortable.</strong> Walking distance to the main sights but tucked on a quiet street. Arranging tours through reception was easy and good value.</p>
+          <div class="comment-author">
+            <div class="author-avatar" style="background:var(--clay);" aria-hidden="true">Oma</div>
+            <div><div class="author-name">Omar Reza</div><div class="author-from">Holiday · Solo</div></div>
+          </div>
+        </div>
+        <div class="review-comment comment-3">
+          <div class="quote-icon" aria-hidden="true">"</div>
+          <div class="comment-rating"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
+          <p class="comment-text"><strong>A seamless, wonderful stay.</strong> Lovely pool, attentive service, and a quiet location easily reached by tuk tuk from anywhere in town.</p>
+          <div class="comment-author">
+            <div class="author-avatar" style="background:var(--brass);" aria-hidden="true">Tom</div>
+            <div><div class="author-name">Tom Belton</div><div class="author-from">Holiday · Couple</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-map-wrapper">
+    <footer class="footer" id="footer" role="contentinfo">
+      <img src="uploads/Logo-white.png" alt="Sonitori Boutique Hotels Cambodia" class="footer-brand-img" />
+      <p class="footer-brand-desc">Modern comfort meets quiet Khmer hospitality. Two destinations, one unforgettable experience.</p>
+      <div class="footer-col">
+        <h5>Destinations</h5>
+        <a href="siemreap/">Siem Reap</a>
+        <a href="phnompenh/">Phnom Penh</a>
+      </div>
+      <div class="footer-bottom">© <span id="currentYear">2026</span> Sonitori · Cambodia</div>
+    </footer>
+    <section class="map-section" id="mapSection" aria-label="Hotel locations">
+      <div class="map-heading">
+        <div class="container">
+          <div class="eyebrow">Find Us</div>
+          <h2>Our <em>locations</em></h2>
+        </div>
+      </div>
+      <div class="map-container-custom" id="hotelMap">
+        <div class="map-loading" id="mapLoading">
+          <div class="map-loader"><span></span><span></span><span></span></div>
+          <p>Loading map...</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-label="Booking selection">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Choose your stay</h3>
+        <button class="modal-close" id="modalClose" aria-label="Close booking modal"><i class="fas fa-times" aria-hidden="true"></i></button>
+      </div>
+      <div class="modal-subtitle">Select a destination to check availability and book directly.</div>
+      <div class="modal-options">
+        <button class="modal-option" data-prop="4y0OUx">
+          <span class="icon-box"><i class="fas fa-city" aria-hidden="true"></i></span>
+          <span class="info"><span class="name">Sonitori Phnom Penh</span><span class="location">Phnom Penh · City retreat</span></span>
+          <span class="arrow-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+        </button>
+        <button class="modal-option" data-prop="To64hk">
+          <span class="icon-box"><i class="fas fa-water" aria-hidden="true"></i></span>
+          <span class="info"><span class="name">Sonitori Riverside</span><span class="location">Siem Reap · Tropical oasis</span></span>
+          <span class="arrow-link"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
