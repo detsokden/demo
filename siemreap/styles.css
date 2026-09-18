@@ -60,7 +60,7 @@
    ============================================ */
 @font-face {
   font-family: 'Segoe Print';
-  src: url('fonts/segoepr.ttf') format('truetype');
+  src: url('../font/segoepr.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -573,7 +573,7 @@ button:focus-visible {
 .meta-pin p, .meta-note p { font-size: 11.5px; line-height: 1.55; color: var(--on-dark-muted); font-weight: 400; }
 
 .hero-wordmark {
-  position: absolute; left: 0; right: 0; bottom: clamp(300px, 19vw, 230px); z-index: 3;
+  position: absolute; left: 0; right: 0; bottom: clamp(330px, 19vw, 230px); z-index: 3;
   padding: 0 clamp(16px, 3.6vw, 40px);
   display: flex; align-items: baseline; justify-content: center;
   gap: clamp(12px, 1.4vw, 24px);
