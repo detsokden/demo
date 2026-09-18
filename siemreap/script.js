@@ -31,40 +31,72 @@ function dismissLoader(){
   }, 800);
 }
 
-/* Safety net — never trap the guest longer than 8s,
+/* Safety net — never trap the guest longer than 10s,
    even if the video fails or the connection is terrible. */
-const MAX_WAIT = 8000;
-setTimeout(dismissLoader, MAX_WAIT);
+const MAX_WAIT = 10000;
+const maxWaitTimer = setTimeout(dismissLoader, MAX_WAIT);
+
+/* Central "video is ready and playing" handler.
+   Dismiss the loader only once the video is genuinely on screen. */
+function onVideoReady(){
+  clearTimeout(maxWaitTimer);
+  setTimeout(dismissLoader, 300);
+}
 
 if (heroVideo) {
+
   /* Fade the video in over the poster once it's actually playing */
   heroVideo.style.transition = 'opacity .8s ease';
   heroVideo.style.opacity = '0';
+
+  /* Try to kick off playback as soon as possible */
+  function attemptPlay(){
+    const p = heroVideo.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(function(){
+        /* Autoplay rejected by browser — still dismiss the loader so
+           the guest sees the poster + page, and retry on first interaction. */
+        onVideoReady();
+
+        const retry = function(){
+          heroVideo.play().catch(function(){});
+          document.removeEventListener('touchstart', retry);
+          document.removeEventListener('click', retry);
+          document.removeEventListener('scroll', retry);
+        };
+        document.addEventListener('touchstart', retry, { once:true, passive:true });
+        document.addEventListener('click',      retry, { once:true });
+        document.addEventListener('scroll',     retry, { once:true, passive:true });
+      });
+    }
+  }
+
+  /* Video is actually rendering frames → fade in + dismiss loader */
   heroVideo.addEventListener('playing', function(){
     heroVideo.style.opacity = '1';
-  }, { once: true });
+    onVideoReady();
+  });
 
-  if (heroVideo.readyState >= 4) {
-    /* Already fully buffered (e.g. cached) — brief pause so the
-       logo animation doesn't feel like a flash. */
-    setTimeout(dismissLoader, 400);
+  /* If already playing (cached, or autoplay fired instantly) */
+  if (!heroVideo.paused && heroVideo.readyState >= 2) {
+    heroVideo.style.opacity = '1';
+    onVideoReady();
   } else {
-    /* Fire as soon as the browser can play through without stalling */
-    heroVideo.addEventListener('canplaythrough', function(){
-      setTimeout(dismissLoader, 400);
-    }, { once: true });
+    /* Fire playback attempts at each buffering milestone — whichever
+       lands first wins. This is what fixes the "first visit stuck" bug. */
+    heroVideo.addEventListener('loadeddata', attemptPlay, { once:true });
+    heroVideo.addEventListener('canplay',    attemptPlay, { once:true });
 
-    /* Fallback: if canplaythrough never fires, use loadeddata */
-    heroVideo.addEventListener('loadeddata', function(){
-      setTimeout(dismissLoader, 1200);
-    }, { once: true });
-
-    /* If the video errors entirely, don't hang the guest */
-    heroVideo.addEventListener('error', dismissLoader, { once: true });
-
-    /* Nudge the browser to start loading */
-    try { heroVideo.load(); } catch(e){}
+    /* Also try immediately — helps on fast / cached loads */
+    attemptPlay();
   }
+
+  /* If the video errors entirely, don't hang the guest */
+  heroVideo.addEventListener('error', function(){
+    clearTimeout(maxWaitTimer);
+    dismissLoader();
+  }, { once:true });
+
 } else {
   /* No video element — dismiss after a short beat */
   setTimeout(dismissLoader, 800);
