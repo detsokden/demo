@@ -223,7 +223,7 @@ button { font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: tra
   display: none;
   align-items: center; justify-content: center;
   padding: 6px 16px;
-  background: rgba(171, 173, 173, 0.34);
+  background: rgba(0, 0, 0, 0.42);
   backdrop-filter: blur(var(--blur-strength));
   -webkit-backdrop-filter: blur(var(--blur-strength));
   border: 1px solid rgba(250,246,236,.18);
@@ -305,7 +305,7 @@ button { font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: tra
 
 /* ---- GHOST ---- */
 .pill-btn.ghost {
-  background: rgba(15,42,46,.40);
+  background: rgba(0, 0, 0, 0.42);
   backdrop-filter: blur(var(--blur-strength));
   -webkit-backdrop-filter: blur(var(--blur-strength));
   border: 1px solid rgba(250,246,236,.22);
@@ -316,8 +316,9 @@ button { font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: tra
   letter-spacing: 1.2px;
 }
 .navbar.scrolled .pill-btn.ghost {
-  background: rgba(15,42,46,.75);
-  border-color: rgba(250,246,236,.16);
+  background: rgba(210, 220, 220, 0.75);        /* keep as-is */
+  border-color: rgba(250, 246, 236, 0.18);
+  color: var(--ink);
 }
 @media (hover: hover) {
   .pill-btn.ghost:hover {
@@ -583,7 +584,7 @@ button:focus-visible {
 .hero-annotations .annot-card { pointer-events: auto; }
 .annot-card {
   position: absolute; max-width: 220px; padding: 14px 16px; border-radius: var(--r-md);
-  background: rgba(15,42,46,.42);
+  background: rgba(0, 0, 0, 0.42);
   backdrop-filter: blur(var(--blur-strength));
   -webkit-backdrop-filter: blur(var(--blur-strength));
   border: 1px solid rgba(250,246,236,.18);
