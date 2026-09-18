@@ -14,9 +14,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
-<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
-<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css">
 
 <link rel="stylesheet" href="styles.css" />
 
@@ -24,12 +24,15 @@
 </head>
 <body>
 
+<div class="custom-scrollbar" id="customScrollbar" aria-hidden="true">
+  <div class="cs-thumb" id="csThumb"></div>
+</div>
+
 <div class="loading-overlay" id="loadingOverlay">
   <img src="../uploads/logo.png" alt="Sonitori" class="loader-logo-img" width="200" height="60" />
   <div class="loader-sub">Siem Reap · Cambodia</div>
 </div>
 
-<!-- NAV -->
 <nav class="navbar" id="navbar">
   <div class="nav-pill-group">
     <a href="../" class="brand" aria-label="Sonitori Home">
@@ -48,7 +51,7 @@
   </a>
 
   <div class="nav-right">
-    <button class="pill-btn solid" id="navBookBtn">Book Now <i class="fi fi-rr-arrow-right"></i></button>
+    <button class="pill-btn solid" id="navBookBtn">Book Now <i class="fi fi-rr-angle-small-right"></i></button>
     <button class="hamburger-pill" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -76,12 +79,11 @@
   </div>
 </div>
 
-<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-media">
     <video id="heroVideo" muted loop playsinline preload="auto" poster="uploads/top-page-photo.webp">
-  <source src="https://video.sonitori.com/SONITORI-Siemreap.mp4" type="video/mp4">
-</video>
+      <source src="https://video.sonitori.com/SONITORI-Siemreap.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="hero-wash"></div>
   <div class="hero-glow" id="heroGlow"></div>
@@ -98,11 +100,17 @@
 
   <div class="hero-bottom-row">
     <div class="hero-contact-row">
-      <a href="https://www.facebook.com/sonitorihotels" target="_blank" aria-label="Facebook" class="hero-icon-btn">
+      <a href="https://www.facebook.com/profile.php?id=61592509322305" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hero-icon-btn">
         <i class="fi fi-brands-facebook"></i>
       </a>
-      <a href="https://www.instagram.com/sonitorihotels" target="_blank" aria-label="Instagram" class="hero-icon-btn">
+      <a href="https://www.instagram.com/sonitori_riverside/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hero-icon-btn">
         <i class="fi fi-brands-instagram"></i>
+      </a>
+      <a href="https://www.messenger.com/t/1250071181522265" target="_blank" rel="noopener noreferrer" aria-label="Messenger" class="hero-icon-btn">
+        <i class="fi fi-brands-facebook-messenger"></i>
+      </a>
+      <a href="https://t.me/sonitoririverside" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="hero-icon-btn">
+        <i class="fi fi-brands-telegram"></i>
       </a>
       <a href="tel:+85587759779" class="hero-icon-btn hero-expand" aria-label="Call us">
         <i class="fi fi-rr-phone-call"></i>
@@ -117,7 +125,6 @@
   </div>
 </section>
 
-<!-- CONCEPT -->
 <section class="concept">
   <div class="container">
     <div class="concept-head">
@@ -144,7 +151,6 @@
   </div>
 </section>
 
-<!-- ROOMS -->
 <section class="rooms" id="rooms">
   <div class="container">
     <div class="rooms-head">
@@ -154,7 +160,6 @@
 
     <div class="bento">
 
-      <!-- Deluxe Double -->
       <div class="bento-card bento-1">
         <img src="uploads/room-section/sup-double-city3.webp" alt="Deluxe Double" loading="lazy"/>
         <div class="bc-shade"></div>
@@ -169,7 +174,6 @@
         </div>
       </div>
 
-      <!-- Deluxe Twin -->
       <div class="bento-card bento-3">
         <img src="uploads/room-section/sup-twin.webp" alt="Deluxe Twin" loading="lazy"/>
         <div class="bc-shade"></div>
@@ -183,7 +187,6 @@
         </div>
       </div>
 
-      <!-- Superior Double -->
       <div class="bento-card bento-4">
         <img src="uploads/room-section/sup-double-city4.webp" alt="Superior Double" loading="lazy"/>
         <div class="bc-shade"></div>
@@ -197,7 +200,6 @@
         </div>
       </div>
 
-      <!-- Superior Twin -->
       <div class="bento-card bento-2">
         <img src="uploads/room-section/sup-twin2.webp" alt="Superior Twin" loading="lazy"/>
         <div class="bc-shade"></div>
@@ -215,7 +217,6 @@
   </div>
 </section>
 
-<!-- EXPERIENCE — tours spotlight -->
 <section class="experience" id="experience">
   <div class="container">
     <div class="experience-grid">
@@ -266,7 +267,6 @@
   </div>
 </section>
 
-<!-- AMENITIES -->
 <section class="amenities" id="amenities">
   <div class="container">
     <div class="amenities-head">
@@ -326,7 +326,6 @@
   </div>
 </section>
 
-<!-- REVIEWS -->
 <section class="reviews" id="reviews">
   <div class="container">
     <div class="reviews-head"><div><div class="eyebrow-pill">Guest Reviews</div><h2>Loved by Our Guests</h2></div></div>
@@ -350,7 +349,6 @@
   </div>
 </section>
 
-<!-- LOCAL GUIDE -->
 <section class="guide" id="guide">
   <div class="container">
     <div class="guide-head"><div class="eyebrow-pill">Beyond the Room</div><h2>Explore Siem Reap</h2></div>
@@ -364,7 +362,6 @@
   </div>
 </section>
 
-<!-- GALLERY -->
 <section class="gallery" id="gallery">
   <div class="container">
     <div class="gallery-head"><div class="eyebrow-pill">Gallery</div><h2>Moments to Remember</h2></div>
@@ -379,7 +376,6 @@
   </div>
 </section>
 
-<!-- MAP + FOOTER -->
 <div class="footer-section">
   <div class="map-wrap" id="map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.9305272473166!2d103.85597237575948!3d13.354595906364318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31101724d5a75335%3A0x7e35dd6e9184bd83!2sSonitori%20Riverside!5e0!3m2!1sen!2skh!4v1787283974591!5m2!1sen!2skh" allowfullscreen loading="lazy"></iframe>
@@ -401,8 +397,10 @@
         <div class="contact-line"><i class="fi fi-rr-phone-call"></i>+855 87 759 779</div>
         <div class="contact-line"><i class="fi fi-rr-envelope"></i>sonitoririverside.info@gmail.com</div>
         <div class="footer-social">
-          <a href="https://www.facebook.com/sonitorihotels" target="_blank" aria-label="Facebook"><i class="fi fi-brands-facebook"></i></a>
-          <a href="https://www.instagram.com/sonitorihotels" target="_blank" aria-label="Instagram"><i class="fi fi-brands-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61592509322305" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fi fi-brands-facebook"></i></a>
+          <a href="https://www.instagram.com/sonitori_riverside/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fi fi-brands-instagram"></i></a>
+          <a href="https://www.messenger.com/t/1250071181522265" target="_blank" rel="noopener noreferrer" aria-label="Messenger"><i class="fi fi-brands-facebook-messenger"></i></a>
+          <a href="https://t.me/sonitoririverside" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fi fi-brands-telegram"></i></a>
         </div>
       </div>
     </div>

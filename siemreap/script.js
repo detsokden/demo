@@ -301,4 +301,134 @@ function initReveal(){
 if (document.readyState !== 'loading') initReveal();
 else document.addEventListener('DOMContentLoaded', initReveal);
 
+/* ============================================
+   CUSTOM SCROLLBAR — drag, auto-hide (smooth)
+   ============================================ */
+(function(){
+  const track = document.getElementById('customScrollbar');
+  const thumb = document.getElementById('csThumb');
+  if(!track || !thumb) return;
+
+  const html = document.documentElement;
+  let dragging = false;
+  let dragStartY = 0;
+  let dragStartScroll = 0;
+  let hideTimer = null;
+
+  function isBlocked(){
+    const mm = document.getElementById('mobileNav');
+    const lo = document.getElementById('loadingOverlay');
+    if(mm && mm.classList.contains('open')) return true;
+    if(lo && !lo.classList.contains('hidden')) return true;
+    if(document.body.classList.contains('no-scroll')) return true;
+    return false;
+  }
+
+  function metrics(){
+    const trackH = track.clientHeight || window.innerHeight;
+    const docH = html.scrollHeight;
+    const winH = window.innerHeight;
+    const maxScroll = Math.max(docH - winH, 0);
+    const thumbH = Math.max((winH / docH) * trackH, 40);
+    const travel = trackH - thumbH;
+    return { trackH, docH, winH, maxScroll, thumbH, travel };
+  }
+
+  function paintThumb(){
+    const m = metrics();
+    if(m.maxScroll < 20){
+      track.classList.remove('visible');
+      thumb.style.height = '0px';
+      return;
+    }
+    const scrollTop = window.scrollY || html.scrollTop;
+    const ratio = m.maxScroll > 0 ? scrollTop / m.maxScroll : 0;
+    const y = m.travel * ratio;
+    thumb.style.height = m.thumbH + 'px';
+    thumb.style.transform = 'translateY(' + y + 'px)';
+    track.classList.add('visible');
+  }
+
+  function scheduleHide(){
+    if(hideTimer) clearTimeout(hideTimer);
+    if(dragging) return;
+    hideTimer = setTimeout(function(){
+      if(!dragging) track.classList.remove('visible');
+    }, 1400);
+  }
+
+  function update(){
+    if(isBlocked()){ track.classList.remove('visible'); return; }
+    paintThumb();
+    scheduleHide();
+  }
+
+  window.addEventListener('scroll', update, { passive:true });
+  window.addEventListener('resize', update);
+
+  window.addEventListener('mousemove', function(e){
+    if(dragging) return;
+    if(e.clientX > window.innerWidth - 40){
+      track.classList.add('visible');
+      paintThumb();
+      if(hideTimer) clearTimeout(hideTimer);
+    }
+  });
+
+  function startDrag(clientY){
+    dragging = true;
+    dragStartY = clientY;
+    dragStartScroll = window.scrollY || html.scrollTop;
+    /* Kill smooth-scroll so drag tracks the cursor 1:1 */
+    html.style.scrollBehavior = 'auto';
+    track.classList.add('dragging');
+    track.classList.add('visible');
+    if(hideTimer) clearTimeout(hideTimer);
+  }
+
+  function moveDrag(clientY){
+    if(!dragging) return;
+    const m = metrics();
+    if(m.travel <= 0) return;
+
+    const deltaY = clientY - dragStartY;
+    const scrollPerPixel = m.maxScroll / m.travel;
+    let newScroll = dragStartScroll + deltaY * scrollPerPixel;
+
+    if(newScroll < 0) newScroll = 0;
+    if(newScroll > m.maxScroll) newScroll = m.maxScroll;
+
+    window.scrollTo(0, newScroll);
+  }
+
+  function endDrag(){
+    if(!dragging) return;
+    dragging = false;
+    html.style.scrollBehavior = '';
+    track.classList.remove('dragging');
+    scheduleHide();
+  }
+
+  thumb.addEventListener('mousedown', function(e){ e.preventDefault(); startDrag(e.clientY); });
+  window.addEventListener('mousemove', function(e){ if(dragging) moveDrag(e.clientY); });
+  window.addEventListener('mouseup', endDrag);
+
+  thumb.addEventListener('touchstart', function(e){
+    if(e.touches.length !== 1) return;
+    startDrag(e.touches[0].clientY);
+  }, { passive:true });
+
+  thumb.addEventListener('touchmove', function(e){
+    if(!dragging) return;
+    if(e.touches.length !== 1) return;
+    moveDrag(e.touches[0].clientY);
+    e.preventDefault();
+  }, { passive:false });
+
+  thumb.addEventListener('touchend', endDrag);
+  thumb.addEventListener('touchcancel', endDrag);
+
+  update();
+})();
+
 })();

@@ -211,9 +211,7 @@ button { font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: tra
 }
 
 .nav-pill-group a:not(.brand) {
-  display: block; padding: 9px 16px; font-size: 12px; font-weight: 300;
-  font-family: var(--font-logo);
-  font-style: italic;
+  display: block; padding: 9px 16px; font-size: 15px;
   letter-spacing: -0.01em;
   text-transform: lowercase;
   color: var(--on-dark-muted); border-radius: var(--r-full);
@@ -268,7 +266,7 @@ button { font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: tra
   padding: 12px 20px 12px 22px;
   border-radius: var(--r-full);
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: .4px;
   line-height: 1;
@@ -1882,4 +1880,60 @@ button:focus-visible {
     color: #fff;
     transform: scale(.92);
   }
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+html, body { scrollbar-width: none; -ms-overflow-style: none; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; display: none; }
+
+.custom-scrollbar{
+  position: fixed;
+  top: 0;
+  right: 6px;
+  width: 14px;
+  height: 100vh;
+  z-index: 1001;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .35s cubic-bezier(.22,1,.36,1);
+}
+.custom-scrollbar.visible{ opacity: 1; }
+.custom-scrollbar.dragging{ opacity: 1; transition: none; }
+
+.custom-scrollbar .cs-thumb{
+  position: absolute;
+  top: 0; right: 0;
+  width: 6px;
+  border-radius: 99px;
+  background: linear-gradient(180deg, rgba(3,132,148,.55), rgba(3,132,148,.85));
+  box-shadow: 0 2px 8px rgba(3,132,148,.28);
+  pointer-events: auto;
+  cursor: grab;
+  transition: width .18s cubic-bezier(.22,1,.36,1), background .18s ease, box-shadow .18s ease;
+  will-change: transform;
+  touch-action: none;
+  user-select: none;
+}
+.custom-scrollbar .cs-thumb:hover{
+  width: 9px;
+  background: linear-gradient(180deg, #038494, #026B78);
+  box-shadow: 0 3px 12px rgba(3,132,148,.4);
+}
+.custom-scrollbar.dragging .cs-thumb{
+  width: 9px;
+  cursor: grabbing;
+  background: linear-gradient(180deg, #026B78, #038494);
+  box-shadow: 0 4px 14px rgba(3,132,148,.5);
+  transition: none;
+}
+body.no-scroll .custom-scrollbar{ opacity: 0 !important; pointer-events: none; }
+
+@media (max-width: 900px){
+  .custom-scrollbar{ right: 2px; width: 12px; }
+  .custom-scrollbar .cs-thumb{ width: 5px; }
+  .custom-scrollbar .cs-thumb:hover,
+  .custom-scrollbar.dragging .cs-thumb{ width: 7px; }
 }

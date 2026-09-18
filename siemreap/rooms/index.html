@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>Rooms & Suites · Sonitori Riverside · Siem Reap</title>
 <meta name="description" content="Four elegant room types at Sonitori Riverside in Siem Reap — Deluxe Double, Deluxe Twin, Superior Double, Superior Twin. Rooftop pool, riverside calm, minutes from Angkor.">
+<link rel="icon" type="image/png" href="../../uploads/top-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css'>
 <style>
   :root{
     --bg:#FFFFFF;
@@ -46,7 +47,6 @@
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html{
     -webkit-font-smoothing:antialiased;
-    /* clip fixes horizontal overflow WITHOUT breaking position:fixed children */
     overflow-x:clip;
     scrollbar-width:none;
     -ms-overflow-style:none;
@@ -60,11 +60,9 @@
     line-height:1.6;
     min-height:100vh;
     width:100%;
-    /* reserve space for the fixed nav */
     padding-top:var(--nav-h);
   }
 
-  /* hide native scrollbar */
   html::-webkit-scrollbar,
   body::-webkit-scrollbar{ width:0; height:0; display:none; }
 
@@ -81,7 +79,7 @@
   @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}}
 
   /* ============================================
-     CUSTOM SCROLLBAR (draggable, real-time)
+     CUSTOM SCROLLBAR
      ============================================ */
   .custom-scrollbar{
     position:fixed;
@@ -157,7 +155,7 @@
     .page-loader .pl-spinner{animation-duration:1.4s;}
   }
 
-  /* ============ NAV — TRULY FIXED ============ */
+  /* ============ NAV ============ */
   .topnav{
     position:fixed;
     top:0;
@@ -807,9 +805,7 @@
     .lb-title{font-size:13.5px;max-width:50vw;}
   }
 
-  /* ============================================
-     TOUCH / MOBILE — swap :hover for :active
-     ============================================ */
+  /* TOUCH / MOBILE — swap :hover for :active */
   @media (max-width: 900px) {
     .home-btn:hover{background:var(--bg-soft);border-color:var(--line-strong);transform:none;}
     .home-btn:active{background:var(--teal-tint);border-color:var(--teal);transform:scale(.97);}
@@ -862,12 +858,12 @@
 
 <!-- ============ FIXED NAV ============ -->
 <nav class="topnav" id="topnav" aria-label="Main navigation">
-  <a href="/siemreap/" class="brand-mark" aria-label="Sonitori Riverside home">
+  <a href="../../" class="brand-mark" aria-label="Sonitori Riverside home">
     <img src="../../uploads/logo.png" alt="">
   </a>
 
   <div class="nav-actions">
-    <a href="/siemreap/" class="home-btn">
+    <a href="../../" class="home-btn">
       <i class="fi fi-rr-arrow-small-left" aria-hidden="true"></i> Back to hotel
     </a>
 
@@ -902,7 +898,7 @@
       </div>
 
       <div class="hero-visual">
-        <img src="/siemreap/rooms/deluxe-double/uploads/SNR-5.webp" alt="Deluxe Double room at Sonitori Riverside">
+        <img src="deluxe-double/uploads/SNR-5.webp" alt="Deluxe Double room at Sonitori Riverside">
         <span class="hv-tag">Riverside calm</span>
         <span class="hv-badge"><i class="fi fi-sr-star" aria-hidden="true"></i> 4.9 rated</span>
       </div>
@@ -956,7 +952,7 @@
         <i class="fi fi-rr-calendar-plus" aria-hidden="true"></i>
         Book on Cloudbeds
       </button>
-      <a href="https://m.me/sonitorihotels" target="_blank" rel="noopener noreferrer" class="fc-btn fc-ghost">
+      <a href="https://www.messenger.com/t/1250071181522265" target="_blank" rel="noopener noreferrer" class="fc-btn fc-ghost">
         <i class="fi fi-brands-facebook-messenger" aria-hidden="true"></i>
         Ask a question
       </a>
@@ -970,35 +966,35 @@
     <div class="footer-grid">
 
       <div class="footer-col footer-brand-col">
-        <a href="/siemreap/" class="footer-brand" aria-label="Sonitori Riverside home">
+        <a href="../../" class="footer-brand" aria-label="Sonitori Riverside home">
           <img src="../../uploads/logo.png" alt="Sonitori Riverside">
         </a>
         <p class="footer-desc">A riverside boutique hotel in Siem Reap — quiet mornings, slow rivers, and a warm base for the temples.</p>
         <div class="footer-social">
-          <a href="https://www.facebook.com/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fi fi-brands-facebook" aria-hidden="true"></i></a>
-          <a href="https://www.instagram.com/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fi fi-brands-instagram" aria-hidden="true"></i></a>
-          <a href="https://m.me/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Messenger"><i class="fi fi-brands-facebook-messenger" aria-hidden="true"></i></a>
-          <a href="https://t.me/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fi fi-brands-telegram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61592509322305" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fi fi-brands-facebook" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/sonitori_riverside/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fi fi-brands-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.messenger.com/t/1250071181522265" target="_blank" rel="noopener noreferrer" aria-label="Messenger"><i class="fi fi-brands-facebook-messenger" aria-hidden="true"></i></a>
+          <a href="https://t.me/sonitoririverside" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fi fi-brands-telegram" aria-hidden="true"></i></a>
         </div>
       </div>
 
       <div class="footer-col">
         <h4>Stay</h4>
         <ul>
-          <li><a href="#deluxe-double">Deluxe Double</a></li>
-          <li><a href="#deluxe-twin">Deluxe Twin</a></li>
-          <li><a href="#superior-double">Superior Double</a></li>
-          <li><a href="#superior-twin">Superior Twin</a></li>
+          <li><a href="deluxe-double/">Deluxe Double</a></li>
+          <li><a href="deluxe-twin/">Deluxe Twin</a></li>
+          <li><a href="superior-double/">Superior Double</a></li>
+          <li><a href="superior-twin/">Superior Twin</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Explore</h4>
         <ul>
-          <li><a href="/siemreap/experience/">Experiences</a></li>
-          <li><a href="/siemreap/#amenities">Amenities</a></li>
-          <li><a href="/siemreap/#guide">Local guide</a></li>
-          <li><a href="/siemreap/#gallery">Gallery</a></li>
+          <li><a href="../experience/">Experiences</a></li>
+          <li><a href="../../#amenities">Amenities</a></li>
+          <li><a href="../../#guide">Local guide</a></li>
+          <li><a href="../../#gallery">Gallery</a></li>
         </ul>
       </div>
 
@@ -1031,10 +1027,10 @@
 
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">
   <button type="button" class="close-btn" id="mobileClose" aria-label="Close menu">&times;</button>
-  <a href="/siemreap/" data-close-menu>Home</a>
+  <a href="../../" data-close-menu>Home</a>
   <a href="#rooms" data-close-menu>Rooms</a>
-  <a href="/siemreap/experience/" data-close-menu>Experiences</a>
-  <a href="/siemreap/" data-close-menu>Back to hotel</a>
+  <a href="../experience/" data-close-menu>Experiences</a>
+  <a href="../../" data-close-menu>Back to hotel</a>
 </div>
 
 <!-- ============ LIGHTBOX ============ -->
@@ -1101,7 +1097,6 @@
   }
 
   function metrics(){
-    // the custom scrollbar track starts below the fixed nav
     const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 70;
     const trackH = window.innerHeight - navH;
     const docH = html.scrollHeight;
@@ -1226,7 +1221,7 @@
 })();
 
 /* ============================================
-   ROOM DATA
+   ROOM DATA  (paths relative to this file: siemreap/rooms/index.html)
    ============================================ */
 const ROOMS = [
   {
@@ -1234,17 +1229,17 @@ const ROOMS = [
     title:'Deluxe Double',
     subtitle:'Double bed · city view · most loved',
     badge:'Popular',
-    detailUrl:'/siemreap/rooms/deluxe-double/',
+    detailUrl:'deluxe-double/',
     accommodationType:'679025',
     imagePool:[
-      '/siemreap/rooms/deluxe-double/uploads/SNR-5.webp',
-      '/siemreap/rooms/deluxe-double/uploads/SNR-3.webp',
-      '/siemreap/rooms/deluxe-double/uploads/SNR-2.webp',
-      '/siemreap/rooms/deluxe-double/uploads/SNR-1.webp',
-      '/siemreap/rooms/deluxe-double/uploads/SNR-4.webp',
-      '/siemreap/rooms/deluxe-double/uploads/SNR-23.webp',
-      '/siemreap/rooms/deluxe-double/uploads/SNR-29.webp',
-      '/siemreap/rooms/deluxe-double/uploads/SNR-32.webp'
+      'deluxe-double/uploads/SNR-5.webp',
+      'deluxe-double/uploads/SNR-3.webp',
+      'deluxe-double/uploads/SNR-2.webp',
+      'deluxe-double/uploads/SNR-1.webp',
+      'deluxe-double/uploads/SNR-4.webp',
+      'deluxe-double/uploads/SNR-23.webp',
+      'deluxe-double/uploads/SNR-29.webp',
+      'deluxe-double/uploads/SNR-32.webp'
     ],
     description:'A comfortable and spacious room with a double bed and a window overlooking the city — a relaxing base for exploring Siem Reap.',
     specs:[
@@ -1258,7 +1253,7 @@ const ROOMS = [
       { icon:'fi-rr-air-conditioner', label:'A/C' },
       { icon:'fi-rr-shower',          label:'Hot shower' },
       { icon:'fi-rr-coffee-pot',      label:'Kettle' },
-      { icon:'fi-rr-vault',           label:'In-room safe' },
+      { icon:'fi-rr-lock',            label:'In-room safe' },
       { icon:'fi-rr-screen',          label:'Smart TV' }
     ]
   },
@@ -1266,16 +1261,16 @@ const ROOMS = [
     id:'deluxe-twin',
     title:'Deluxe Twin',
     subtitle:'Twin beds · city view · ideal for friends',
-    detailUrl:'/siemreap/rooms/deluxe-twin/',
+    detailUrl:'deluxe-twin/',
     accommodationType:'679027',
     imagePool:[
-      '/siemreap/rooms/deluxe-twin/uploads/S5A3886-HDR.webp',
-      '/siemreap/rooms/deluxe-twin/uploads/S5A3868-HDR.webp',
-      '/siemreap/rooms/deluxe-twin/uploads/S5A3408.webp',
-      '/siemreap/rooms/deluxe-twin/uploads/S5A3349-HDR.webp',
-      '/siemreap/rooms/deluxe-twin/uploads/S5A3415.webp',
-      '/siemreap/rooms/deluxe-twin/uploads/S5A3892-HDR.webp',
-      '/siemreap/rooms/deluxe-twin/uploads/S5A3952-HDR.webp'
+      'deluxe-twin/uploads/S5A3886-HDR.webp',
+      'deluxe-twin/uploads/S5A3868-HDR.webp',
+      'deluxe-twin/uploads/S5A3408.webp',
+      'deluxe-twin/uploads/S5A3349-HDR.webp',
+      'deluxe-twin/uploads/S5A3415.webp',
+      'deluxe-twin/uploads/S5A3892-HDR.webp',
+      'deluxe-twin/uploads/S5A3952-HDR.webp'
     ],
     description:'Two comfortable single beds with a window overlooking the city — an easy fit for friends or family travelling together.',
     specs:[
@@ -1289,7 +1284,7 @@ const ROOMS = [
       { icon:'fi-rr-air-conditioner', label:'A/C' },
       { icon:'fi-rr-shower',          label:'Hot shower' },
       { icon:'fi-rr-coffee-pot',      label:'Kettle' },
-      { icon:'fi-rr-vault',           label:'In-room safe' },
+      { icon:'fi-rr-lock',            label:'In-room safe' },
       { icon:'fi-rr-screen',          label:'Smart TV' }
     ]
   },
@@ -1297,17 +1292,17 @@ const ROOMS = [
     id:'superior-double',
     title:'Superior Double',
     subtitle:'Double bed · no city view · best value',
-    detailUrl:'/siemreap/rooms/superior-double/',
+    detailUrl:'superior-double/',
     accommodationType:'679028',
     imagePool:[
-      '/siemreap/rooms/superior-double/uploads/SNR-5.webp',
-      '/siemreap/rooms/superior-double/uploads/SNR-3.webp',
-      '/siemreap/rooms/superior-double/uploads/SNR-2.webp',
-      '/siemreap/rooms/superior-double/uploads/SNR-1.webp',
-      '/siemreap/rooms/superior-double/uploads/SNR-4.webp',
-      '/siemreap/rooms/superior-double/uploads/SNR-23.webp',
-      '/siemreap/rooms/superior-double/uploads/SNR-29.webp',
-      '/siemreap/rooms/superior-double/uploads/SNR-32.webp'
+      'superior-double/uploads/SNR-5.webp',
+      'superior-double/uploads/SNR-3.webp',
+      'superior-double/uploads/SNR-2.webp',
+      'superior-double/uploads/SNR-1.webp',
+      'superior-double/uploads/SNR-4.webp',
+      'superior-double/uploads/SNR-23.webp',
+      'superior-double/uploads/SNR-29.webp',
+      'superior-double/uploads/SNR-32.webp'
     ],
     description:'Same comfortable double bed and room layout, but on our quieter side without a city view — our best-value double room for exploring Siem Reap.',
     specs:[
@@ -1321,7 +1316,7 @@ const ROOMS = [
       { icon:'fi-rr-air-conditioner', label:'A/C' },
       { icon:'fi-rr-shower',          label:'Hot shower' },
       { icon:'fi-rr-coffee-pot',      label:'Kettle' },
-      { icon:'fi-rr-vault',           label:'In-room safe' },
+      { icon:'fi-rr-lock',            label:'In-room safe' },
       { icon:'fi-rr-screen',          label:'Smart TV' }
     ]
   },
@@ -1329,16 +1324,16 @@ const ROOMS = [
     id:'superior-twin',
     title:'Superior Twin',
     subtitle:'Twin beds · no city view · best value',
-    detailUrl:'/siemreap/rooms/superior-twin/',
+    detailUrl:'superior-twin/',
     accommodationType:'679029',
     imagePool:[
-      '/siemreap/rooms/superior-twin/uploads/S5A3886-HDR.webp',
-      '/siemreap/rooms/superior-twin/uploads/S5A3868-HDR.webp',
-      '/siemreap/rooms/superior-twin/uploads/S5A3408.webp',
-      '/siemreap/rooms/superior-twin/uploads/S5A3349-HDR.webp',
-      '/siemreap/rooms/superior-twin/uploads/S5A3415.webp',
-      '/siemreap/rooms/superior-twin/uploads/S5A3892-HDR.webp',
-      '/siemreap/rooms/superior-twin/uploads/S5A3952-HDR.webp'
+      'superior-twin/uploads/S5A3886-HDR.webp',
+      'superior-twin/uploads/S5A3868-HDR.webp',
+      'superior-twin/uploads/S5A3408.webp',
+      'superior-twin/uploads/S5A3349-HDR.webp',
+      'superior-twin/uploads/S5A3415.webp',
+      'superior-twin/uploads/S5A3892-HDR.webp',
+      'superior-twin/uploads/S5A3952-HDR.webp'
     ],
     description:'Same two comfortable single beds and layout, but on our quieter side without a city view — practical, quiet, and easy on the budget.',
     specs:[
@@ -1352,7 +1347,7 @@ const ROOMS = [
       { icon:'fi-rr-air-conditioner', label:'A/C' },
       { icon:'fi-rr-shower',          label:'Hot shower' },
       { icon:'fi-rr-coffee-pot',      label:'Kettle' },
-      { icon:'fi-rr-vault',           label:'In-room safe' },
+      { icon:'fi-rr-lock',            label:'In-room safe' },
       { icon:'fi-rr-screen',          label:'Smart TV' }
     ]
   }
