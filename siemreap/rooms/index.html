@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Rooms & Suites · Sonitori Riverside · Siem Reap</title>
+<meta name="description" content="Four elegant room types at Sonitori Riverside in Siem Reap — Deluxe Double, Deluxe Twin, Superior Double, Superior Twin. Rooftop pool, riverside calm, minutes from Angkor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-soft:#F6F9F8;
+    --teal-tint:#E4F3F4;
+    --coral-tint:#FDEAE2;
+
+    --ink:#132621;
+    --ink-soft:#5C6C67;
+    --text-muted:#96A29D;
+
+    --teal:#038494;
+    --teal-deep:#026B78;
+    --coral:#EA6A3D;
+    --coral-deep:#C6552E;
+
+    --line:rgba(19,38,33,.09);
+    --line-strong:rgba(19,38,33,.16);
+
+    --shadow-sm:0 4px 14px rgba(19,38,33,.06);
+    --shadow:0 10px 28px rgba(3,132,148,.10), 0 2px 10px rgba(19,38,33,.05);
+    --shadow-lg:0 26px 56px rgba(3,132,148,.16);
+
+    --r-xl:28px; --r-lg:22px; --r-md:16px; --r-sm:12px; --r-full:999px;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --font-display:'Sora',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --gutter:clamp(18px,4.5vw,28px);
+    --safe-bottom:env(safe-area-inset-bottom,0px);
+    --nav-h:70px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{
+    -webkit-font-smoothing:antialiased;
+    /* clip fixes horizontal overflow WITHOUT breaking position:fixed children */
+    overflow-x:clip;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  html.smooth-scroll{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--font-body);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    min-height:100vh;
+    width:100%;
+    /* reserve space for the fixed nav */
+    padding-top:var(--nav-h);
+  }
+
+  /* hide native scrollbar */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar{ width:0; height:0; display:none; }
+
+  h1,h2,h3,h4{font-family:var(--font-display);}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  [class^="fi-"],[class*=" fi-"]{display:inline-flex;align-items:center;justify-content:center;line-height:1;}
+  :focus-visible{outline:3px solid var(--teal-deep);outline-offset:3px;}
+
+  .skip-link{position:absolute;top:-100px;left:var(--gutter);background:var(--teal);color:#fff;padding:12px 20px;z-index:9999;border-radius:var(--r-sm);font-weight:600;font-size:14px;transition:top .2s var(--ease);}
+  .skip-link:focus{top:16px;}
+
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}}
+
+  /* ============================================
+     CUSTOM SCROLLBAR (draggable, real-time)
+     ============================================ */
+  .custom-scrollbar{
+    position:fixed;
+    top:var(--nav-h);
+    right:6px;
+    width:14px;
+    height:calc(100vh - var(--nav-h));
+    z-index:900;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .35s var(--ease);
+  }
+  .custom-scrollbar.visible{ opacity:1; }
+  .custom-scrollbar.dragging{ opacity:1; transition:none; }
+
+  .custom-scrollbar .cs-thumb{
+    position:absolute;
+    top:0;
+    right:0;
+    width:6px;
+    border-radius:99px;
+    background:linear-gradient(180deg, rgba(3,132,148,.55), rgba(3,132,148,.85));
+    box-shadow:0 2px 8px rgba(3,132,148,.28);
+    pointer-events:auto;
+    cursor:grab;
+    transition:width .18s var(--ease), background .18s ease, box-shadow .18s ease;
+    will-change:transform;
+    touch-action:none;
+    user-select:none;
+  }
+  .custom-scrollbar .cs-thumb:hover{
+    width:9px;
+    background:linear-gradient(180deg, var(--teal), var(--teal-deep));
+    box-shadow:0 3px 12px rgba(3,132,148,.4);
+  }
+  .custom-scrollbar.dragging .cs-thumb{
+    width:9px;
+    cursor:grabbing;
+    background:linear-gradient(180deg, var(--teal-deep), var(--teal));
+    box-shadow:0 4px 14px rgba(3,132,148,.5);
+    transition:none;
+  }
+
+  body.no-scroll .custom-scrollbar{ opacity:0 !important; pointer-events:none; }
+
+  @media (max-width: 900px){
+    .custom-scrollbar{ right:2px; width:12px; }
+    .custom-scrollbar .cs-thumb{ width:5px; }
+    .custom-scrollbar .cs-thumb:hover,
+    .custom-scrollbar.dragging .cs-thumb{ width:7px; }
+  }
+
+  .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+  /* ============ PAGE LOADER ============ */
+  .page-loader{
+    position:fixed;inset:0;z-index:9999;
+    background:var(--bg);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+    transition:opacity .5s var(--ease), visibility .5s var(--ease);
+    opacity:1;visibility:visible;
+  }
+  .page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+  .page-loader .pl-inner{display:flex;flex-direction:column;align-items:center;gap:22px;animation:plFadeIn .6s var(--ease) both;}
+  @keyframes plFadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .page-loader .pl-logo{height:44px;width:auto;object-fit:contain;animation:plBreath 2.4s ease-in-out infinite;}
+  @keyframes plBreath{0%,100%{opacity:.75;}50%{opacity:1;}}
+  .page-loader .pl-spinner{width:38px;height:38px;border-radius:50%;border:2.5px solid var(--teal-tint);border-top-color:var(--teal);animation:plSpin .9s linear infinite;}
+  @keyframes plSpin{to{transform:rotate(360deg);}}
+  .page-loader .pl-text{font-family:var(--font-body);font-size:13px;letter-spacing:.4px;color:var(--text-muted);font-weight:500;}
+  @media (prefers-reduced-motion: reduce){
+    .page-loader .pl-logo{animation:none;opacity:1;}
+    .page-loader .pl-spinner{animation-duration:1.4s;}
+  }
+
+  /* ============ NAV — TRULY FIXED ============ */
+  .topnav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px var(--gutter);
+    justify-content:space-between;
+    border-bottom:1px solid var(--line);
+    min-height:var(--nav-h);
+    transition:box-shadow .3s var(--ease), background .3s ease;
+  }
+  .topnav.scrolled{
+    box-shadow:0 4px 20px rgba(19,38,33,.06);
+    background:rgba(255,255,255,.96);
+  }
+  .brand-mark{display:flex;align-items:center;gap:9px;color:var(--ink);}
+  .brand-mark img{height:30px;width:auto;object-fit:contain;}
+
+  .nav-actions{display:flex;align-items:center;gap:10px;}
+
+  .home-btn{display:none;align-items:center;gap:7px;background:var(--bg-soft);color:var(--ink);border:1px solid var(--line-strong);padding:9px 16px 9px 12px;border-radius:var(--r-full);font-weight:600;font-size:13px;transition:background .2s ease,transform .2s var(--ease);}
+  .home-btn:hover{background:var(--teal-tint);border-color:var(--teal);transform:translateY(-1px);}
+  .home-btn i{font-size:15px;color:var(--teal);}
+
+  .book-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--teal);color:#fff;
+    padding:10px 18px;border-radius:var(--r-full);
+    font-family:var(--font-display);font-weight:600;font-size:13px;
+    box-shadow:0 8px 20px rgba(3,132,148,.24);
+    transition:background .22s ease, transform .22s var(--ease), box-shadow .22s ease;
+  }
+  .book-btn:hover{background:var(--teal-deep);transform:translateY(-1px);box-shadow:0 12px 26px rgba(3,132,148,.30);}
+  .book-btn i{font-size:14px;}
+
+  .hamburger{display:flex;width:38px;height:38px;border-radius:50%;background:var(--bg-soft);border:1px solid var(--line);align-items:center;justify-content:center;flex-direction:column;gap:4px;flex-shrink:0;}
+  .hamburger span{width:15px;height:1.6px;background:var(--ink);transition:.3s ease;border-radius:2px;}
+  .hamburger.active span:nth-child(1){transform:translateY(5.6px) rotate(45deg);}
+  .hamburger.active span:nth-child(2){opacity:0;}
+  .hamburger.active span:nth-child(3){transform:translateY(-5.6px) rotate(-45deg);}
+
+  /* ============ HERO ============ */
+  .hero{padding:36px var(--gutter) 0;max-width:1240px;margin:0 auto;}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;}
+
+  .hero-copy .eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--teal-tint);color:var(--teal-deep);padding:7px 14px;border-radius:var(--r-full);font-size:12.5px;font-weight:600;margin-bottom:16px;}
+  .hero-copy .eyebrow i{font-size:13px;}
+
+  .hero-title{font-weight:700;font-size:clamp(32px,8vw,46px);line-height:1.08;letter-spacing:-.02em;color:var(--ink);max-width:16ch;}
+  .hero-title .accent{color:var(--teal);}
+
+  .hero-lede{margin-top:16px;max-width:44ch;font-size:15px;line-height:1.75;color:var(--ink-soft);}
+
+  .hero-cta-row{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;}
+  .btn-cta{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#fff;padding:14px 22px;border-radius:var(--r-full);font-family:var(--font-display);font-weight:600;font-size:14px;box-shadow:0 10px 24px rgba(3,132,148,.28);transition:background .25s ease,transform .2s var(--ease),box-shadow .25s ease;}
+  .btn-cta:hover{background:var(--teal-deep);transform:translateY(-2px);box-shadow:0 14px 30px rgba(3,132,148,.32);}
+  .btn-cta .arrow-circle{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:10px;}
+
+  .hero-stats{display:flex;gap:22px;}
+  .hero-stats div{display:flex;flex-direction:column;}
+  .hero-stats strong{font-family:var(--font-display);font-size:20px;color:var(--ink);}
+  .hero-stats span{font-size:11.5px;color:var(--text-muted);}
+
+  .hero-visual{position:relative;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow-lg);}
+  .hero-visual img{width:100%;height:100%;object-fit:cover;}
+  .hero-visual .hv-badge{
+    position:absolute;bottom:16px;right:16px;background:#fff;color:var(--ink);
+    padding:10px 16px;border-radius:var(--r-full);box-shadow:var(--shadow);
+    display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+  }
+  .hero-visual .hv-badge i{color:var(--coral);font-size:14px;}
+  .hero-visual .hv-tag{
+    position:absolute;top:16px;left:16px;background:rgba(255,255,255,.92);
+    padding:8px 14px;border-radius:var(--r-full);font-size:12px;font-weight:600;color:var(--teal-deep);
+  }
+
+  /* ============ TRUST STRIP ============ */
+  .trust-strip{
+    max-width:1240px;margin:32px auto 0;
+    padding:0 var(--gutter);
+    display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .trust-item{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--bg-soft);border:1px solid var(--line);
+    padding:9px 14px;border-radius:var(--r-full);
+    font-size:12.5px;font-weight:500;color:var(--ink-soft);
+  }
+  .trust-item i{font-size:14px;color:var(--teal);}
+
+  /* ============ ROOM SECTIONS ============ */
+  .container{max-width:1240px;margin:0 auto;padding:8px var(--gutter) calc(48px + var(--safe-bottom));}
+
+  .room-section{
+    margin-top:52px;
+    scroll-margin-top:calc(var(--nav-h) + 16px);
+  }
+  .room-section:first-of-type{margin-top:52px;}
+
+  .room-card{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    background:#fff;
+    border-radius:var(--r-xl);
+    box-shadow:var(--shadow-sm);
+    border:1px solid var(--line);
+    overflow:hidden;
+    transition:box-shadow .3s var(--ease), border-color .3s var(--ease);
+  }
+  .room-card:hover{
+    box-shadow:var(--shadow);
+    border-color:var(--line-strong);
+  }
+
+  .room-gallery{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2px;
+    background:var(--bg-soft);
+    aspect-ratio:16/10;
+  }
+
+  .room-gallery .gal-btn{
+    position:relative;
+    padding:0;
+    margin:0;
+    border:0;
+    background:transparent;
+    overflow:hidden;
+    cursor:zoom-in;
+    display:block;
+    width:100%;
+    height:100%;
+  }
+  .room-gallery .gal-btn::after{
+    content:'';
+    position:absolute;inset:0;
+    background:rgba(3,132,148,0);
+    transition:background .25s ease;
+    pointer-events:none;
+  }
+  .room-gallery .gal-btn:hover::after{background:rgba(3,132,148,.10);}
+  .room-gallery .gal-btn .zoom-hint{
+    position:absolute;bottom:12px;right:12px;
+    width:34px;height:34px;border-radius:50%;
+    background:rgba(255,255,255,.92);color:var(--teal-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;
+    opacity:0;
+    transform:translateY(6px);
+    transition:opacity .25s ease, transform .25s var(--ease);
+    pointer-events:none;
+    box-shadow:0 4px 12px rgba(19,38,33,.15);
+  }
+  .room-gallery .gal-btn:hover .zoom-hint,
+  .room-gallery .gal-btn:focus-visible .zoom-hint{
+    opacity:1;transform:translateY(0);
+  }
+
+  .room-gallery .main-btn{
+    grid-column:1 / -1;
+    width:100%;height:100%;
+  }
+  .room-gallery .main-btn img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .room-gallery .side-imgs{
+    display:none;
+  }
+
+  .room-badge{
+    position:absolute;top:14px;left:14px;
+    background:var(--coral);color:#fff;
+    padding:6px 13px;border-radius:var(--r-full);
+    font-size:11px;font-weight:700;
+    letter-spacing:.3px;
+    z-index:2;
+    pointer-events:none;
+  }
+
+  .room-photo-count{
+    position:absolute;bottom:14px;left:14px;
+    background:rgba(19,38,33,.72);color:#fff;
+    padding:6px 12px;border-radius:var(--r-full);
+    font-size:11.5px;font-weight:600;
+    display:inline-flex;align-items:center;gap:6px;
+    z-index:2;
+    pointer-events:none;
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  }
+  .room-photo-count i{font-size:12px;}
+
+  .room-body{
+    padding:26px 24px 28px;
+    display:flex;flex-direction:column;gap:18px;
+  }
+
+  .room-head h2{
+    font-size:clamp(1.35rem,4.6vw,1.6rem);
+    font-weight:700;color:var(--ink);
+    line-height:1.2;letter-spacing:-.015em;
+    margin-bottom:6px;
+  }
+  .room-head .room-sub{
+    font-size:.85rem;color:var(--text-muted);font-weight:500;
+  }
+
+  .room-desc{
+    font-size:.93rem;line-height:1.7;
+    color:var(--ink-soft);
+  }
+
+  .room-specs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 18px;
+    padding:16px;
+    background:var(--bg-soft);
+    border-radius:var(--r-md);
+  }
+  .spec{
+    display:flex;align-items:center;gap:9px;
+    font-size:.83rem;color:var(--ink-soft);font-weight:500;
+  }
+  .spec i{
+    font-size:15px;color:var(--teal);flex-shrink:0;
+    width:18px;text-align:center;
+  }
+
+  .room-amenities{
+    display:flex;flex-wrap:wrap;gap:8px;
+  }
+  .amenity-chip{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--teal-tint);color:var(--teal-deep);
+    padding:7px 12px;border-radius:var(--r-full);
+    font-size:.75rem;font-weight:600;
+  }
+  .amenity-chip i{font-size:12px;}
+
+  .room-foot{
+    display:flex;flex-wrap:wrap;gap:14px;
+    align-items:center;justify-content:flex-end;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    margin-top:auto;
+  }
+
+  .room-actions{
+    display:flex;flex-wrap:wrap;gap:10px;
+  }
+
+  .room-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--teal);color:#fff;
+    padding:12px 20px;border-radius:var(--r-full);
+    font-family:var(--font-display);font-weight:600;font-size:13.5px;
+    box-shadow:0 8px 20px rgba(3,132,148,.24);
+    transition:background .22s ease, transform .22s var(--ease), box-shadow .22s ease;
+  }
+  .room-cta:hover{background:var(--teal-deep);transform:translateY(-2px);box-shadow:0 12px 26px rgba(3,132,148,.30);}
+  .room-cta i{font-size:14px;}
+
+  .room-details-link{
+    display:inline-flex;align-items:center;gap:8px;
+    background:transparent;
+    color:var(--teal-deep);
+    padding:12px 20px;border-radius:var(--r-full);
+    font-family:var(--font-display);font-weight:600;font-size:13.5px;
+    border:1.5px solid var(--line-strong);
+    transition:background .22s ease, border-color .22s ease, color .22s ease, transform .22s var(--ease);
+    cursor:pointer;
+  }
+  .room-details-link:hover{
+    background:var(--teal-tint);
+    border-color:var(--teal);
+    transform:translateY(-2px);
+  }
+  .room-details-link i{font-size:14px;transition:transform .22s var(--ease);}
+  .room-details-link:hover i{transform:translateX(3px);}
+
+  /* ============ LIGHTBOX ============ */
+  .lightbox{
+    position:fixed;inset:0;z-index:2100;
+    background:rgba(8,18,16,.94);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;visibility:hidden;
+    transition:opacity .3s var(--ease), visibility .3s var(--ease);
+    padding:0;
+    touch-action:pan-y;
+  }
+  .lightbox.open{opacity:1;visibility:visible;}
+
+  .lb-stage{
+    position:relative;
+    width:100%;height:100%;
+    display:flex;align-items:center;justify-content:center;
+    padding:64px 16px 88px;
+  }
+  .lb-img-wrap{
+    position:relative;
+    max-width:min(1400px,100%);
+    max-height:100%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lb-img{
+    max-width:100%;
+    max-height:calc(100vh - 160px);
+    width:auto;height:auto;
+    object-fit:contain;
+    border-radius:12px;
+    box-shadow:0 30px 80px rgba(0,0,0,.5);
+    user-select:none;
+    -webkit-user-drag:none;
+    transition:opacity .25s ease;
+  }
+  .lb-img.loading{opacity:.3;}
+
+  .lb-close{
+    position:absolute;top:14px;right:14px;
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(255,255,255,.12);
+    color:#fff;font-size:22px;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .22s ease, transform .22s var(--ease);
+    z-index:3;
+  }
+  .lb-close:hover{background:rgba(255,255,255,.22);transform:rotate(90deg);}
+
+  .lb-nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:48px;height:48px;border-radius:50%;
+    background:rgba(255,255,255,.12);
+    color:#fff;font-size:20px;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .22s ease, transform .22s var(--ease);
+    z-index:3;
+  }
+  .lb-nav:hover{background:rgba(255,255,255,.22);}
+  .lb-prev{left:14px;}
+  .lb-prev:hover{transform:translateY(-50%) translateX(-3px);}
+  .lb-next{right:14px;}
+  .lb-next:hover{transform:translateY(-50%) translateX(3px);}
+
+  .lb-topbar{
+    position:absolute;top:0;left:0;right:0;
+    padding:16px 68px 16px 20px;
+    color:#fff;
+    display:flex;align-items:center;gap:12px;
+    z-index:2;
+    pointer-events:none;
+    background:linear-gradient(to bottom, rgba(0,0,0,.55), transparent);
+  }
+  .lb-title{
+    font-family:var(--font-display);
+    font-size:15px;font-weight:600;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    max-width:60vw;
+  }
+  .lb-counter{
+    font-size:12.5px;font-weight:500;
+    background:rgba(255,255,255,.16);
+    padding:5px 11px;border-radius:var(--r-full);
+    flex-shrink:0;
+  }
+
+  .lb-thumbs{
+    position:absolute;bottom:14px;left:50%;
+    transform:translateX(-50%);
+    display:flex;gap:8px;
+    max-width:calc(100% - 32px);
+    overflow-x:auto;
+    padding:6px 8px;
+    border-radius:var(--r-full);
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    z-index:2;
+    scrollbar-width:none;
+  }
+  .lb-thumbs::-webkit-scrollbar{display:none;}
+  .lb-thumb{
+    width:52px;height:52px;flex-shrink:0;
+    border-radius:8px;overflow:hidden;
+    border:2px solid transparent;
+    opacity:.6;
+    transition:opacity .22s ease, border-color .22s ease, transform .22s var(--ease);
+    padding:0;background:none;
+  }
+  .lb-thumb img{width:100%;height:100%;object-fit:cover;}
+  .lb-thumb:hover{opacity:.9;}
+  .lb-thumb.active{
+    opacity:1;
+    border-color:#fff;
+    transform:scale(1.06);
+  }
+
+  /* ============ WHY BOOK DIRECT ============ */
+  .why-section{
+    max-width:1240px;margin:72px auto 0;
+    padding:0 var(--gutter);
+  }
+  .why-head{
+    text-align:center;margin-bottom:32px;
+  }
+  .why-head h2{
+    font-size:clamp(1.4rem,4.8vw,1.8rem);
+    font-weight:700;color:var(--ink);
+    letter-spacing:-.02em;
+  }
+  .why-head p{
+    margin-top:8px;font-size:.92rem;color:var(--ink-soft);
+  }
+  .why-grid{
+    display:grid;grid-template-columns:1fr;gap:14px;
+  }
+  .why-card{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--r-lg);
+    padding:22px 20px;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .why-card .why-icon{
+    width:40px;height:40px;border-radius:50%;
+    background:var(--teal-tint);color:var(--teal-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+  }
+  .why-card h3{
+    font-size:1rem;font-weight:600;color:var(--ink);
+    line-height:1.3;
+  }
+  .why-card p{
+    font-size:.85rem;line-height:1.6;color:var(--ink-soft);
+  }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta-wrap{
+    max-width:1240px;margin:64px auto 0;
+    padding:0 var(--gutter);
+  }
+  .final-cta{
+    background:linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%);
+    border-radius:var(--r-xl);
+    padding:36px 28px;
+    display:grid;grid-template-columns:1fr;gap:22px;
+    align-items:center;
+    box-shadow:0 22px 48px rgba(3,132,148,.28);
+    position:relative;overflow:hidden;
+  }
+  .final-cta::before{
+    content:'';position:absolute;
+    top:-60%;right:-10%;width:320px;height:320px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,.14), transparent 65%);
+    pointer-events:none;
+  }
+  .final-cta .fc-text{position:relative;z-index:1;}
+  .final-cta .fc-text h3{
+    font-family:var(--font-display);
+    font-size:clamp(1.3rem,5vw,1.7rem);
+    font-weight:700;color:#fff;
+    line-height:1.2;letter-spacing:-.02em;
+    margin-bottom:10px;
+  }
+  .final-cta .fc-text p{
+    color:rgba(255,255,255,.85);
+    font-size:.92rem;line-height:1.6;
+    max-width:52ch;
+  }
+  .final-cta .fc-actions{
+    display:flex;flex-wrap:wrap;gap:10px;
+    position:relative;z-index:1;
+  }
+  .final-cta .fc-btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:13px 22px;border-radius:var(--r-full);
+    font-family:var(--font-display);font-weight:600;font-size:13.5px;
+    white-space:nowrap;cursor:pointer;
+    transition:background .22s ease, transform .22s var(--ease), box-shadow .22s ease, border-color .22s ease;
+  }
+  .final-cta .fc-btn i{font-size:15px;}
+  .final-cta .fc-primary{
+    background:#fff;color:var(--teal-deep);
+    box-shadow:0 8px 20px rgba(0,0,0,.14);
+  }
+  .final-cta .fc-primary:hover{
+    background:var(--bg-soft);transform:translateY(-2px);
+    box-shadow:0 12px 26px rgba(0,0,0,.18);
+  }
+  .final-cta .fc-ghost{
+    background:transparent;color:#fff;
+    border:1.5px solid rgba(255,255,255,.4);
+  }
+  .final-cta .fc-ghost:hover{
+    background:rgba(255,255,255,.12);
+    border-color:rgba(255,255,255,.6);
+    transform:translateY(-2px);
+  }
+
+  /* ============ FOOTER ============ */
+  .site-footer{
+    margin-top:64px;
+    background:var(--bg);
+    border-top:1px solid var(--line);
+  }
+  .footer-main{
+    max-width:1240px;
+    margin:0 auto;
+    padding:52px var(--gutter) calc(34px + var(--safe-bottom));
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:1fr;gap:32px;margin-bottom:36px;
+  }
+  .footer-col h4{
+    font-family:var(--font-display);
+    font-size:.72rem;letter-spacing:1.6px;
+    text-transform:uppercase;color:var(--teal-deep);
+    font-weight:700;margin-bottom:14px;
+  }
+  .footer-col ul{list-style:none;padding:0;margin:0;}
+  .footer-col ul li{margin-bottom:9px;}
+  .footer-col ul li a{
+    font-size:.88rem;color:var(--ink-soft);font-weight:500;
+    transition:color .2s ease, padding-left .2s ease;
+    display:inline-block;
+  }
+  .footer-col ul li a:hover{color:var(--teal);padding-left:3px;}
+
+  .footer-brand-col{max-width:340px;}
+  .footer-brand{display:inline-flex;align-items:center;margin-bottom:14px;}
+  .footer-brand img{height:32px;width:auto;object-fit:contain;}
+  .footer-desc{
+    font-size:.87rem;line-height:1.7;color:var(--ink-soft);
+    margin-bottom:18px;max-width:38ch;
+  }
+  .footer-social{display:flex;gap:8px;}
+  .footer-social a{
+    width:38px;height:38px;border-radius:50%;
+    background:var(--bg-soft);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--teal-deep);font-size:15px;
+    transition:background .22s ease, color .22s ease, border-color .22s ease, transform .22s var(--ease);
+  }
+  .footer-social a:hover{
+    background:var(--teal);border-color:var(--teal);color:#fff;
+    transform:translateY(-2px);
+  }
+  .footer-contact li{
+    display:flex;align-items:flex-start;gap:10px;
+    font-size:.88rem;color:var(--ink-soft);line-height:1.55;
+    margin-bottom:12px;
+  }
+  .footer-contact li i{
+    color:var(--teal);font-size:15px;margin-top:3px;flex-shrink:0;
+  }
+  .footer-contact li a{
+    color:var(--ink-soft);transition:color .2s ease;
+    overflow-wrap:anywhere;
+  }
+  .footer-contact li a:hover{color:var(--teal);}
+  .footer-bottom{
+    padding-top:22px;border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:10px 20px;
+    justify-content:space-between;align-items:center;
+    font-size:.78rem;color:var(--text-muted);
+  }
+  .footer-note{font-weight:500;}
+
+  /* ============ MOBILE MENU ============ */
+  .mobile-menu{
+    position:fixed;inset:0;background:#fff;z-index:1500;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:22px;opacity:0;pointer-events:none;
+    transition:opacity .35s var(--ease);padding:24px;
+  }
+  .mobile-menu.open{opacity:1;pointer-events:auto;}
+  .mobile-menu a{
+    font-family:var(--font-display);font-size:1.5rem;font-weight:600;
+    color:var(--ink);transition:color .2s ease;
+  }
+  .mobile-menu a:hover{color:var(--teal);}
+  .mobile-menu .close-btn{
+    position:absolute;top:18px;right:18px;color:var(--ink);
+    font-size:2rem;line-height:1;width:48px;height:48px;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (min-width:640px){
+    .room-gallery{ aspect-ratio:16/9; }
+    .footer-grid{ grid-template-columns:1.4fr 1fr 1fr; gap:36px; }
+    .footer-brand-col{grid-column:span 3;max-width:none;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (min-width:820px){
+    .room-card{ grid-template-columns:1.1fr 1fr; }
+    .room-gallery{
+      aspect-ratio:auto;
+      height:100%;
+      min-height:420px;
+      grid-template-columns:2fr 1fr;
+      grid-template-rows:1fr 1fr;
+    }
+    .room-gallery .main-btn{ grid-column:1; grid-row:1 / span 2; }
+    .room-gallery .side-imgs{ display:contents; }
+    .room-gallery .side-imgs .gal-btn{ width:100%;height:100%; }
+    .room-gallery .side-imgs .gal-btn img{ width:100%;height:100%;object-fit:cover; }
+    .room-body{padding:32px 34px 34px;}
+    .why-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media (min-width:901px){
+    .hamburger{display:none;}
+    .home-btn{display:inline-flex;}
+    .hero-grid{grid-template-columns:1.1fr 1fr;gap:56px;}
+    .hero-visual{aspect-ratio:auto;height:420px;}
+    .footer-grid{
+      grid-template-columns:1.5fr 1fr 1fr 1.2fr;
+      gap:48px;
+      margin-bottom:44px;
+    }
+    .footer-brand-col{grid-column:auto;}
+    .footer-col ul li a:hover{padding-left:4px;}
+    .footer-social a{width:40px;height:40px;}
+    .final-cta{padding:44px 48px;grid-template-columns:1.4fr auto;}
+    .final-cta .fc-actions{flex-wrap:nowrap;}
+    .room-section{margin-top:64px;}
+  }
+
+  @media (max-width: 640px){
+    .lb-stage{padding:56px 8px 84px;}
+    .lb-nav{width:40px;height:40px;font-size:17px;}
+    .lb-prev{left:8px;}
+    .lb-next{right:8px;}
+    .lb-close{top:10px;right:10px;width:40px;height:40px;}
+    .lb-thumb{width:42px;height:42px;}
+    .lb-title{font-size:13.5px;max-width:50vw;}
+  }
+
+  /* ============================================
+     TOUCH / MOBILE — swap :hover for :active
+     ============================================ */
+  @media (max-width: 900px) {
+    .home-btn:hover{background:var(--bg-soft);border-color:var(--line-strong);transform:none;}
+    .home-btn:active{background:var(--teal-tint);border-color:var(--teal);transform:scale(.97);}
+    .book-btn:hover{background:var(--teal);transform:none;box-shadow:0 8px 20px rgba(3,132,148,.24);}
+    .book-btn:active{background:var(--teal-deep);transform:scale(.97);box-shadow:0 6px 16px rgba(3,132,148,.28);}
+    .btn-cta:hover{background:var(--teal);transform:none;box-shadow:0 10px 24px rgba(3,132,148,.28);}
+    .btn-cta:active{background:var(--teal-deep);transform:scale(.97);box-shadow:0 6px 18px rgba(3,132,148,.30);}
+    .room-card:hover{box-shadow:var(--shadow-sm);border-color:var(--line);}
+    .room-card:active{box-shadow:var(--shadow);border-color:var(--line-strong);transform:scale(.995);}
+    .room-cta:hover{background:var(--teal);transform:none;box-shadow:0 8px 20px rgba(3,132,148,.24);}
+    .room-cta:active{background:var(--teal-deep);transform:scale(.97);box-shadow:0 6px 16px rgba(3,132,148,.28);}
+    .room-details-link:hover{background:transparent;border-color:var(--line-strong);transform:none;}
+    .room-details-link:active{background:var(--teal-tint);border-color:var(--teal);transform:scale(.97);}
+    .room-details-link:hover i{transform:none;}
+    .final-cta .fc-primary:hover{background:#fff;transform:none;box-shadow:0 8px 20px rgba(0,0,0,.14);}
+    .final-cta .fc-primary:active{background:var(--bg-soft);transform:scale(.97);}
+    .final-cta .fc-ghost:hover{background:transparent;border-color:rgba(255,255,255,.4);transform:none;}
+    .final-cta .fc-ghost:active{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.7);transform:scale(.97);}
+    .footer-col ul li a:hover{color:var(--ink-soft);padding-left:0;}
+    .footer-col ul li a:active{color:var(--teal);padding-left:3px;}
+    .footer-social a:hover{background:var(--bg-soft);border-color:var(--line);color:var(--teal-deep);transform:none;}
+    .footer-social a:active{background:var(--teal);border-color:var(--teal);color:#fff;transform:scale(.92);}
+    .footer-contact li a:hover{color:var(--ink-soft);}
+    .footer-contact li a:active{color:var(--teal);}
+    .mobile-menu a:hover{color:var(--ink);}
+    .mobile-menu a:active{color:var(--teal);}
+    .room-gallery .gal-btn:hover::after{background:rgba(3,132,148,0);}
+    .room-gallery .gal-btn:active::after{background:rgba(3,132,148,.16);}
+    .room-gallery .gal-btn:hover .zoom-hint{opacity:0;transform:translateY(6px);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ CUSTOM SCROLLBAR ============ -->
+<div class="custom-scrollbar" id="customScrollbar" aria-hidden="true">
+  <div class="cs-thumb" id="csThumb"></div>
+</div>
+
+<!-- ============ PAGE LOADER ============ -->
+<div class="page-loader" id="pageLoader" aria-hidden="true">
+  <div class="pl-inner">
+    <img src="../../uploads/logo.png" alt="" class="pl-logo">
+    <div class="pl-spinner" role="status" aria-label="Loading"></div>
+    <span class="pl-text">Loading rooms…</span>
+  </div>
+</div>
+
+<a href="#rooms" class="skip-link">Skip to rooms</a>
+
+<!-- ============ FIXED NAV ============ -->
+<nav class="topnav" id="topnav" aria-label="Main navigation">
+  <a href="/siemreap/" class="brand-mark" aria-label="Sonitori Riverside home">
+    <img src="../../uploads/logo.png" alt="">
+  </a>
+
+  <div class="nav-actions">
+    <a href="/siemreap/" class="home-btn">
+      <i class="fi fi-rr-arrow-small-left" aria-hidden="true"></i> Back to hotel
+    </a>
+
+    <button class="book-btn" id="navBookBtn" type="button">
+      <i class="fi fi-rr-calendar-plus" aria-hidden="true"></i>
+      Book Now
+    </button>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header>
+  <div class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow"><i class="fi fi-rr-bed" aria-hidden="true"></i> Rooms &amp; Suites</span>
+        <h1 class="hero-title">Rest. Relax. <span class="accent">Reconnect.</span></h1>
+        <p class="hero-lede">Four considered room types with lime-washed walls, teak details and quiet riverside calm — each one an easy base for the temples and the town.</p>
+        <div class="hero-cta-row">
+          <a href="#rooms" class="btn-cta" id="viewRoomsBtn">
+            View all rooms
+            <span class="arrow-circle" aria-hidden="true"><i class="fi fi-sr-angle-down"></i></span>
+          </a>
+          <div class="hero-stats">
+            <div><strong>4</strong><span>room types</span></div>
+            <div><strong>Best rate</strong><span>when you book direct</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="/siemreap/rooms/deluxe-double/uploads/SNR-5.webp" alt="Deluxe Double room at Sonitori Riverside">
+        <span class="hv-tag">Riverside calm</span>
+        <span class="hv-badge"><i class="fi fi-sr-star" aria-hidden="true"></i> 4.9 rated</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <span class="trust-item"><i class="fi fi-rr-shield-check" aria-hidden="true"></i> Best rate — book direct</span>
+    <span class="trust-item"><i class="fi fi-rr-calendar-check" aria-hidden="true"></i> Free cancellation up to 48h</span>
+    <span class="trust-item"><i class="fi fi-rr-wifi" aria-hidden="true"></i> Fast Wi-Fi &amp; rooftop pool</span>
+    <span class="trust-item"><i class="fi fi-rr-headset" aria-hidden="true"></i> 24/7 front desk</span>
+  </div>
+</header>
+
+<main class="container" id="rooms"></main>
+
+<!-- ============ WHY BOOK DIRECT ============ -->
+<section class="why-section" aria-labelledby="whyHeading">
+  <div class="why-head">
+    <h2 id="whyHeading">Why book direct with us</h2>
+    <p>Better rates, flexible terms and a direct line to the team that will welcome you.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon"><i class="fi fi-rr-badge-percent" aria-hidden="true"></i></div>
+      <h3>Best rate guarantee</h3>
+      <p>Book on our site and we'll match any public rate you find — or beat it.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fi fi-rr-calendar-check" aria-hidden="true"></i></div>
+      <h3>Flexible cancellation</h3>
+      <p>Plans change. Cancel free up to 48 hours before arrival on flexible rates.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fi fi-rr-gift" aria-hidden="true"></i></div>
+      <h3>Direct perks</h3>
+      <p>Early check-in when available, welcome drink, and priority on room upgrades.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<div class="final-cta-wrap">
+  <div class="final-cta">
+    <div class="fc-text">
+      <h3>Not sure which room fits your stay?</h3>
+      <p>Tell us your dates and how you like to travel — we'll suggest the right room and hold it for you.</p>
+    </div>
+    <div class="fc-actions">
+      <button type="button" class="fc-btn fc-primary" id="ctaBookBtn">
+        <i class="fi fi-rr-calendar-plus" aria-hidden="true"></i>
+        Book on Cloudbeds
+      </button>
+      <a href="https://m.me/sonitorihotels" target="_blank" rel="noopener noreferrer" class="fc-btn fc-ghost">
+        <i class="fi fi-brands-facebook-messenger" aria-hidden="true"></i>
+        Ask a question
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-grid">
+
+      <div class="footer-col footer-brand-col">
+        <a href="/siemreap/" class="footer-brand" aria-label="Sonitori Riverside home">
+          <img src="../../uploads/logo.png" alt="Sonitori Riverside">
+        </a>
+        <p class="footer-desc">A riverside boutique hotel in Siem Reap — quiet mornings, slow rivers, and a warm base for the temples.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fi fi-brands-facebook" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fi fi-brands-instagram" aria-hidden="true"></i></a>
+          <a href="https://m.me/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Messenger"><i class="fi fi-brands-facebook-messenger" aria-hidden="true"></i></a>
+          <a href="https://t.me/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fi fi-brands-telegram" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Stay</h4>
+        <ul>
+          <li><a href="#deluxe-double">Deluxe Double</a></li>
+          <li><a href="#deluxe-twin">Deluxe Twin</a></li>
+          <li><a href="#superior-double">Superior Double</a></li>
+          <li><a href="#superior-twin">Superior Twin</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/siemreap/experience/">Experiences</a></li>
+          <li><a href="/siemreap/#amenities">Amenities</a></li>
+          <li><a href="/siemreap/#guide">Local guide</a></li>
+          <li><a href="/siemreap/#gallery">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <i class="fi fi-rr-marker" aria-hidden="true"></i>
+            <span>Wat Bo Village,<br>Siem Reap, Cambodia</span>
+          </li>
+          <li>
+            <i class="fi fi-rr-phone-call" aria-hidden="true"></i>
+            <a href="tel:+85587759779">+855 87 759 779</a>
+          </li>
+          <li>
+            <i class="fi fi-rr-envelope" aria-hidden="true"></i>
+            <a href="mailto:sonitoririverside.info@gmail.com">sonitoririverside.info@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="footerYear">2026</span> Sonitori Riverside · Siem Reap</span>
+      <span class="footer-note">Best rate guarantee — book direct</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">
+  <button type="button" class="close-btn" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="/siemreap/" data-close-menu>Home</a>
+  <a href="#rooms" data-close-menu>Rooms</a>
+  <a href="/siemreap/experience/" data-close-menu>Experiences</a>
+  <a href="/siemreap/" data-close-menu>Back to hotel</a>
+</div>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Room photo viewer" aria-hidden="true">
+  <div class="lb-topbar">
+    <span class="lb-title" id="lbTitle">Room</span>
+    <span class="lb-counter" id="lbCounter">1 / 1</span>
+  </div>
+
+  <button type="button" class="lb-close" id="lbClose" aria-label="Close gallery">&times;</button>
+
+  <div class="lb-stage" id="lbStage">
+    <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">
+      <i class="fi fi-rr-angle-left" aria-hidden="true"></i>
+    </button>
+
+    <div class="lb-img-wrap">
+      <img class="lb-img" id="lbImg" src="" alt="">
+    </div>
+
+    <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Next photo">
+      <i class="fi fi-rr-angle-right" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="lb-thumbs" id="lbThumbs" role="tablist" aria-label="Photo thumbnails"></div>
+</div>
+
+<script>
+/* ============================================
+   FIXED NAV — shadow on scroll
+   ============================================ */
+(function(){
+  const nav = document.getElementById('topnav');
+  if(!nav) return;
+  function onScroll(){
+    if(window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+})();
+
+/* ============================================
+   CUSTOM SCROLLBAR — real-time drag
+   ============================================ */
+(function(){
+  const track = document.getElementById('customScrollbar');
+  const thumb = document.getElementById('csThumb');
+  if(!track || !thumb) return;
+
+  const html = document.documentElement;
+  let dragging = false;
+  let dragStartY = 0;
+  let dragStartScroll = 0;
+  let hideTimer = null;
+
+  function isBlocked(){
+    const lb = document.getElementById('lightbox');
+    const mm = document.getElementById('mobileMenu');
+    if(lb && lb.classList.contains('open')) return true;
+    if(mm && mm.classList.contains('open')) return true;
+    return false;
+  }
+
+  function metrics(){
+    // the custom scrollbar track starts below the fixed nav
+    const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 70;
+    const trackH = window.innerHeight - navH;
+    const docH = html.scrollHeight;
+    const winH = window.innerHeight;
+    const maxScroll = Math.max(docH - winH, 0);
+    const thumbH = Math.max((winH / docH) * trackH, 40);
+    const travel = trackH - thumbH;
+    return { docH, winH, maxScroll, thumbH, travel };
+  }
+
+  function paintThumb(){
+    const m = metrics();
+    if(m.maxScroll < 20){
+      track.classList.remove('visible');
+      thumb.style.height = '0px';
+      return;
+    }
+    const scrollTop = window.scrollY || html.scrollTop;
+    const ratio = m.maxScroll > 0 ? scrollTop / m.maxScroll : 0;
+    const y = m.travel * ratio;
+    thumb.style.height = m.thumbH + 'px';
+    thumb.style.transform = 'translateY(' + y + 'px)';
+    track.classList.add('visible');
+  }
+
+  function scheduleHide(){
+    if(hideTimer) clearTimeout(hideTimer);
+    if(dragging) return;
+    hideTimer = setTimeout(()=>{
+      if(!dragging) track.classList.remove('visible');
+    }, 1400);
+  }
+
+  function update(){
+    if(isBlocked()){ track.classList.remove('visible'); return; }
+    paintThumb();
+    scheduleHide();
+  }
+
+  window.addEventListener('scroll', update, { passive:true });
+  window.addEventListener('resize', update);
+
+  window.addEventListener('mousemove', (e)=>{
+    if(dragging) return;
+    if(e.clientX > window.innerWidth - 40){
+      track.classList.add('visible');
+      paintThumb();
+      if(hideTimer) clearTimeout(hideTimer);
+    }
+  });
+
+  function startDrag(clientY){
+    dragging = true;
+    dragStartY = clientY;
+    dragStartScroll = window.scrollY || html.scrollTop;
+    html.classList.remove('smooth-scroll');
+    track.classList.add('dragging');
+    track.classList.add('visible');
+    if(hideTimer) clearTimeout(hideTimer);
+  }
+
+  function moveDrag(clientY){
+    if(!dragging) return;
+    const m = metrics();
+    if(m.travel <= 0) return;
+
+    const deltaY = clientY - dragStartY;
+    const scrollPerPixel = m.maxScroll / m.travel;
+    let newScroll = dragStartScroll + deltaY * scrollPerPixel;
+
+    if(newScroll < 0) newScroll = 0;
+    if(newScroll > m.maxScroll) newScroll = m.maxScroll;
+
+    window.scrollTo({ top: newScroll, left: 0, behavior: 'auto' });
+  }
+
+  function endDrag(){
+    if(!dragging) return;
+    dragging = false;
+    track.classList.remove('dragging');
+    scheduleHide();
+  }
+
+  thumb.addEventListener('mousedown', (e)=>{ e.preventDefault(); startDrag(e.clientY); });
+  window.addEventListener('mousemove', (e)=>{ if(dragging) moveDrag(e.clientY); });
+  window.addEventListener('mouseup', endDrag);
+
+  thumb.addEventListener('touchstart', (e)=>{
+    if(e.touches.length !== 1) return;
+    startDrag(e.touches[0].clientY);
+  }, { passive:true });
+
+  thumb.addEventListener('touchmove', (e)=>{
+    if(!dragging) return;
+    if(e.touches.length !== 1) return;
+    moveDrag(e.touches[0].clientY);
+    e.preventDefault();
+  }, { passive:false });
+
+  thumb.addEventListener('touchend', endDrag);
+  thumb.addEventListener('touchcancel', endDrag);
+
+  update();
+})();
+
+/* ============================================
+   PAGE LOADER
+   ============================================ */
+(function(){
+  const loader = document.getElementById('pageLoader');
+  if(!loader) return;
+  let hidden = false;
+  function hideLoader(){
+    if(hidden) return;
+    hidden = true;
+    loader.classList.add('hidden');
+    loader.setAttribute('aria-hidden','true');
+    setTimeout(()=>{ if(loader.parentNode) loader.parentNode.removeChild(loader); }, 600);
+  }
+  window.addEventListener('load', ()=> setTimeout(hideLoader, 250));
+  setTimeout(hideLoader, 2500);
+})();
+
+/* ============================================
+   ROOM DATA
+   ============================================ */
+const ROOMS = [
+  {
+    id:'deluxe-double',
+    title:'Deluxe Double',
+    subtitle:'Double bed · city view · most loved',
+    badge:'Popular',
+    detailUrl:'/siemreap/rooms/deluxe-double/',
+    accommodationType:'679025',
+    imagePool:[
+      '/siemreap/rooms/deluxe-double/uploads/SNR-5.webp',
+      '/siemreap/rooms/deluxe-double/uploads/SNR-3.webp',
+      '/siemreap/rooms/deluxe-double/uploads/SNR-2.webp',
+      '/siemreap/rooms/deluxe-double/uploads/SNR-1.webp',
+      '/siemreap/rooms/deluxe-double/uploads/SNR-4.webp',
+      '/siemreap/rooms/deluxe-double/uploads/SNR-23.webp',
+      '/siemreap/rooms/deluxe-double/uploads/SNR-29.webp',
+      '/siemreap/rooms/deluxe-double/uploads/SNR-32.webp'
+    ],
+    description:'A comfortable and spacious room with a double bed and a window overlooking the city — a relaxing base for exploring Siem Reap.',
+    specs:[
+      { icon:'fi-rr-bed',             label:'1 Double bed' },
+      { icon:'fi-rr-building',        label:'City view' },
+      { icon:'fi-rr-vector',          label:'22 m²' },
+      { icon:'fi-rr-users',           label:'Sleeps 2' }
+    ],
+    amenities:[
+      { icon:'fi-rr-wifi',            label:'Free Wi-Fi' },
+      { icon:'fi-rr-air-conditioner', label:'A/C' },
+      { icon:'fi-rr-shower',          label:'Hot shower' },
+      { icon:'fi-rr-coffee-pot',      label:'Kettle' },
+      { icon:'fi-rr-vault',           label:'In-room safe' },
+      { icon:'fi-rr-screen',          label:'Smart TV' }
+    ]
+  },
+  {
+    id:'deluxe-twin',
+    title:'Deluxe Twin',
+    subtitle:'Twin beds · city view · ideal for friends',
+    detailUrl:'/siemreap/rooms/deluxe-twin/',
+    accommodationType:'679027',
+    imagePool:[
+      '/siemreap/rooms/deluxe-twin/uploads/S5A3886-HDR.webp',
+      '/siemreap/rooms/deluxe-twin/uploads/S5A3868-HDR.webp',
+      '/siemreap/rooms/deluxe-twin/uploads/S5A3408.webp',
+      '/siemreap/rooms/deluxe-twin/uploads/S5A3349-HDR.webp',
+      '/siemreap/rooms/deluxe-twin/uploads/S5A3415.webp',
+      '/siemreap/rooms/deluxe-twin/uploads/S5A3892-HDR.webp',
+      '/siemreap/rooms/deluxe-twin/uploads/S5A3952-HDR.webp'
+    ],
+    description:'Two comfortable single beds with a window overlooking the city — an easy fit for friends or family travelling together.',
+    specs:[
+      { icon:'fi-rr-bed',             label:'2 Single beds' },
+      { icon:'fi-rr-window-frame',    label:'City window' },
+      { icon:'fi-rr-vector',          label:'24 m²' },
+      { icon:'fi-rr-users',           label:'Sleeps 2' }
+    ],
+    amenities:[
+      { icon:'fi-rr-wifi',            label:'Free Wi-Fi' },
+      { icon:'fi-rr-air-conditioner', label:'A/C' },
+      { icon:'fi-rr-shower',          label:'Hot shower' },
+      { icon:'fi-rr-coffee-pot',      label:'Kettle' },
+      { icon:'fi-rr-vault',           label:'In-room safe' },
+      { icon:'fi-rr-screen',          label:'Smart TV' }
+    ]
+  },
+  {
+    id:'superior-double',
+    title:'Superior Double',
+    subtitle:'Double bed · no city view · best value',
+    detailUrl:'/siemreap/rooms/superior-double/',
+    accommodationType:'679028',
+    imagePool:[
+      '/siemreap/rooms/superior-double/uploads/SNR-5.webp',
+      '/siemreap/rooms/superior-double/uploads/SNR-3.webp',
+      '/siemreap/rooms/superior-double/uploads/SNR-2.webp',
+      '/siemreap/rooms/superior-double/uploads/SNR-1.webp',
+      '/siemreap/rooms/superior-double/uploads/SNR-4.webp',
+      '/siemreap/rooms/superior-double/uploads/SNR-23.webp',
+      '/siemreap/rooms/superior-double/uploads/SNR-29.webp',
+      '/siemreap/rooms/superior-double/uploads/SNR-32.webp'
+    ],
+    description:'Same comfortable double bed and room layout, but on our quieter side without a city view — our best-value double room for exploring Siem Reap.',
+    specs:[
+      { icon:'fi-rr-bed',             label:'1 Double bed' },
+      { icon:'fi-rr-window-frame',    label:'No city view' },
+      { icon:'fi-rr-vector',          label:'20 m²' },
+      { icon:'fi-rr-users',           label:'Sleeps 2' }
+    ],
+    amenities:[
+      { icon:'fi-rr-wifi',            label:'Free Wi-Fi' },
+      { icon:'fi-rr-air-conditioner', label:'A/C' },
+      { icon:'fi-rr-shower',          label:'Hot shower' },
+      { icon:'fi-rr-coffee-pot',      label:'Kettle' },
+      { icon:'fi-rr-vault',           label:'In-room safe' },
+      { icon:'fi-rr-screen',          label:'Smart TV' }
+    ]
+  },
+  {
+    id:'superior-twin',
+    title:'Superior Twin',
+    subtitle:'Twin beds · no city view · best value',
+    detailUrl:'/siemreap/rooms/superior-twin/',
+    accommodationType:'679029',
+    imagePool:[
+      '/siemreap/rooms/superior-twin/uploads/S5A3886-HDR.webp',
+      '/siemreap/rooms/superior-twin/uploads/S5A3868-HDR.webp',
+      '/siemreap/rooms/superior-twin/uploads/S5A3408.webp',
+      '/siemreap/rooms/superior-twin/uploads/S5A3349-HDR.webp',
+      '/siemreap/rooms/superior-twin/uploads/S5A3415.webp',
+      '/siemreap/rooms/superior-twin/uploads/S5A3892-HDR.webp',
+      '/siemreap/rooms/superior-twin/uploads/S5A3952-HDR.webp'
+    ],
+    description:'Same two comfortable single beds and layout, but on our quieter side without a city view — practical, quiet, and easy on the budget.',
+    specs:[
+      { icon:'fi-rr-bed',             label:'2 Single beds' },
+      { icon:'fi-rr-window-frame',    label:'No city view' },
+      { icon:'fi-rr-vector',          label:'24 m²' },
+      { icon:'fi-rr-users',           label:'Sleeps 2' }
+    ],
+    amenities:[
+      { icon:'fi-rr-wifi',            label:'Free Wi-Fi' },
+      { icon:'fi-rr-air-conditioner', label:'A/C' },
+      { icon:'fi-rr-shower',          label:'Hot shower' },
+      { icon:'fi-rr-coffee-pot',      label:'Kettle' },
+      { icon:'fi-rr-vault',           label:'In-room safe' },
+      { icon:'fi-rr-screen',          label:'Smart TV' }
+    ]
+  }
+];
+
+ROOMS.forEach(r => {
+  r.mainImage  = r.imagePool[0];
+  r.sideImage1 = r.imagePool[1] || r.imagePool[0];
+  r.sideImage2 = r.imagePool[2] || r.imagePool[0];
+});
+
+/* ============================================
+   BOOKING HELPERS
+   ============================================ */
+const SIEM_REAP_PROP_ID = 'To64hk';
+
+function pad2(n){ return String(n).padStart(2, '0'); }
+function isoDate(d){ return d.getFullYear() + '-' + pad2(d.getMonth()+1) + '-' + pad2(d.getDate()); }
+
+function buildBookingUrl(accommodationType){
+  const checkinDate = new Date();
+  const checkoutDate = new Date();
+  checkoutDate.setDate(checkoutDate.getDate() + 1);
+
+  let url = 'https://hotels.cloudbeds.com/en/reservation/' + SIEM_REAP_PROP_ID + '/?currency=usd&checkin=' + isoDate(checkinDate) + '&checkout=' + isoDate(checkoutDate);
+  if (accommodationType) url += '&accommodation_types=' + accommodationType;
+  return url;
+}
+
+function openBooking(accommodationType){
+  window.open(buildBookingUrl(accommodationType), '_blank', 'noopener');
+}
+
+/* ============================================
+   RENDER ROOM CARDS
+   ============================================ */
+function specTemplate(s){
+  return `<div class="spec"><i class="fi ${s.icon}" aria-hidden="true"></i>${s.label}</div>`;
+}
+function amenityTemplate(a){
+  return `<span class="amenity-chip"><i class="fi ${a.icon}" aria-hidden="true"></i>${a.label}</span>`;
+}
+
+function roomTemplate(r){
+  const badge = r.badge ? `<span class="room-badge">${r.badge}</span>` : '';
+  const total = r.imagePool.length;
+  const photoCount = `<span class="room-photo-count"><i class="fi fi-rr-picture" aria-hidden="true"></i>${total} photos · tap to view</span>`;
+
+  const poolJson = JSON.stringify(r.imagePool).replace(/"/g, '&quot;');
+
+  const gallery = `
+    <button type="button" class="gal-btn main-btn"
+            data-room="${r.id}"
+            data-title="${r.title}"
+            data-index="0"
+            data-pool="${poolJson}"
+            aria-label="Open ${r.title} photo gallery">
+      <img src="${r.mainImage}" alt="${r.title} at Sonitori Riverside" loading="lazy">
+      <span class="zoom-hint" aria-hidden="true"><i class="fi fi-rr-expand"></i></span>
+    </button>
+    <div class="side-imgs">
+      <button type="button" class="gal-btn"
+              data-room="${r.id}"
+              data-title="${r.title}"
+              data-index="1"
+              data-pool="${poolJson}"
+              aria-label="Open ${r.title} photo gallery">
+        <img src="${r.sideImage1}" alt="${r.title} detail" loading="lazy">
+        <span class="zoom-hint" aria-hidden="true"><i class="fi fi-rr-expand"></i></span>
+      </button>
+      <button type="button" class="gal-btn"
+              data-room="${r.id}"
+              data-title="${r.title}"
+              data-index="2"
+              data-pool="${poolJson}"
+              aria-label="Open ${r.title} photo gallery">
+        <img src="${r.sideImage2}" alt="${r.title} detail" loading="lazy">
+        <span class="zoom-hint" aria-hidden="true"><i class="fi fi-rr-expand"></i></span>
+      </button>
+    </div>`;
+
+  return `
+    <section class="room-section" id="${r.id}" aria-labelledby="room-${r.id}-title">
+      <article class="room-card">
+        <div class="room-gallery">
+          ${badge}
+          ${photoCount}
+          ${gallery}
+        </div>
+        <div class="room-body">
+          <div class="room-head">
+            <h2 id="room-${r.id}-title">${r.title}</h2>
+            <div class="room-sub">${r.subtitle}</div>
+          </div>
+          <p class="room-desc">${r.description}</p>
+          <div class="room-specs">
+            ${r.specs.map(specTemplate).join('')}
+          </div>
+          <div class="room-amenities">
+            ${r.amenities.map(amenityTemplate).join('')}
+          </div>
+          <div class="room-foot">
+            <div class="room-actions">
+              <a href="${r.detailUrl}" class="room-details-link">
+                View details
+                <i class="fi fi-rr-arrow-small-right" aria-hidden="true"></i>
+              </a>
+              <button type="button" class="room-cta" data-book-type="${r.accommodationType}">
+                Book this room
+                <i class="fi fi-rr-arrow-small-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>`;
+}
+
+document.getElementById('rooms').innerHTML = ROOMS.map(roomTemplate).join('');
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+(function(){
+  const lb       = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lbImg');
+  const lbTitle  = document.getElementById('lbTitle');
+  const lbCount  = document.getElementById('lbCounter');
+  const lbThumbs = document.getElementById('lbThumbs');
+  const lbStage  = document.getElementById('lbStage');
+  const lbPrev   = document.getElementById('lbPrev');
+  const lbNext   = document.getElementById('lbNext');
+  const lbClose  = document.getElementById('lbClose');
+
+  let current = {
+    pool: [],
+    index: 0,
+    title: '',
+    roomId: '',
+    lastFocus: null
+  };
+
+  function renderThumbs(){
+    lbThumbs.innerHTML = current.pool.map((src, i) => `
+      <button type="button" class="lb-thumb${i === current.index ? ' active' : ''}"
+              data-idx="${i}"
+              role="tab"
+              aria-selected="${i === current.index}"
+              aria-label="Photo ${i+1}">
+        <img src="${src}" alt="" loading="lazy">
+      </button>`).join('');
+
+    const activeThumb = lbThumbs.querySelector('.lb-thumb.active');
+    if(activeThumb && activeThumb.scrollIntoView){
+      activeThumb.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
+    }
+  }
+
+  function showIndex(i){
+    if(!current.pool.length) return;
+    const total = current.pool.length;
+    current.index = ((i % total) + total) % total;
+
+    lbImg.classList.add('loading');
+    const src = current.pool[current.index];
+
+    const pre = new Image();
+    pre.onload = () => {
+      lbImg.src = src;
+      lbImg.classList.remove('loading');
+    };
+    pre.onerror = () => {
+      lbImg.src = src;
+      lbImg.classList.remove('loading');
+    };
+    pre.src = src;
+
+    lbCount.textContent = (current.index + 1) + ' / ' + total;
+
+    lbThumbs.querySelectorAll('.lb-thumb').forEach((t, idx) => {
+      const active = idx === current.index;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+
+  function openLightbox(pool, index, title, roomId, triggerEl){
+    current.pool = Array.isArray(pool) ? pool.slice() : [];
+    current.index = index || 0;
+    current.title = title || 'Room';
+    current.roomId = roomId || '';
+    current.lastFocus = triggerEl || document.activeElement;
+
+    lbTitle.textContent = title || 'Room';
+    renderThumbs();
+    showIndex(current.index);
+
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('no-scroll');
+
+    setTimeout(()=> lbClose.focus(), 50);
+  }
+
+  function closeLightbox(){
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    document.body.classList.remove('no-scroll');
+    if(current.lastFocus && current.lastFocus.focus){
+      current.lastFocus.focus();
+    }
+  }
+
+  document.querySelectorAll('.gal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      let pool = [];
+      try {
+        pool = JSON.parse(btn.getAttribute('data-pool') || '[]');
+      } catch(e){ pool = []; }
+      const idx = parseInt(btn.getAttribute('data-index') || '0', 10) || 0;
+      openLightbox(pool, idx, btn.getAttribute('data-title'), btn.getAttribute('data-room'), btn);
+    });
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', () => showIndex(current.index - 1));
+  lbNext.addEventListener('click', () => showIndex(current.index + 1));
+
+  lbThumbs.addEventListener('click', (e) => {
+    const t = e.target.closest('.lb-thumb');
+    if(!t) return;
+    const i = parseInt(t.getAttribute('data-idx'), 10);
+    if(!isNaN(i)) showIndex(i);
+  });
+
+  lbStage.addEventListener('click', (e) => {
+    if(e.target === lbStage) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    else if(e.key === 'ArrowLeft') showIndex(current.index - 1);
+    else if(e.key === 'ArrowRight') showIndex(current.index + 1);
+  });
+
+  let touchStartX = 0, touchStartY = 0, touchActive = false;
+  lbStage.addEventListener('touchstart', (e) => {
+    if(e.touches.length !== 1) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touchActive = true;
+  }, { passive: true });
+
+  lbStage.addEventListener('touchend', (e) => {
+    if(!touchActive) return;
+    touchActive = false;
+    const dx = (e.changedTouches[0].clientX - touchStartX);
+    const dy = (e.changedTouches[0].clientY - touchStartY);
+    if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)){
+      if(dx < 0) showIndex(current.index + 1);
+      else showIndex(current.index - 1);
+    }
+  }, { passive: true });
+})();
+
+/* ============================================
+   BOOKING BUTTONS
+   ============================================ */
+document.querySelectorAll('[data-book-type]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    openBooking(btn.getAttribute('data-book-type'));
+  });
+});
+
+document.querySelectorAll('#navBookBtn, #ctaBookBtn').forEach(btn=>{
+  btn.addEventListener('click', ()=>openBooking());
+});
+
+(function(){
+  const btn = document.getElementById('viewRoomsBtn');
+  const target = document.getElementById('rooms');
+  if(!btn || !target) return;
+  btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    document.documentElement.classList.add('smooth-scroll');
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+    target.setAttribute('tabindex','-1');
+    target.focus({preventScroll:true});
+    setTimeout(()=>{
+      document.documentElement.classList.remove('smooth-scroll');
+    }, 700);
+  });
+})();
+
+/* ============================================
+   MOBILE MENU
+   ============================================ */
+let lastFocusedElement = null;
+
+function toggleMenu(forceClose){
+  const menu = document.getElementById('mobileMenu');
+  const hamburger = document.getElementById('hamburger');
+  const isOpen = forceClose === true ? false : !menu.classList.contains('open');
+  menu.classList.toggle('open', isOpen);
+  menu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  hamburger.classList.toggle('active', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+  if(isOpen) document.body.classList.add('no-scroll');
+  else document.body.classList.remove('no-scroll');
+  if(isOpen){
+    lastFocusedElement = document.activeElement;
+    const firstLink = menu.querySelector('a, button');
+    if(firstLink) firstLink.focus();
+  } else if(lastFocusedElement){
+    lastFocusedElement.focus();
+  }
+}
+
+document.getElementById('hamburger').addEventListener('click', ()=>toggleMenu());
+document.getElementById('mobileClose').addEventListener('click', ()=>toggleMenu(true));
+document.querySelectorAll('[data-close-menu]').forEach(el=>el.addEventListener('click', ()=>toggleMenu(true)));
+
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape'){
+    const menu = document.getElementById('mobileMenu');
+    if(menu.classList.contains('open')) toggleMenu(true);
+  }
+});
+
+/* ============================================
+   FOOTER YEAR
+   ============================================ */
+(function(){
+  const y = document.getElementById('footerYear');
+  if(y) y.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

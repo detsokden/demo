@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy · Sonitori Siem Reap</title>
+  <link rel="icon" type="image/png" href="../../uploads/top-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ===== RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #fff;
+      background: #0f1419;
+      overflow-x: hidden;
+    }
+
+    /* Hide scrollbar but keep scrolling */
+    html,
+    body {
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* ===== HEADER ===== */
+    #mainHeader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+    #mainHeader.with-bg {
+      background: rgba(15, 20, 25, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      padding: 0.8rem 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img { 
+      max-width: 160px; 
+      height: auto; 
+      display: block; 
+    }
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+    .nav-left a, .nav-right a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-left a:hover, .nav-right a:hover {
+      color: #fff;
+    }
+    .booking-link {
+      color: #fff !important;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .booking-link:hover { 
+      opacity: 0.7; 
+      transform: translateX(4px); 
+    }
+    .nav-left .back-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-left .back-link i {
+      font-size: 0.7rem;
+    }
+
+    /* ===== POLICY HERO ===== */
+    .policy-hero {
+      position: relative;
+      min-height: 35vh;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+      overflow: hidden;
+    }
+
+    .policy-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('uploads/top-page-photo.webp') center/cover no-repeat;
+      opacity: 0.12;
+      filter: blur(3px);
+    }
+
+    .policy-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .policy-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .policy-hero p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    .policy-hero .breadcrumb {
+      margin-top: 20px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    .policy-hero .breadcrumb a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .policy-hero .breadcrumb a:hover {
+      color: #fff;
+    }
+
+    .policy-hero .breadcrumb span {
+      margin: 0 8px;
+    }
+
+    /* ===== POLICY CONTAINER ===== */
+    .policy-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .policy-section {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      padding: 40px 48px;
+      margin-bottom: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .policy-section:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .policy-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .policy-section h2 i {
+      color: #038494;
+      font-size: 1.4rem;
+      width: 32px;
+    }
+
+    .policy-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #d0dce8;
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+
+    .policy-section p {
+      color: #aab3c0;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    .policy-section ul li {
+      padding: 6px 0 6px 28px;
+      position: relative;
+      color: #aab3c0;
+      line-height: 1.7;
+    }
+
+    .policy-section ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #038494;
+      font-weight: 600;
+    }
+
+    .policy-section .highlight-box {
+      background: rgba(3, 132, 148, 0.08);
+      border-left: 4px solid #038494;
+      padding: 20px 24px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .policy-section .highlight-box p {
+      margin-bottom: 0;
+      color: #d0dce8;
+    }
+
+    .policy-section .highlight-box strong {
+      color: #fff;
+    }
+
+    .policy-section a {
+      color: #038494;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .policy-section a:hover {
+      color: #04a8b8;
+      text-decoration: underline;
+    }
+
+    .policy-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.08), transparent);
+      margin: 40px 0;
+    }
+
+    /* ===== POLICY FOOTER NOTE ===== */
+    .policy-footer-note {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 32px 40px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .policy-footer-note p {
+      color: #aab3c0;
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .policy-footer-note a {
+      color: #038494;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .policy-footer-note a:hover {
+      color: #04a8b8;
+    }
+
+    .back-to-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-radius: 50px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+
+    .back-to-home:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: #0a0e12;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .site-footer .footer-links {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .site-footer .footer-links a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .site-footer .footer-links a:hover {
+      color: #038494;
+    }
+
+    .site-footer .footer-social {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .site-footer .footer-social a {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .site-footer .footer-social a:hover {
+      color: #038494;
+    }
+
+    .site-footer .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .site-footer .footer-copy p {
+      margin-bottom: 0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      #mainHeader { padding: 1rem 2rem; }
+      #mainHeader.with-bg { padding: 0.8rem 2rem; }
+      .logo img { max-width: 140px; }
+      .nav-left, .nav-right { gap: 1.5rem; font-size: 0.7rem; }
+    }
+
+    @media (max-width: 768px) {
+      #mainHeader { 
+        padding: 0.8rem 1.5rem; 
+      }
+      #mainHeader.with-bg { padding: 0.5rem 1rem; }
+      .logo img { max-width: 100px; }
+      .nav-left, .nav-right { 
+        gap: 1rem; 
+        font-size: 0.6rem; 
+      }
+      .nav-left .back-link span {
+        display: none;
+      }
+
+      .policy-hero {
+        min-height: 30vh;
+        padding: 100px 16px 40px;
+      }
+
+      .policy-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .policy-hero p {
+        font-size: 1rem;
+      }
+
+      .policy-container {
+        padding: 30px 16px 50px;
+      }
+
+      .policy-section {
+        padding: 28px 20px;
+      }
+
+      .policy-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .policy-section h2 i {
+        font-size: 1.2rem;
+        width: 28px;
+      }
+
+      .policy-footer-note {
+        padding: 24px 20px;
+      }
+
+      .back-to-home {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #mainHeader { 
+        padding: 0.5rem 0.8rem; 
+      }
+      #mainHeader.with-bg { 
+        padding: 0.3rem 0.5rem; 
+      }
+      .nav-left, .nav-right { 
+        gap: 0.5rem; 
+        font-size: 0.5rem; 
+      }
+      .logo img { 
+        max-width: 70px; 
+      }
+      .nav-left .back-link i {
+        font-size: 0.8rem;
+      }
+
+      .policy-hero h1 {
+        font-size: 2rem;
+      }
+
+      .policy-section {
+        padding: 20px 16px;
+      }
+
+      .policy-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .policy-section ul li {
+        padding-left: 20px;
+        font-size: 0.95rem;
+      }
+
+      .site-footer .footer-links {
+        gap: 16px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .policy-hero h1 {
+        font-size: 1.8rem;
+      }
+      .policy-section h2 {
+        font-size: 1.1rem;
+      }
+      .policy-section {
+        padding: 16px 12px;
+      }
+      .policy-section ul li {
+        font-size: 0.85rem;
+        padding-left: 18px;
+      }
+      .policy-section p {
+        font-size: 0.9rem;
+      }
+      .back-to-home {
+        padding: 10px 18px;
+        font-size: 0.75rem;
+      }
+      .policy-footer-note p {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="mainHeader">
+  <div class="nav-left">
+    <a href="/siemreap/" class="back-link">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back</span>
+    </a>
+  </div>
+
+  <div class="logo">
+    <a href="/siemreap/">
+      <img src="../uploads/logo.png" alt="Sonitori Logo">
+    </a>
+  </div>
+
+  <div class="nav-right">
+    <a href="#">Contacts</a>
+    <a href="#" class="booking-link" id="bookingHeaderBtn">Booking&nbsp;&nbsp;→</a>
+  </div>
+</header>
+
+<!-- ===== POLICY HERO ===== -->
+<section class="policy-hero">
+  <div class="policy-hero-content">
+    <h1>Privacy Policy</h1>
+    <p>How we protect and handle your personal information</p>
+    <div class="breadcrumb">
+      <a href="/siemreap/">Home</a>
+      <span>›</span>
+      <span style="color:rgba(255,255,255,0.5);">Privacy Policy</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POLICY CONTENT ===== -->
+<div class="policy-container">
+
+  <!-- Section 1: Introduction -->
+  <div class="policy-section">
+    <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+    <p>This policy applies to information held about guests and prospective guests, suppliers and prospective suppliers, contractors, contacts, staff and all other persons about whom <strong>Sonitori Hotel and Resorts</strong> hold information. By "information," we mean personal information about you that we collect, use, share and store.</p>
+    <div class="highlight-box">
+      <p><strong>Last Updated:</strong> July 17, 2026</p>
+      <p style="margin-top:4px; font-size:0.9rem;">We may update this policy from time to time. Please check back frequently to see any updates or changes to our policy.</p>
+    </div>
+  </div>
+
+  <!-- Section 2: What We Collect -->
+  <div class="policy-section">
+    <h2><i class="fas fa-database"></i> What We Collect</h2>
+    <ul>
+      <li>Your name; passport details; Cambodian visa if appropriate</li>
+      <li>Your email address and telephone number</li>
+      <li>Information about you that you give us in person when staying with us, by filling in forms upon check-in or by corresponding with us by phone, e-mail or otherwise</li>
+    </ul>
+  </div>
+
+  <!-- Section 3: How We Collect Information -->
+  <div class="policy-section">
+    <h2><i class="fas fa-clipboard-list"></i> How We Collect Information About You</h2>
+    <ul>
+      <li>Collecting information you give to us when you book or check-in</li>
+      <li>Your use of the forms on our website; upon check-in and from email contact</li>
+    </ul>
+  </div>
+
+  <!-- Section 4: What We Do With The Information -->
+  <div class="policy-section">
+    <h2><i class="fas fa-cogs"></i> What We Do With The Information We Gather</h2>
+    <p>We use your information to:</p>
+    <ul>
+      <li>As per Cambodian Law we provide your passport and visa details to the local police</li>
+      <li>With your consent we use your email address to contact you for a post stay survey</li>
+      <li>Carry out our obligations arising from any agreements entered into between you and us</li>
+      <li>With your consent we use your email address to add to our mailing list database to send newsletters and relevant updates</li>
+      <li>Comply with legal and regulatory obligations</li>
+      <li>For security and to check your identity</li>
+    </ul>
+  </div>
+
+  <!-- Section 5: Legal Basis for Processing -->
+  <div class="policy-section">
+    <h2><i class="fas fa-balance-scale"></i> Legal Basis for Processing</h2>
+    <p>Our processing of your personal information is necessary in order to comply with a legal obligation to which we are subject.</p>
+  </div>
+
+  <!-- Section 6: Sharing Your Information -->
+  <div class="policy-section">
+    <h2><i class="fas fa-share-alt"></i> Sharing Your Information</h2>
+    <p>Except as expressly set out in this policy we will not sell, distribute or lease your personal information to third parties unless we have your permission or are required by law to do so.</p>
+    <p>We may also share your personal information with:</p>
+    <ul>
+      <li>Law enforcement agencies, other governmental agencies or third parties if we are required by law to do so</li>
+    </ul>
+  </div>
+
+  <!-- Section 7: Transferring Your Information -->
+  <div class="policy-section">
+    <h2><i class="fas fa-globe"></i> Transferring Your Information Outside of The Kingdom of Cambodia</h2>
+    <p>We take appropriate measures to ensure that your personal information is treated securely and in accordance with this privacy policy when transferred outside of Cambodia.</p>
+  </div>
+
+  <!-- Section 8: Your Rights -->
+  <div class="policy-section">
+    <h2><i class="fas fa-user-shield"></i> Your Rights</h2>
+    <p>At any time, you have the right:</p>
+    <ul>
+      <li>To request access to or a copy of any personal data which we hold about you</li>
+      <li>To correct your personal data, if you consider that the information we are holding is inaccurate</li>
+      <li>To ask us to delete your personal data, if you consider that we do not have the right to hold it</li>
+      <li>To withdraw consent to our processing of your personal data (to the extent such processing is based on previously obtained consent)</li>
+      <li>To ask us to stop or start sending you marketing messages as described below in the marketing section</li>
+      <li>To restrict processing of your personal data</li>
+    </ul>
+    <p>Any request from you for access to or a copy of your personal data must be in writing and we will respond within a reasonable period and in any event within one month in compliance with data protection legislation. We will comply with our legal obligations as regards your rights as a data subject.</p>
+    <p>We aim to ensure that the information we hold about you is accurate at all times. To assist us in ensuring that your information is up to date, do let us know if any of your personal details change at the following email address: <a href="mailto:sonitoririverside.info@gmail.com">sonitoririverside.info@gmail.com</a></p>
+  </div>
+
+  <!-- Section 9: Marketing -->
+  <div class="policy-section">
+    <h2><i class="fas fa-envelope"></i> Marketing</h2>
+    <p>When you are one of our guests and/or have otherwise agreed to be contacted for marketing we may use your personal information to send you information about events & special offerings through our newsletter database. You can unsubscribe from receiving them at any time, by clicking on the unsubscribe button in our newsletters or by emailing <a href="mailto:sonitoririverside.info@gmail.com">sonitoririverside.info@gmail.com</a></p>
+    <p>You also have the option of "unsubscribing" from our mailing list at any time thereby disabling any further such e-mail or other communication from being sent to you.</p>
+  </div>
+
+  <!-- Section 10: How Long We Keep Your Information -->
+  <div class="policy-section">
+    <h2><i class="fas fa-clock"></i> How Long Will We Keep Your Information?</h2>
+    <p>We will only keep the information we collect about you for as long as required for the purposes set out above or as required to comply with any legal obligations to which we are subject. This will involve us periodically reviewing our files to check that information is accurate, up-to-date and still required.</p>
+    <p>Where we are permitted to send you direct marketing communications we may retain your contact information necessary for this purpose, for as long as you do not unsubscribe from receiving the same from us.</p>
+  </div>
+
+  <!-- Section 11: Security -->
+  <div class="policy-section">
+    <h2><i class="fas fa-lock"></i> Security</h2>
+    <p>We are committed to ensuring that your information is secure. In order to prevent unauthorised access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect.</p>
+  </div>
+
+  <!-- Section 12: Links to Other Sites -->
+  <div class="policy-section">
+    <h2><i class="fas fa-external-link-alt"></i> Links to Other Sites</h2>
+    <p>Our website may contain links to other sites, including via our social media buttons. While we try to link only to websites that share our high standards and respect for privacy, we are not responsible for the content, security, or privacy practices employed by other websites and a link does not constitute an endorsement of that website. Once you link to another website from our website you are subject to the terms and conditions of that website, including, but not limited to, its internet privacy policy and practices. Please check these policies before you submit any data to these websites.</p>
+    <p>Certain features of our site will allow for social networking. You should ensure when using these features that you do not submit any personal data that you do not want to be sent, collected or used by other users, such as profile details or e-mail address.</p>
+  </div>
+
+
+  <!-- Section 14: Changes to This Policy -->
+  <div class="policy-section">
+    <h2><i class="fas fa-edit"></i> Changes to This Policy</h2>
+    <p>Any changes we make to our policy in the future will be posted on this page and, where appropriate, notified to you by e-mail. Please check back frequently to see any updates or changes to our policy.</p>
+  </div>
+
+  <!-- Policy Footer Note -->
+  <div class="policy-footer-note">
+    <p>By using our website and services, you agree to the terms of this Privacy Policy.</p>
+    <p style="margin-top:8px; font-size:0.85rem; color: rgba(255,255,255,0.4);">© 2026 Sonitori Hotel and Resorts. All rights reserved.</p>
+    <a href="/siemreap/" class="back-to-home">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </div>
+
+</div>
+
+<script src="../footer.js"></script>
+
+<!-- ===== SCROLL HANDLER - HEADER BG ===== -->
+<script>
+  (function() {
+    var header = document.getElementById('mainHeader');
+    function handleScroll() {
+      var scrollY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+      if (scrollY > 50) header.classList.add('with-bg');
+      else header.classList.remove('with-bg');
+    }
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', handleScroll);
+    handleScroll();
+  })();
+</script>
+
+</body>
+</html>

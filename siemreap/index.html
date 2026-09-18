@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonitori · Siem Reap · Riverside Boutique Hotel</title>
+<meta name="description" content="Sonitori Riverside – boutique hotel in Siem Reap, Cambodia. Rooftop pool, friendly staff, and gateway to Angkor Wat." />
+<link rel="icon" type="image/png" href="../uploads/top-logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdn-uicons.flaticon.com" crossorigin />
+<link rel="preconnect" href="https://video.sonitori.com" crossorigin />
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css">
+
+<link rel="stylesheet" href="styles.css" />
+
+<script defer src="https://static1.cloudbeds.com/booking-engine/latest/static/js/immersive-experience/cb-immersive-experience.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <img src="../uploads/logo.png" alt="Sonitori" class="loader-logo-img" width="200" height="60" />
+  <div class="loader-sub">Siem Reap · Cambodia</div>
+</div>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="nav-pill-group">
+    <a href="../" class="brand" aria-label="Sonitori Home">
+      <img src="../uploads/logo.png" alt="Sonitori" class="brand-logo" width="120" height="30" />
+    </a>
+    <a href="#rooms">Rooms</a>
+    <a href="#experience">Experiences</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#guide">Local Guide</a>
+    <a href="#gallery">Gallery</a>
+  </div>
+
+  <a href="../" class="mobile-brand" aria-label="Sonitori Home">
+    <img src="../uploads/logo.png" alt="Sonitori" class="mobile-brand-logo" width="120" height="30" />
+  </a>
+
+  <div class="nav-right">
+    <button class="pill-btn ghost" id="contactBtn">Contact Us</button>
+    <button class="pill-btn solid" id="navBookBtn">Book Now <i class="fi fi-rr-arrow-right"></i></button>
+    <button class="hamburger-pill" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile navigation">
+  <div class="mobile-nav-head">
+    <span class="brand">
+      <img src="../uploads/logo.png" alt="Sonitori" class="brand-logo" width="120" height="30" />
+    </span>
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fi fi-rr-cross-small"></i></button>
+  </div>
+  <div class="mobile-links">
+    <a href="#rooms" class="mobile-link"><i class="fi fi-rr-door-open"></i>Rooms</a>
+    <a href="#experience" class="mobile-link"><i class="fi fi-rr-map"></i>Experiences</a>
+    <a href="#amenities" class="mobile-link"><i class="fi fi-rr-land-layers"></i>Amenities</a>
+    <a href="#reviews" class="mobile-link"><i class="fi fi-rr-review"></i>Reviews</a>
+    <a href="#guide" class="mobile-link"><i class="fi fi-rr-guide-alt"></i>Local Guide</a>
+    <a href="#gallery" class="mobile-link"><i class="fi fi-rr-add-image"></i>Gallery</a>
+  </div>
+  <div class="mobile-nav-foot">
+    <div class="mobile-contact-row"><i class="fi fi-rr-phone-call"></i>+855 87 759 779</div>
+    <div class="mobile-contact-row"><i class="fi fi-rr-envelope"></i>sonitoririverside.info@gmail.com</div>
+    <button class="pill-btn solid" id="mobileBookBtn">Book Now</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-media">
+    <video autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=1600">
+      <source src="https://video.sonitori.com/SONITORI-Siemreap.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-wash"></div>
+  <div class="hero-glow" id="heroGlow"></div>
+
+  <div class="hero-top-meta">
+    <div class="meta-pin"><i class="fi fi-rr-marker"></i><p>Wat Bo Village,<br/>Siem Reap, Cambodia</p></div>
+    <div class="meta-note"><i class="fi fi-rr-sun"></i><p>A riverside sanctuary,<br/>minutes from the temples</p></div>
+  </div>
+
+  <div class="hero-wordmark" id="heroWordmark">
+    <span class="hw-main">SONITORI</span>
+    <span class="hw-sub">Riverside</span>
+  </div>
+
+  <div class="hero-annotations">
+    <div class="annot-card annot-a" id="annotA"><div class="annot-dot"></div><p>Sandstone, teak and lime-washed walls echo the textures of the temples nearby.</p></div>
+    <div class="annot-card annot-b" id="annotB"><div class="annot-dot"></div><p>Built beside the water, the villas settle gently into the riverside landscape.</p></div>
+  </div>
+
+  <div class="hero-bottom-row">
+    <div class="hero-social">
+      <a href="https://www.facebook.com/sonitorihotels" target="_blank" aria-label="Facebook"><i class="fi fi-brands-facebook"></i></a>
+      <a href="https://www.instagram.com/sonitorihotels" target="_blank" aria-label="Instagram"><i class="fi fi-brands-instagram"></i></a>
+    </div>
+    <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="concept">
+  <div class="container">
+    <div class="concept-head">
+      <div class="concept-statement-wrap">
+        <div class="eyebrow-pill on-dark">The Concept</div>
+        <p class="concept-statement">Sonitori offers quiet mornings and slow rivers — a home with soul, where Khmer craft lives in harmony with the temples.</p>
+        <div class="concept-thumb"><img src="uploads/top-page-photo2.webp" alt="Rooftop pool" loading="lazy"/></div>
+      </div>
+    </div>
+
+    <div class="concept-collage">
+      <div class="collage-stack">
+        <div class="cs-main"><img src="uploads/top-page-photo4.webp" alt="Hotel exterior" loading="lazy"/></div>
+        <div class="cs-chip"><img src="uploads/section3/res-bar.webp" alt="Pool detail" loading="lazy"/></div>
+      </div>
+
+      <div class="concept-text">
+        <p>We hold a simple philosophy: create a calm, considered space and pair it with warm hospitality that helps you slow down, rest well, and step gently back into the day.</p>
+        <button class="pill-btn dark" id="conceptCta">Find Out More <i class="fi fi-rr-arrow-right"></i></button>
+      </div>
+
+      <div class="collage-single"><img src="uploads/room-section/sup-double-city1.webp" alt="Room detail" loading="lazy"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms" id="rooms">
+  <div class="container">
+    <div class="rooms-head">
+      <div><div class="eyebrow-pill">Rooms &amp; Suites</div><h2>Rest. Relax. Reconnect.</h2></div>
+      <p>Elegant rooms with thoughtful design and every comfort for a restful stay.</p>
+    </div>
+
+    <div class="bento">
+
+      <!-- Deluxe Double -->
+      <div class="bento-card bento-1">
+        <img src="uploads/room-section/sup-double-city3.webp" alt="Deluxe Double" loading="lazy"/>
+        <div class="bc-shade"></div>
+        <div class="bc-body">
+          <h3>Deluxe Double</h3>
+          <div class="bc-specs">
+            <span><i class="fi fi-rr-bed"></i>Double Bed</span>
+            <span><i class="fi fi-rr-building"></i>City View</span>
+            <span><i class="fi fi-rr-wifi"></i>Wi-Fi</span>
+          </div>
+          <a href="/siemreap/rooms/deluxe-double/" class="bc-link">View Room</a>
+        </div>
+      </div>
+
+      <!-- Deluxe Twin -->
+      <div class="bento-card bento-3">
+        <img src="uploads/room-section/sup-twin.webp" alt="Deluxe Twin" loading="lazy"/>
+        <div class="bc-shade"></div>
+        <div class="bc-body">
+          <h3>Deluxe Twin</h3>
+          <div class="bc-specs">
+            <span><i class="fi fi-rr-bed"></i>Twin</span>
+            <span><i class="fi fi-rr-building"></i>City View</span>
+          </div>
+          <a href="/siemreap/rooms/deluxe-twin/" class="bc-link">View Room</a>
+        </div>
+      </div>
+
+      <!-- Superior Double -->
+      <div class="bento-card bento-4">
+        <img src="uploads/room-section/sup-double-city4.webp" alt="Superior Double" loading="lazy"/>
+        <div class="bc-shade"></div>
+        <div class="bc-body">
+          <h3>Superior Double</h3>
+          <div class="bc-specs">
+            <span><i class="fi fi-rr-bed"></i>Double</span>
+            <span><i class="fi fi-rr-window-frame"></i>No City View</span>
+          </div>
+          <a href="/siemreap/rooms/superior-double/" class="bc-link">View Room</a>
+        </div>
+      </div>
+
+      <!-- Superior Twin -->
+      <div class="bento-card bento-2">
+        <img src="uploads/room-section/sup-twin2.webp" alt="Superior Twin" loading="lazy"/>
+        <div class="bc-shade"></div>
+        <div class="bc-body">
+          <h3>Superior Twin</h3>
+          <div class="bc-specs">
+            <span><i class="fi fi-rr-bed"></i>Two Singles</span>
+            <span><i class="fi fi-rr-window-frame"></i>No City View</span>
+          </div>
+          <a href="/siemreap/rooms/superior-twin/" class="bc-link">View Room</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE — tours spotlight -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="experience-grid">
+      <div class="experience-text">
+        <div class="eyebrow-pill">Curated Experiences</div>
+        <h2>Beyond The Room<br/>— Into Siem Reap</h2>
+        <p>Sunrise at Angkor Wat, floating villages on the Tonle Sap, street food after dark, cycling through the rice fields. Handpicked tours arranged by our front desk — leaving straight from the hotel door.</p>
+        <a href="/siemreap/experience/" class="pill-btn dark-outline" style="background:var(--stone); color:var(--ink); border:1px solid var(--line); display:inline-flex; align-items:center; gap:8px; padding:13px 20px; border-radius:var(--r-full); font-size:12px; font-weight:600; letter-spacing:.3px; transition:transform .25s var(--ease), background .3s ease;">
+          Explore All Experiences <i class="fi fi-rr-arrow-right"></i>
+        </a>
+
+        <div class="experience-stats">
+          <div><strong>13</strong><span>Experiences</span></div>
+          <div class="experience-stats-divider" aria-hidden="true"></div>
+          <div><strong>3</strong><span>Categories</span></div>
+          <div class="experience-stats-divider" aria-hidden="true"></div>
+          <div><strong>From $14</strong><span>Per person</span></div>
+        </div>
+      </div>
+
+      <div class="stackwrap">
+        <div class="stack-card s1"></div>
+        <div class="stack-card s2"></div>
+
+        <button type="button" class="exp-nav prev" id="expPrev" aria-label="Previous experience">
+          <i class="fi fi-rr-angle-left" aria-hidden="true"></i>
+        </button>
+
+        <a href="/siemreap/experience/" class="exp-card" id="expCard" aria-label="Browse all experiences">
+          <div class="exp-img">
+            <img id="expImg" src="uploads/section3/temple.webp" alt="Angkor Wat Sunrise Tour" loading="lazy"/>
+          </div>
+          <div class="exp-body">
+            <h4 id="expTitle">Sunrise at Angkor Wat, the world's most iconic temple.</h4>
+            <div class="exp-meta">
+              <div><span class="em-label">Duration</span><span class="em-value" id="expLoc">6–7 hours</span></div>
+              <div><span class="em-label">From</span><span class="em-value" id="expDist">$19 per tuk-tuk</span></div>
+            </div>
+          </div>
+          <span class="exp-arrow" aria-hidden="true"><i class="fi fi-rr-up-right-from-square"></i></span>
+        </a>
+
+        <button type="button" class="exp-nav next" id="expNext" aria-label="Next experience">
+          <i class="fi fi-rr-angle-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amenities" id="amenities">
+  <div class="container">
+    <div class="amenities-head">
+      <div class="eyebrow-pill">Hotel Features</div>
+      <h2>Thoughtful Touches</h2>
+    </div>
+
+    <div class="amenity-orbit">
+      <svg class="orbit-path" viewBox="0 0 1000 120" preserveAspectRatio="none">
+        <path d="M 20 90 Q 250 10, 480 60 T 980 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 10" stroke-linecap="round"/>
+      </svg>
+
+      <div class="amenity-node an-1">
+        <div class="an-photo-wrap">
+        <div class="an-photo">
+          <img src="uploads/section3/S5A2802-HDR.webp" alt="Rooftop Pool" loading="lazy"/>
+          </div>
+          <div class="an-badge"><i class="fi fi-rr-swimming-pool"></i></div>
+        </div>
+        <h3>Rooftop Pool</h3>
+        <p>Skyline views over the riverside, day or night.</p>
+      </div>
+
+      <div class="amenity-node an-2">
+        <div class="an-photo-wrap">
+        <div class="an-photo">
+          <img src="uploads/section3/res-bar.webp" alt="Restaurant &amp; Bar" loading="lazy"/>
+          </div>
+          <div class="an-badge"><i class="fi fi-rr-restaurant"></i></div>
+        </div>
+        <h3>Restaurant &amp; Bar</h3>
+        <p>Khmer and international plates, evening cocktails.</p>
+      </div>
+
+      <div class="amenity-node an-3">
+        <div class="an-photo-wrap">
+          <div class="an-photo">
+            <img src="uploads/section3/lobby.webp" alt="Friendly Staff" loading="lazy"/>
+          </div>
+          <div class="an-badge"><i class="fi fi-rr-bell-concierge"></i></div>
+        </div>
+        <h3>Friendly Staff</h3>
+        <p>Warm, attentive service from arrival to check-out.</p>
+      </div>
+
+      <div class="amenity-node an-4">
+        <div class="an-photo-wrap">
+          <div class="an-photo">
+            <img src="uploads/room-section/sup-double-city1.webp" alt="Free Wi-Fi" loading="lazy"/>
+          </div>
+          <div class="an-badge"><i class="fi fi-rr-wifi"></i></div>
+        </div>
+        <h3>Free Wi-Fi</h3>
+        <p>Fast, complimentary Wi-Fi throughout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-head"><div><div class="eyebrow-pill">Guest Reviews</div><h2>Loved by Our Guests</h2></div></div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars"><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i></div>
+        <blockquote>A peaceful place to relax after exploring the temples — the pool and friendly staff create a wonderfully calm atmosphere.</blockquote>
+        <div class="review-who"><div class="review-avatar">H</div><div><div class="rname">Hol SokHeng</div><div class="rloc">Google Review</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i></div>
+        <blockquote>Perfect location, beautiful rooms, and the most welcoming team. The rooftop pool at sunset is unforgettable.</blockquote>
+        <div class="review-who"><div class="review-avatar">S</div><div><div class="rname">Sarah Mitchell</div><div class="rloc">Google Review</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i><i class="fi fi-sr-star"></i></div>
+        <blockquote>We loved every moment. The staff went above and beyond, the food was incredible, and the location is perfect for Angkor.</blockquote>
+        <div class="review-who"><div class="review-avatar">D</div><div><div class="rname">David &amp; Maria Chen</div><div class="rloc">Google Review</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL GUIDE -->
+<section class="guide" id="guide">
+  <div class="container">
+    <div class="guide-head"><div class="eyebrow-pill">Beyond the Room</div><h2>Explore Siem Reap</h2></div>
+    <div class="guide-strip">
+      <div class="guide-card"><img src="uploads/section3/temple.webp" alt="Angkor Wat" loading="lazy"/><div class="gc-shade"></div><div class="gc-body"><div class="gc-dist">8 km</div><h5>Angkor Wat</h5></div></div>
+      <div class="guide-card"><img src="uploads/section3/pub-street.webp" alt="Pub Street" loading="lazy"/><div class="gc-shade"></div><div class="gc-body"><div class="gc-dist">600 m</div><h5>Pub Street</h5></div></div>
+      <div class="guide-card"><img src="uploads/section3/old market.webp" alt="Old Market" loading="lazy"/><div class="gc-shade"></div><div class="gc-body"><div class="gc-dist">450 m</div><h5>Old Market</h5></div></div>
+      <div class="guide-card"><img src="uploads/section3/Wat Preah Prom Rath.webp" alt="Wat Preah Prom Rath" loading="lazy"/><div class="gc-shade"></div><div class="gc-body"><div class="gc-dist">250 m</div><h5>Wat Preah Prom Rath</h5></div></div>
+      <div class="guide-card"><img src="uploads/section3/royal garden.webp" alt="Royal Gardens" loading="lazy"/><div class="gc-shade"></div><div class="gc-body"><div class="gc-dist">1.2 km</div><h5>Royal Gardens</h5></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-head"><div class="eyebrow-pill">Gallery</div><h2>Moments to Remember</h2></div>
+    <div class="gallery-bento">
+      <img class="gb-1" src="uploads/memory/DJI76D.webp" alt="Exterior" loading="lazy"/>
+      <img class="gb-2" src="uploads/memory/DJI026D.webp" alt="Pool" loading="lazy"/>
+      <img class="gb-3" src="uploads/memory/S5A2447-HDR.webp" alt="Room" loading="lazy"/>
+      <img class="gb-4" src="uploads/memory/S5A2889-HDR.webp" alt="Lounge" loading="lazy"/>
+      <img class="gb-5" src="uploads/memory/S5A2935-HDR.webp" alt="Lobby" loading="lazy"/>
+      <img class="gb-6" src="uploads/memory/DJI202D.webp" alt="Pool" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- MAP + FOOTER -->
+<div class="footer-section">
+  <div class="map-wrap" id="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.9305272473166!2d103.85597237575948!3d13.354595906364318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31101724d5a75335%3A0x7e35dd6e9184bd83!2sSonitori%20Riverside!5e0!3m2!1sen!2skh!4v1787283974591!5m2!1sen!2skh" allowfullscreen loading="lazy"></iframe>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-row">
+          <img src="../uploads/Logo-white.png" alt="Sonitori" class="footer-logo-img" width="170" height="42" loading="lazy" />
+        </div>
+        <p class="desc">Modern comfort meets quiet Khmer hospitality, at the edge of Angkor.</p>
+      </div>
+      <div class="flinks"><h4>Discover</h4><a href="../">Home</a><a href="/siemreap/experience/">Experiences</a><a href="../phnompenh/">Phnom Penh</a></div>
+      <div class="flinks"><h4>Stay</h4><a href="#rooms">Rooms</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a></div>
+      <div>
+        <h4>Contact</h4>
+        <div class="contact-line"><i class="fi fi-rr-marker"></i>Wat Bo Village, Siem Reap</div>
+        <div class="contact-line"><i class="fi fi-rr-phone-call"></i>+855 87 759 779</div>
+        <div class="contact-line"><i class="fi fi-rr-envelope"></i>sonitoririverside.info@gmail.com</div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/sonitorihotels" target="_blank" aria-label="Facebook"><i class="fi fi-brands-facebook"></i></a>
+          <a href="https://www.instagram.com/sonitorihotels" target="_blank" aria-label="Instagram"><i class="fi fi-brands-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="currentYear">2026</span> Sonitori · Cambodia</span>
+      <span>Best Rate Guarantee — Booking Direct</span>
+    </div>
+  </footer>
+</div>
+
+<div class="mobile-book-bar">
+  <button class="pill-btn solid" id="bottomBookBtn"><i class="fi fi-rr-calendar-plus"></i> Book Now</button>
+</div>
+
+<script defer src="script.js"></script>
+</body>
+</html>

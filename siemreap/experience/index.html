@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Sonitori Riverside · Tours</title>
+<meta name="description" content="Curated tours and activities from Sonitori Riverside in Siem Reap — Angkor temples, floating villages, food, cycling and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-soft:#F6F9F8;
+    --teal-tint:#E4F3F4;
+    --coral-tint:#FDEAE2;
+
+    --ink:#132621;
+    --ink-soft:#5C6C67;
+    --text-muted:#96A29D;
+
+    --teal:#038494;
+    --teal-deep:#026B78;
+    --coral:#EA6A3D;
+    --coral-deep:#C6552E;
+
+    --line:rgba(19,38,33,.09);
+    --line-strong:rgba(19,38,33,.16);
+
+    --shadow-sm:0 4px 14px rgba(19,38,33,.06);
+    --shadow:0 10px 28px rgba(3,132,148,.10), 0 2px 10px rgba(19,38,33,.05);
+    --shadow-lg:0 26px 56px rgba(3,132,148,.16);
+
+    --r-xl:28px; --r-lg:22px; --r-md:16px; --r-sm:12px; --r-full:999px;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --font-display:'Sora',sans-serif;
+    --font-body:'Inter',sans-serif;
+    --gutter:clamp(18px,4.5vw,28px);
+    --safe-bottom:env(safe-area-inset-bottom,0px);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+  body{font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;min-height:100vh;width:100%;max-width:100vw;}
+  h1,h2,h3,h4{font-family:var(--font-display);}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  [class^="fi-"],[class*=" fi-"]{display:inline-flex;align-items:center;justify-content:center;line-height:1;}
+  :focus-visible{outline:3px solid var(--teal-deep);outline-offset:3px;}
+
+  .skip-link{position:absolute;top:-100px;left:var(--gutter);background:var(--teal);color:#fff;padding:12px 20px;z-index:9999;border-radius:var(--r-sm);font-weight:600;font-size:14px;transition:top .2s var(--ease);}
+  .skip-link:focus{top:16px;}
+
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}}
+
+  html{scrollbar-width:thin;scrollbar-color:#cfe4e6 transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:#cfe4e6;border-radius:99px;border:2px solid transparent;background-clip:content-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--teal);background-clip:content-box;}
+
+  .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+  /* ============ PAGE LOADER ============ */
+  .page-loader{
+    position:fixed;inset:0;z-index:9999;
+    background:var(--bg);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+    transition:opacity .5s var(--ease), visibility .5s var(--ease);
+    opacity:1;visibility:visible;
+  }
+  .page-loader.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+  .page-loader .pl-inner{
+    display:flex;flex-direction:column;align-items:center;gap:22px;
+    animation:plFadeIn .6s var(--ease) both;
+  }
+  @keyframes plFadeIn{
+    from{opacity:0;transform:translateY(10px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .page-loader .pl-logo{
+    height:44px;width:auto;object-fit:contain;
+    animation:plBreath 2.4s ease-in-out infinite;
+  }
+  @keyframes plBreath{
+    0%,100%{opacity:.75;}
+    50%{opacity:1;}
+  }
+  .page-loader .pl-spinner{
+    width:38px;height:38px;
+    border-radius:50%;
+    border:2.5px solid var(--teal-tint);
+    border-top-color:var(--teal);
+    animation:plSpin .9s linear infinite;
+  }
+  @keyframes plSpin{to{transform:rotate(360deg);}}
+  .page-loader .pl-text{
+    font-family:var(--font-body);
+    font-size:13px;
+    letter-spacing:.4px;
+    color:var(--text-muted);
+    font-weight:500;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .page-loader .pl-logo{animation:none;opacity:1;}
+    .page-loader .pl-spinner{animation-duration:1.4s;}
+  }
+
+  /* ============ NAV ============ */
+  .topnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;gap:12px;padding:16px var(--gutter);justify-content:space-between;border-bottom:1px solid var(--line);}
+  .brand-mark{display:flex;align-items:center;gap:9px;color:var(--ink);}
+  .brand-mark img{height:30px;width:auto;object-fit:contain;}
+  .brand-mark span{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.1px;}
+
+  .nav-actions{display:flex;align-items:center;gap:10px;}
+
+  .search-wrap{position:relative;}
+  .search{width:170px;position:relative;transition:width .25s var(--ease);}
+  .search.focused{width:220px;}
+  .search input{width:100%;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--r-full);padding:9px 38px 9px 15px;font-family:var(--font-body);font-size:13px;color:var(--ink);outline:none;}
+  .search input::placeholder{color:var(--text-muted);}
+  .search .search-icon{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;pointer-events:none;}
+  .search-results{position:absolute;top:calc(100% + 8px);left:0;right:-40px;background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden;max-height:0;opacity:0;pointer-events:none;transition:max-height .3s var(--ease),opacity .2s ease;z-index:200;border:1px solid var(--line);}
+  .search-results.open{max-height:380px;opacity:1;pointer-events:auto;}
+  .search-results .sr-head{padding:12px 16px 8px;font-size:11px;letter-spacing:.6px;color:var(--teal-deep);font-weight:600;border-bottom:1px solid var(--line);}
+  .search-results ul{list-style:none;max-height:320px;overflow-y:auto;padding:4px 0;margin:0;}
+  .search-results li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;cursor:pointer;font-size:13.5px;color:var(--ink);transition:background .15s ease;}
+  .search-results li:hover,.search-results li.highlighted{background:var(--teal-tint);}
+  .search-results li .sr-title{font-weight:500;}
+  .search-results li .sr-cat{font-size:10.5px;color:var(--teal-deep);}
+  .search-results .sr-empty{padding:18px;text-align:center;font-size:13px;color:var(--text-muted);}
+
+  .home-btn{display:none;align-items:center;gap:7px;background:var(--bg-soft);color:var(--ink);border:1px solid var(--line-strong);padding:9px 16px 9px 12px;border-radius:var(--r-full);font-weight:600;font-size:13px;transition:background .2s ease,transform .2s var(--ease);}
+  .home-btn:hover{background:var(--teal-tint);border-color:var(--teal);transform:translateY(-1px);}
+  .home-btn i{font-size:15px;color:var(--teal);}
+
+  .hamburger{display:flex;width:38px;height:38px;border-radius:50%;background:var(--bg-soft);border:1px solid var(--line);align-items:center;justify-content:center;flex-direction:column;gap:4px;flex-shrink:0;}
+  .hamburger span{width:15px;height:1.6px;background:var(--ink);transition:.3s ease;border-radius:2px;}
+  .hamburger.active span:nth-child(1){transform:translateY(5.6px) rotate(45deg);}
+  .hamburger.active span:nth-child(2){opacity:0;}
+  .hamburger.active span:nth-child(3){transform:translateY(-5.6px) rotate(-45deg);}
+
+  /* ============ HERO ============ */
+  .hero{padding:36px var(--gutter) 0;max-width:1240px;margin:0 auto;}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;}
+
+  .hero-copy .eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--teal-tint);color:var(--teal-deep);padding:7px 14px;border-radius:var(--r-full);font-size:12.5px;font-weight:600;margin-bottom:16px;}
+  .hero-copy .eyebrow i{font-size:13px;}
+
+  .hero-title{font-weight:700;font-size:clamp(32px,8vw,46px);line-height:1.08;letter-spacing:-.02em;color:var(--ink);max-width:16ch;}
+  .hero-title .accent{color:var(--teal);}
+
+  .hero-lede{margin-top:16px;max-width:44ch;font-size:15px;line-height:1.75;color:var(--ink-soft);}
+
+  .hero-cta-row{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;}
+  .btn-cta{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#fff;padding:14px 22px;border-radius:var(--r-full);font-family:var(--font-display);font-weight:600;font-size:14px;box-shadow:0 10px 24px rgba(3,132,148,.28);transition:background .25s ease,transform .2s var(--ease),box-shadow .25s ease;}
+  .btn-cta:hover{background:var(--teal-deep);transform:translateY(-2px);box-shadow:0 14px 30px rgba(3,132,148,.32);}
+  .btn-cta .arrow-circle{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:10px;}
+
+  .hero-stats{display:flex;gap:22px;}
+  .hero-stats div{display:flex;flex-direction:column;}
+  .hero-stats strong{font-family:var(--font-display);font-size:20px;color:var(--ink);}
+  .hero-stats span{font-size:11.5px;color:var(--text-muted);}
+
+  .hero-visual{position:relative;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow-lg);}
+  .hero-visual img{width:100%;height:100%;object-fit:cover;}
+  .hero-visual .hv-badge{
+    position:absolute;bottom:16px;right:16px;background:#fff;color:var(--ink);
+    padding:10px 16px;border-radius:var(--r-full);box-shadow:var(--shadow);
+    display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+  }
+  .hero-visual .hv-badge i{color:var(--coral);font-size:14px;}
+  .hero-visual .hv-tag{
+    position:absolute;top:16px;left:16px;background:rgba(255,255,255,.92);
+    padding:8px 14px;border-radius:var(--r-full);font-size:12px;font-weight:600;color:var(--teal-deep);
+  }
+
+  /* ============ FILTER CHIPS ============ */
+  .chip-nav{display:flex;gap:10px;overflow-x:auto;padding:28px var(--gutter) 4px;max-width:1240px;margin:0 auto;scrollbar-width:none;}
+  .chip-nav::-webkit-scrollbar{display:none;}
+  .chip{
+    flex:0 0 auto;padding:10px 18px;border-radius:var(--r-full);border:1px solid var(--line-strong);
+    font-size:13.5px;font-weight:600;color:var(--ink-soft);white-space:nowrap;
+    transition:background .2s ease,color .2s ease,border-color .2s ease;
+  }
+  .chip:hover{border-color:var(--teal);}
+  .chip.active{background:var(--ink);border-color:var(--ink);color:#fff;}
+
+  /* ============ SECTIONS ============ */
+  .container{max-width:1240px;margin:0 auto;padding:8px var(--gutter) calc(48px + var(--safe-bottom));}
+  .tour-section{margin-bottom:46px;scroll-margin-top:74px;}
+  .tour-section:last-child{margin-bottom:0;}
+
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px;}
+  .section-head h2{font-weight:700;font-size:1.55rem;color:var(--ink);letter-spacing:-.02em;}
+  .section-head .section-tag{font-size:13px;color:var(--text-muted);}
+
+  /* ============ CARDS ============ */
+  .tour-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+
+  .tour-card{
+    --img-h:168px;
+    position:relative;background:#fff;border-radius:var(--r-lg);
+    box-shadow:var(--shadow-sm);cursor:pointer;
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+    border:1px solid var(--line);
+  }
+  .tour-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .tour-card:active{transform:translateY(-1px) scale(.99);}
+
+  .card-photo{position:relative;height:var(--img-h);border-radius:var(--r-lg) var(--r-lg) 0 0;overflow:hidden;}
+  .card-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+  .tour-card:hover .card-photo img{transform:scale(1.05);}
+
+  .card-badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--coral);color:#fff;padding:5px 12px;border-radius:var(--r-full);font-size:.65rem;font-weight:700;}
+
+  .price-chip{
+    position:absolute;top:calc(var(--img-h) - 16px);right:14px;z-index:2;background:#fff;color:var(--ink);
+    padding:8px 13px;border-radius:var(--r-full);box-shadow:var(--shadow);
+    font-family:var(--font-display);font-weight:700;font-size:.92rem;
+    display:inline-flex;align-items:baseline;gap:0;
+  }
+  .price-chip span{font-size:.62rem;color:var(--text-muted);font-weight:500;margin-right:4px;}
+
+  .card-info{padding:24px 16px 16px;}
+  .card-info h3{font-size:1rem;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:10px;}
+
+  .card-meta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;}
+  .card-meta span{display:flex;align-items:center;gap:5px;font-size:.76rem;color:var(--ink-soft);font-weight:500;}
+  .card-meta i{font-size:.9rem;color:var(--teal);}
+
+  .card-foot{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--line);}
+  .card-unit{font-size:.7rem;color:var(--text-muted);}
+  .card-link{display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:600;color:var(--teal-deep);}
+  .card-link i{font-size:.8rem;transition:transform .2s var(--ease);}
+  .tour-card:hover .card-link i{transform:translateX(3px);}
+
+  /* ============ MODALS ============ */
+  .modal{display:none;position:fixed;inset:0;background:rgba(19,38,33,.6);z-index:2000;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow-y:auto;padding:20px 12px;}
+  .modal[aria-hidden="false"]{display:block;}
+  .modal-content{background:#fff;max-width:600px;margin:0 auto;border-radius:var(--r-xl);overflow:hidden;animation:slideUp .35s var(--ease);position:relative;box-shadow:var(--shadow-lg);}
+  @keyframes slideUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+
+  .modal-close{position:absolute;top:16px;right:16px;background:#fff;color:var(--ink);border:1px solid var(--line-strong);width:36px;height:36px;border-radius:50%;font-size:1rem;transition:background .2s ease,transform .25s ease;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:var(--shadow-sm);}
+  .modal-close:hover{background:var(--bg-soft);transform:rotate(90deg);}
+
+  .modal-gallery{display:flex;gap:3px;}
+  .modal-gallery img{flex:1;width:0;height:120px;object-fit:cover;background:var(--bg-soft);}
+
+  .modal-body{padding:22px 22px 26px;}
+  .modal-cat{display:inline-block;font-size:12px;font-weight:600;color:var(--teal-deep);background:var(--teal-tint);padding:5px 12px;border-radius:var(--r-full);margin-bottom:10px;}
+  .modal-body h2{font-size:clamp(1.2rem,4.5vw,1.45rem);font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:18px;}
+
+  .modal-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 20px;}
+  .info-item{background:var(--bg-soft);border-radius:var(--r-md);padding:13px 15px;min-width:0;}
+  .info-item h4{font-size:.62rem;text-transform:uppercase;color:var(--text-muted);letter-spacing:1.1px;margin-bottom:5px;display:flex;align-items:center;gap:5px;font-weight:700;}
+  .info-item h4 i{font-size:.9rem;color:var(--teal);flex-shrink:0;}
+  .info-item p{font-weight:600;font-size:.87rem;color:var(--ink);line-height:1.4;margin:0;overflow-wrap:anywhere;}
+
+  .modal-description{margin-bottom:18px;color:var(--ink-soft);line-height:1.75;}
+  .modal-note{background:var(--coral-tint);padding:12px 14px;font-size:.85rem;line-height:1.55;margin-bottom:16px;display:flex;gap:10px;align-items:flex-start;border-radius:var(--r-md);color:var(--ink-soft);}
+  .modal-note i{color:var(--coral-deep);font-size:1rem;margin-top:2px;flex-shrink:0;}
+  .modal-note strong{color:var(--ink);font-weight:600;}
+
+  .modal-book{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:var(--r-lg);padding:16px 18px;}
+  .modal-book .mb-text{font-size:.85rem;line-height:1.4;max-width:32ch;color:rgba(255,255,255,.75);}
+  .modal-book .mb-text strong{display:block;font-family:var(--font-display);font-size:1rem;margin-bottom:2px;color:#fff;}
+  .modal-book .mb-links{display:flex;gap:8px;}
+  .modal-book .mb-links a{width:40px;height:40px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;transition:background .2s ease,transform .2s var(--ease);}
+  .modal-book .mb-links a:hover{background:var(--coral-deep);transform:translateY(-2px);}
+
+  /* ============ MOBILE MENU ============ */
+  .mobile-menu{position:fixed;inset:0;background:#fff;z-index:1500;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;opacity:0;pointer-events:none;transition:opacity .35s var(--ease);padding:24px;}
+  .mobile-menu.open{opacity:1;pointer-events:auto;}
+  .mobile-menu a{font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--ink);transition:color .2s ease;}
+  .mobile-menu a:hover{color:var(--teal);}
+  .mobile-menu .close-btn{position:absolute;top:18px;right:18px;color:var(--ink);font-size:2rem;line-height:1;width:48px;height:48px;display:flex;align-items:center;justify-content:center;}
+
+  /* ============================================
+     SITE FOOTER
+     ============================================ */
+  .site-footer{
+    margin-top:64px;
+    background:var(--bg);
+    border-top:1px solid var(--line);
+  }
+
+  /* ---- CTA STRIP ---- */
+  .footer-cta-wrap{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 var(--gutter);
+    transform:translateY(-38px);
+    margin-bottom:-20px;
+  }
+  .footer-cta{
+    background:linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%);
+    border-radius:var(--r-xl);
+    padding:28px 26px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:22px;
+    align-items:center;
+    box-shadow:0 22px 48px rgba(3,132,148,.28);
+    position:relative;
+    overflow:hidden;
+  }
+  .footer-cta::before{
+    content:'';
+    position:absolute;
+    top:-60%;
+    right:-10%;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,.14), transparent 65%);
+    pointer-events:none;
+  }
+  .fc-text{position:relative;z-index:1;}
+  .fc-text h3{
+    font-family:var(--font-display);
+    font-size:clamp(1.15rem, 4.4vw, 1.4rem);
+    font-weight:700;
+    color:#fff;
+    line-height:1.25;
+    letter-spacing:-.015em;
+    margin-bottom:8px;
+  }
+  .fc-text p{
+    color:rgba(255,255,255,.82);
+    font-size:.9rem;
+    line-height:1.55;
+    max-width:52ch;
+  }
+  .fc-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    position:relative;
+    z-index:1;
+  }
+  .fc-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:12px 18px;
+    border-radius:var(--r-full);
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:13.5px;
+    white-space:nowrap;
+    transition:background .22s ease, transform .22s var(--ease), box-shadow .22s ease, border-color .22s ease;
+    cursor:pointer;
+  }
+  .fc-btn i{font-size:15px;}
+
+  .fc-primary{
+    background:#fff;
+    color:var(--teal-deep);
+    box-shadow:0 8px 20px rgba(0,0,0,.14);
+  }
+  .fc-primary:hover{
+    background:var(--bg-soft);
+    transform:translateY(-2px);
+    box-shadow:0 12px 26px rgba(0,0,0,.18);
+  }
+
+  .fc-ghost{
+    background:transparent;
+    color:#fff;
+    border:1.5px solid rgba(255,255,255,.4);
+  }
+  .fc-ghost:hover{
+    background:rgba(255,255,255,.12);
+    border-color:rgba(255,255,255,.6);
+    transform:translateY(-2px);
+  }
+
+  /* ---- MAIN FOOTER ---- */
+  .footer-main{
+    max-width:1240px;
+    margin:0 auto;
+    padding:40px var(--gutter) calc(34px + var(--safe-bottom));
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:32px;
+    margin-bottom:36px;
+  }
+  .footer-col h4{
+    font-family:var(--font-display);
+    font-size:.72rem;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  .footer-col ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+  .footer-col ul li{
+    margin-bottom:9px;
+  }
+  .footer-col ul li a{
+    font-size:.88rem;
+    color:var(--ink-soft);
+    font-weight:500;
+    transition:color .2s ease, padding-left .2s ease;
+    display:inline-block;
+  }
+  .footer-col ul li a:hover{
+    color:var(--teal);
+    padding-left:3px;
+  }
+
+  /* Brand column */
+  .footer-brand-col{max-width:340px;}
+  .footer-brand{
+    display:inline-flex;
+    align-items:center;
+    margin-bottom:14px;
+  }
+  .footer-brand img{
+    height:32px;
+    width:auto;
+    object-fit:contain;
+  }
+  .footer-desc{
+    font-size:.87rem;
+    line-height:1.7;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+    max-width:38ch;
+  }
+  .footer-social{
+    display:flex;
+    gap:8px;
+  }
+  .footer-social a{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--teal-deep);
+    font-size:15px;
+    transition:background .22s ease, color .22s ease, border-color .22s ease, transform .22s var(--ease);
+  }
+  .footer-social a:hover{
+    background:var(--teal);
+    border-color:var(--teal);
+    color:#fff;
+    transform:translateY(-2px);
+  }
+
+  /* Contact list */
+  .footer-contact li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:.88rem;
+    color:var(--ink-soft);
+    line-height:1.55;
+    margin-bottom:12px;
+  }
+  .footer-contact li i{
+    color:var(--teal);
+    font-size:15px;
+    margin-top:3px;
+    flex-shrink:0;
+  }
+  .footer-contact li a{
+    color:var(--ink-soft);
+    transition:color .2s ease;
+    overflow-wrap:anywhere;
+  }
+  .footer-contact li a:hover{
+    color:var(--teal);
+  }
+
+  /* ---- BOTTOM BAR ---- */
+  .footer-bottom{
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 20px;
+    justify-content:space-between;
+    align-items:center;
+    font-size:.78rem;
+    color:var(--text-muted);
+  }
+  .footer-note{
+    font-weight:500;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (min-width:540px){
+    .tour-grid{grid-template-columns:repeat(2,1fr);}
+    .modal-info-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (min-width:640px){
+    .footer-cta{
+      padding:32px 34px;
+      grid-template-columns:1.4fr auto;
+    }
+    .fc-actions{flex-wrap:nowrap;}
+    .footer-grid{
+      grid-template-columns:1.4fr 1fr 1fr;
+      gap:36px;
+    }
+    .footer-brand-col{grid-column:span 3;}
+    .footer-brand-col{max-width:none;}
+  }
+  @media (min-width:820px){
+    .tour-grid{grid-template-columns:repeat(3,1fr);}
+    .section-head h2{font-size:1.85rem;}
+  }
+  @media (min-width:901px){
+    .hamburger{display:none;}
+    .home-btn{display:inline-flex;}
+    .search{width:220px;}
+    .search.focused{width:260px;}
+
+    .hero-grid{grid-template-columns:1.1fr 1fr;gap:56px;}
+    .hero-visual{aspect-ratio:auto;height:400px;}
+    .modal-body{padding:28px 32px 32px;}
+    .modal-gallery img{height:140px;}
+
+    .site-footer{margin-top:80px;}
+    .footer-cta-wrap{transform:translateY(-48px);margin-bottom:-32px;}
+    .footer-cta{padding:38px 44px;}
+    .footer-main{padding:52px var(--gutter) 40px;}
+    .footer-grid{
+      grid-template-columns:1.5fr 1fr 1fr 1.2fr;
+      gap:48px;
+      margin-bottom:44px;
+    }
+    .footer-brand-col{grid-column:auto;}
+    .footer-col ul li a:hover{padding-left:4px;}
+    .footer-social a{width:40px;height:40px;}
+  }
+  @media (min-width:1100px){
+    .tour-grid{grid-template-columns:repeat(4,1fr);}
+  }
+
+  /* ============================================
+     TOUCH / MOBILE — swap :hover for :active
+     ============================================ */
+  @media (max-width: 900px) {
+
+    .home-btn:hover{background:var(--bg-soft);border-color:var(--line-strong);transform:none;}
+    .btn-cta:hover{background:var(--teal);transform:none;box-shadow:0 10px 24px rgba(3,132,148,.28);}
+    .chip:hover{border-color:var(--line-strong);}
+    .tour-card:hover{transform:none;box-shadow:var(--shadow-sm);}
+    .tour-card:hover .card-photo img{transform:none;}
+    .tour-card:hover .card-link i{transform:none;}
+    .modal-close:hover{background:#fff;transform:none;}
+    .modal-book .mb-links a:hover{background:var(--coral);transform:none;}
+    .mobile-menu a:hover{color:var(--ink);}
+
+    .home-btn:active{
+      background:var(--teal-tint);
+      border-color:var(--teal);
+      transform:scale(.97);
+    }
+
+    .btn-cta:active{
+      background:var(--teal-deep);
+      transform:scale(.97);
+      box-shadow:0 6px 18px rgba(3,132,148,.30);
+    }
+
+    .chip:active{
+      background:var(--teal-tint);
+      border-color:var(--teal);
+      color:var(--teal-deep);
+    }
+    .chip.active:active{
+      background:var(--ink);
+      border-color:var(--ink);
+      color:#fff;
+    }
+
+    .tour-card:active{
+      transform:scale(.985);
+      box-shadow:var(--shadow);
+    }
+    .tour-card:active .card-photo img{
+      transform:scale(1.04);
+    }
+    .tour-card:active .card-link i{
+      transform:translateX(3px);
+    }
+
+    .modal-close:active{
+      background:var(--bg-soft);
+      transform:rotate(90deg);
+    }
+
+    .modal-book .mb-links a:active{
+      background:var(--coral-deep);
+      transform:translateY(-2px) scale(.95);
+    }
+
+    .mobile-menu a:active{
+      color:var(--teal);
+    }
+
+    /* ---- FOOTER TOUCH OVERRIDES ---- */
+    .fc-primary:hover{
+      background:#fff;
+      transform:none;
+      box-shadow:0 8px 20px rgba(0,0,0,.14);
+    }
+    .fc-primary:active{
+      background:var(--bg-soft);
+      transform:scale(.97);
+      box-shadow:0 4px 12px rgba(0,0,0,.12);
+    }
+
+    .fc-ghost:hover{
+      background:transparent;
+      border-color:rgba(255,255,255,.4);
+      transform:none;
+    }
+    .fc-ghost:active{
+      background:rgba(255,255,255,.18);
+      border-color:rgba(255,255,255,.7);
+      transform:scale(.97);
+    }
+
+    .footer-col ul li a:hover{
+      color:var(--ink-soft);
+      padding-left:0;
+    }
+    .footer-col ul li a:active{
+      color:var(--teal);
+      padding-left:3px;
+    }
+
+    .footer-social a:hover{
+      background:var(--bg-soft);
+      border-color:var(--line);
+      color:var(--teal-deep);
+      transform:none;
+    }
+    .footer-social a:active{
+      background:var(--teal);
+      border-color:var(--teal);
+      color:#fff;
+      transform:scale(.92);
+    }
+
+    .footer-contact li a:hover{color:var(--ink-soft);}
+    .footer-contact li a:active{color:var(--teal);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .fc-primary, .fc-ghost, .footer-social a, .footer-col ul li a{
+      transition:none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE LOADER ============ -->
+<div class="page-loader" id="pageLoader" aria-hidden="true">
+  <div class="pl-inner">
+    <img src="../uploads/logo.png" alt="" class="pl-logo">
+    <div class="pl-spinner" role="status" aria-label="Loading"></div>
+    <span class="pl-text">Loading experiences…</span>
+  </div>
+</div>
+
+<a href="#tourGrid" class="skip-link">Skip to tours</a>
+
+<header>
+  <nav class="topnav" aria-label="Main navigation">
+    <a href="/siemreap/" class="brand-mark" aria-label="Sonitori Riverside home">
+      <img src="../uploads/logo.png" alt="">
+    </a>
+
+    <div class="nav-actions">
+      <div class="search-wrap">
+        <div class="search" id="searchBox">
+          <label for="tourSearch" class="visually-hidden">Search tours</label>
+          <input type="search" id="tourSearch" placeholder="Search tours…" aria-label="Search tours"
+                 aria-controls="searchResults" aria-expanded="false" aria-autocomplete="list" autocomplete="off">
+          <span class="search-icon" aria-hidden="true"><i class="fi fi-rr-search"></i></span>
+          <div class="search-results" id="searchResults" role="listbox" aria-label="Search results" aria-live="polite">
+            <div class="sr-head" id="srHead">ALL TOURS</div>
+            <ul id="srList"></ul>
+          </div>
+        </div>
+      </div>
+
+      <a href="/siemreap/" class="home-btn">
+        <i class="fi fi-rr-arrow-small-left" aria-hidden="true"></i> Back to hotel
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow"><i class="fi fi-rr-map-marker" aria-hidden="true"></i> Arranged by Sonitori Riverside</span>
+        <h1 class="hero-title">Tours & <span class="accent">experiences</span> in Siem Reap</h1>
+        <p class="hero-lede">Sunrise at Angkor Wat, floating villages on the Tonle Sap, street food after dark, cycling through the rice fields — all arranged from our front desk, leaving straight from the hotel door.</p>
+        <div class="hero-cta-row">
+          <a href="#tourGrid" class="btn-cta" id="bookNowBtn">
+            See all tours
+            <span class="arrow-circle" aria-hidden="true"><i class="fi fi-sr-angle-down"></i></span>
+          </a>
+          <div class="hero-stats">
+            <div><strong id="statCount">13</strong><span>experiences</span></div>
+            <div><strong>3</strong><span>categories</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=1200" alt="Sunrise over the towers of Angkor Wat">
+        <span class="hv-tag">4:30am departure</span>
+        <span class="hv-badge"><i class="fi fi-sr-star" aria-hidden="true"></i> Most booked</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="chip-nav" id="chipNav" aria-label="Filter by category"></nav>
+</header>
+
+<main class="container" id="tourGrid"></main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+
+  <!-- CTA STRIP -->
+  <div class="footer-cta-wrap">
+    <div class="footer-cta">
+      <div class="fc-text">
+        <h3>Can't decide? Let us plan it for you.</h3>
+        <p>Message the front desk with your dates — we'll suggest a mix of temples, food and downtime that fits.</p>
+      </div>
+      <div class="fc-actions">
+        <a href="https://m.me/sonitorihotels" target="_blank" rel="noopener noreferrer" class="fc-btn fc-primary">
+          <i class="fi fi-brands-facebook-messenger" aria-hidden="true"></i>
+          Chat on Messenger
+        </a>
+        <a href="https://t.me/sonitorihotels" target="_blank" rel="noopener noreferrer" class="fc-btn fc-ghost">
+          <i class="fi fi-brands-telegram" aria-hidden="true"></i>
+          Telegram
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN FOOTER -->
+  <div class="footer-main">
+    <div class="footer-grid">
+
+      <!-- Brand column -->
+      <div class="footer-col footer-brand-col">
+        <a href="/siemreap/" class="footer-brand" aria-label="Sonitori Riverside home">
+          <img src="../uploads/logo.png" alt="Sonitori Riverside">
+        </a>
+        <p class="footer-desc">Tours and experiences arranged by the team at Sonitori Riverside — from sunrise at Angkor Wat to street food after dark.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fi fi-brands-facebook" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fi fi-brands-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://m.me/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Messenger">
+            <i class="fi fi-brands-facebook-messenger" aria-hidden="true"></i>
+          </a>
+          <a href="https://t.me/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+            <i class="fi fi-brands-telegram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Explore column -->
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#section-temple">Temples</a></li>
+          <li><a href="#section-nature">Nature &amp; adventure</a></li>
+          <li><a href="#section-culture">Culture &amp; food</a></li>
+          <li><a href="#tourGrid">All experiences</a></li>
+        </ul>
+      </div>
+
+      <!-- Hotel column -->
+      <div class="footer-col">
+        <h4>The Hotel</h4>
+        <ul>
+          <li><a href="/siemreap/#rooms">Rooms &amp; suites</a></li>
+          <li><a href="/siemreap/#amenities">Amenities</a></li>
+          <li><a href="/siemreap/#gallery">Gallery</a></li>
+          <li><a href="/siemreap/#guide">Local guide</a></li>
+          <li><a href="/siemreap/">Back to Sonitori Riverside</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact column -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <i class="fi fi-rr-marker" aria-hidden="true"></i>
+            <span>Wat Bo Village,<br>Siem Reap, Cambodia</span>
+          </li>
+          <li>
+            <i class="fi fi-rr-phone-call" aria-hidden="true"></i>
+            <a href="tel:+85587759779">+855 87 759 779</a>
+          </li>
+          <li>
+            <i class="fi fi-rr-envelope" aria-hidden="true"></i>
+            <a href="mailto:sonitoririverside.info@gmail.com">sonitoririverside.info@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <span>© <span id="footerYear">2026</span> Sonitori Riverside · Siem Reap</span>
+      <span class="footer-note">Tours arranged locally · Best rate when you book direct</span>
+    </div>
+  </div>
+</footer>
+
+<div id="modals"></div>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">
+  <button type="button" class="close-btn" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="/siemreap/" data-close-menu>Home</a>
+  <a href="#tourGrid" data-close-menu>All tours</a>
+  <a href="/siemreap/" data-close-menu>Back to hotel</a>
+</div>
+
+<script>
+/* ============================================
+   PAGE LOADER — hide when ready
+   ============================================ */
+(function(){
+  const loader = document.getElementById('pageLoader');
+  if(!loader) return;
+
+  let hidden = false;
+  function hideLoader(){
+    if(hidden) return;
+    hidden = true;
+    loader.classList.add('hidden');
+    loader.setAttribute('aria-hidden','true');
+    setTimeout(()=>{ if(loader.parentNode) loader.parentNode.removeChild(loader); }, 600);
+  }
+
+  window.addEventListener('load', ()=> setTimeout(hideLoader, 250));
+  /* safety net — never leave the loader stuck */
+  setTimeout(hideLoader, 2500);
+})();
+
+/* ============================================
+   DATA — single source of truth for cards, modals & search
+   ============================================ */
+const CATEGORIES = {
+  temple:  { label:'Temples',            tag:'5 journeys through the Angkor complex' },
+  nature:  { label:'Nature & adventure',  tag:'3 escapes into jungle and lake' },
+  culture: { label:'Culture & food',      tag:'5 ways to taste and touch local life' }
+};
+
+const TOURS = [
+  { id:'sunrise', category:'temple', badge:'Popular', title:'Angkor Wat Sunrise Tour',
+    card_img:'https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=600','https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=600','https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=600'],
+    duration:'6–7h', departure:'4:30am', price:19, priceUnit:'per tuk-tuk (1–2 pax)', guide:'English speaking · +$40',
+    description:"Our most popular tour. Start with a stunning sunrise at Angkor Wat, then continue on to the iconic Bayon temple, the enchanting Ta Prohm (the \u201cTomb Raider\u201d temple), and the serene Banteay Kdei.",
+    note:'All tourists need an Angkor Pass: $37 / 1 day, $62 / 3 days, $72 / 7 days.' },
+  { id:'small', category:'temple', title:'Small Circuit Tour',
+    card_img:'https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=600','https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=600','https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600'],
+    duration:'4–6h', departure:'7am', price:16, priceUnit:'per tuk-tuk · $24 VIP (3 pax)', guide:'English speaking · +$35',
+    description:'A good first temple day: Angkor Wat, Bayon and Ta Prohm, plus the quieter Banteay Kdei — three of the most-loved temples in one loop.',
+    note:'All tourists need an Angkor Pass: $37 / 1 day, $62 / 3 days, $72 / 7 days.' },
+  { id:'sunset', category:'temple', title:'Sunset Tour (Grand Circuit)',
+    card_img:'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600','https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=600','https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=600'],
+    duration:'5–6h', departure:'12:30pm', price:21, priceUnit:'per tuk-tuk · $31 VIP (3 pax)', guide:'English speaking · +$40',
+    description:'The Grand Circuit — Preah Khan, Ta Som, Neak Pean and Pre Rup — timed to end with sunset over Angkor from Phnom Bakheng.',
+    note:'All tourists need an Angkor Pass: $37 / 1 day, $62 / 3 days, $72 / 7 days.' },
+  { id:'grand', category:'temple', title:'Grand Circuit Tour',
+    card_img:'https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=600','https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=600','https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600'],
+    duration:'4–5h', departure:'7am', price:19, priceUnit:'per tuk-tuk · $29 VIP (3 pax)', guide:'English speaking · +$35',
+    description:'A 40km loop past Preah Khan, Ta Som, Neak Pean and Pre Rup — further out and quieter than the Small Circuit.',
+    note:'All tourists need an Angkor Pass: $37 / 1 day, $62 / 3 days, $72 / 7 days.' },
+  { id:'banteay', category:'temple', title:'Banteay Srei',
+    card_img:'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=600','https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=600','https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=600'],
+    duration:'4h', departure:'7am', price:25, priceUnit:'per tuk-tuk · $35 VIP (3 pax)',
+    description:'38km northeast of town, Banteay Srei is known as the \u201cjewel of Khmer art\u201d for carving so fine it barely looks like sandstone.',
+    note:'All tourists need an Angkor Pass: $37 / 1 day, $62 / 3 days, $72 / 7 days.' },
+  { id:'beng', category:'nature', title:'Beng Mealea',
+    card_img:'https://images.unsplash.com/photo-1533050487297-09b450131914?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1533050487297-09b450131914?q=80&w=600','https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=600','https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=600'],
+    duration:'4h', departure:'7am', price:70, priceUnit:'per car (1–3) · $75 minivan (4–8)',
+    description:'70km out and similar in scale to Angkor Wat, Beng Mealea has been left largely unrestored — jungle roots through fallen stone, best explored slowly.',
+    note:'All tourists need an Angkor Pass: $37 / 1 day, $62 / 3 days, $72 / 7 days.' },
+  { id:'kohker', category:'nature', title:'Beng Mealea & Koh Ker',
+    card_img:'https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=600','https://images.unsplash.com/photo-1533050487297-09b450131914?q=80&w=600','https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=600'],
+    duration:'6h', departure:'7am', price:120, priceUnit:'per car (1–3 pax)',
+    description:'Pair Beng Mealea with Koh Ker, 130km out, where the 7-tier pyramid of Prasat Thom rewards the climb with the best view for miles.',
+    note:'Angkor Pass covers Beng Mealea ($37 / 1 day). Koh Ker needs a separate $15 entrance fee.' },
+  { id:'floating', category:'nature', title:'Floating Village (Kampong Phluk)',
+    card_img:'https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=600','https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=600','https://images.unsplash.com/photo-1518495973542-4542c06a5843?q=80&w=600'],
+    duration:'4h', departure:'2:30pm', price:21, priceUnit:'per person',
+    description:'Kampong Phluk — \u201charbour of the tusks\u201d — sits 30km from town on the Tonle Sap. See stilt houses, floating schools and a whole life built around the lake.',
+    note:'Add $5.50 per person for the Floating Forest.' },
+  { id:'cycling', category:'culture', title:'Ride & Seek Cycling',
+    card_img:'https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=600','https://images.unsplash.com/photo-1518495973542-4542c06a5843?q=80&w=600','https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=600'],
+    duration:'4h', departure:'3pm', days:'Mon / Thu / Sat', price:14, priceUnit:'per person',
+    description:'A ride through the rice fields and villages outside town — a good counterpoint to a temple-heavy day. Bicycle, one drink and snacks included.' },
+  { id:'food', category:'culture', title:'Khmer Street Food Tour',
+    card_img:'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600','https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600','https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=600'],
+    duration:'3h', departure:'5pm', days:'Wed / Sun', price:14, priceUnit:'per person',
+    description:"An evening tour through Siem Reap's street food scene — a good introduction if you don't know where to start. Transport, drinks and snacks included." },
+  { id:'circus', category:'culture', title:'Phare, the Cambodian Circus',
+    card_img:'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600','https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=600','https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600'],
+    duration:'1h', departure:'8pm', price:18, priceUnit:'seat C · $28 seat B · $38 seat A',
+    description:'Theatre, live music, dance and modern circus, built around Cambodian stories told by young performers. Siem Reap\u2019s most distinctive evening out.',
+    note:'Arrive 30 minutes before showtime. A tuk-tuk there costs around $3 one way.' },
+  { id:'pottery', category:'culture', title:'Khmer Pottery Class',
+    card_img:'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=600','https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600','https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600'],
+    duration:'2h', departure:'8am / 10am / 2pm / 4pm', price:25, priceUnit:'per person',
+    description:'Work a pottery wheel and traditional Khmer carving tools to shape your own bowl, guided by a local potter.',
+    note:'Includes a Cambodian Potter diploma and the bowl you make.' },
+  { id:'cooking', category:'culture', title:'Khmer Cooking Class',
+    card_img:'https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=800',
+    gallery:['https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600','https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600','https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=600'],
+    duration:'3h', departure:'9:30am / 12:30pm / 3:30pm', price:25, priceUnit:'per person · 4 dishes',
+    description:"Shop for ingredients at the local market, then cook four Khmer dishes at a local host's house, with live commentary in English throughout.",
+    note:'Includes pickup/drop-off at Sonitori Riverside, ingredients and your host\u2019s guidance.' }
+];
+
+/* ============================================
+   RENDER
+   ============================================ */
+function cardTemplate(t){
+  const badge = t.badge ? `<span class="card-badge">${t.badge}</span>` : '';
+  return `
+    <div class="tour-card" data-modal="modal-${t.id}" role="button" tabindex="0" aria-label="${t.title}, view details">
+      <div class="card-photo">
+        <img src="${t.card_img}" alt="${t.title}" loading="lazy">
+        ${badge}
+      </div>
+      <div class="price-chip"><span>from</span>$${t.price}</div>
+      <div class="card-info">
+        <h3>${t.title}</h3>
+        <div class="card-meta">
+          <span><i class="fi fi-rr-pending" aria-hidden="true"></i> ${t.duration}</span>
+          <span><i class="fi fi-rr-angle-double-small-right" aria-hidden="true"></i> ${t.departure}</span>
+        </div>
+        <div class="card-foot">
+          <span class="card-unit">${t.priceUnit.split('·')[0].split('(')[0].trim()}</span>
+          <span class="card-link">Details <i class="fi fi-rr-angle-small-right" aria-hidden="true"></i></span>
+        </div>
+      </div>
+    </div>`;
+}
+
+function infoItem(icon,label,value){
+  if(!value) return '';
+  return `<div class="info-item"><h4><i class="fi ${icon}" aria-hidden="true"></i> ${label}</h4><p>${value}</p></div>`;
+}
+
+function modalTemplate(t){
+  const items = [
+    infoItem('fi-rr-dollar','Price', `$${t.price} ${t.priceUnit}`),
+    infoItem('fi-rr-time-fast','Departure', t.departure),
+    infoItem('fi-rr-hourglass-end','Duration', t.duration),
+    t.guide ? infoItem('fi-rr-user','Guide', t.guide) : (t.days ? infoItem('fi-rr-calendar','Days', t.days) : '')
+  ].join('');
+
+  const note = t.note ? `<div class="modal-note"><i class="fi fi-rr-info" aria-hidden="true"></i><div><strong>Good to know:</strong> ${t.note}</div></div>` : '';
+
+  return `
+  <div id="modal-${t.id}" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-${t.id}-title" aria-hidden="true">
+    <div class="modal-content">
+      <button type="button" class="modal-close" data-close aria-label="Close dialog"><i class="fi fi-rr-cross" aria-hidden="true"></i></button>
+      <div class="modal-gallery">
+        ${t.gallery.map(g=>`<img src="${g}" alt="" loading="lazy">`).join('')}
+      </div>
+      <div class="modal-body">
+        <span class="modal-cat">${CATEGORIES[t.category].label}</span>
+        <h2 id="modal-${t.id}-title">${t.title}</h2>
+        <div class="modal-info-grid">${items}</div>
+        <p class="modal-description">${t.description}</p>
+        ${note}
+        <div class="modal-book">
+          <div class="mb-text"><strong>Ready to book?</strong> Message our front desk and we'll arrange it for your dates.</div>
+          <div class="mb-links">
+            <a href="https://m.me/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Message us on Messenger"><i class="fi fi-brands-facebook-messenger" aria-hidden="true"></i></a>
+            <a href="https://t.me/sonitorihotels" target="_blank" rel="noopener noreferrer" aria-label="Message us on Telegram"><i class="fi fi-brands-telegram" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderPage(){
+  const grid = document.getElementById('tourGrid');
+  const modalsWrap = document.getElementById('modals');
+  const chipNav = document.getElementById('chipNav');
+  const order = ['temple','nature','culture'];
+
+  chipNav.innerHTML = `<button type="button" class="chip active" data-target="tourGrid">All tours</button>` +
+    order.map(cat=>`<button type="button" class="chip" data-target="section-${cat}">${CATEGORIES[cat].label}</button>`).join('');
+
+  order.forEach(cat=>{
+    const items = TOURS.filter(t=>t.category===cat);
+    if(!items.length) return;
+    const section = document.createElement('section');
+    section.className = 'tour-section';
+    section.id = 'section-'+cat;
+    section.setAttribute('aria-labelledby', 'heading-'+cat);
+    section.innerHTML = `
+      <div class="section-head">
+        <h2 id="heading-${cat}">${CATEGORIES[cat].label}</h2>
+        <span class="section-tag">${CATEGORIES[cat].tag}</span>
+      </div>
+      <div class="tour-grid">${items.map(cardTemplate).join('')}</div>
+    `;
+    grid.appendChild(section);
+  });
+
+  modalsWrap.innerHTML = TOURS.map(modalTemplate).join('');
+  document.getElementById('statCount').textContent = TOURS.length;
+
+  chipNav.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      chipNav.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      const target = document.getElementById(chip.getAttribute('data-target'));
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+}
+
+/* ============================================
+   INTERACTIONS
+   ============================================ */
+let lastFocusedElement = null;
+let currentModal = null;
+
+function toggleMenu(forceClose){
+  const menu = document.getElementById('mobileMenu');
+  const hamburger = document.getElementById('hamburger');
+  const isOpen = forceClose === true ? false : !menu.classList.contains('open');
+  menu.classList.toggle('open', isOpen);
+  menu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  hamburger.classList.toggle('active', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+  if(isOpen){
+    lastFocusedElement = document.activeElement;
+    const firstLink = menu.querySelector('a, button');
+    if(firstLink) firstLink.focus();
+  } else if(lastFocusedElement){
+    lastFocusedElement.focus();
+  }
+}
+
+function openModal(modalId){
+  const modal = document.getElementById(modalId);
+  if(!modal) return;
+  lastFocusedElement = document.activeElement;
+  currentModal = modal;
+  modal.style.display = 'block';
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+  const closeBtn = modal.querySelector('.modal-close');
+  if(closeBtn) requestAnimationFrame(()=>closeBtn.focus());
+  modal.addEventListener('keydown', trapFocus);
+}
+
+function closeModal(modalId){
+  const modal = modalId ? document.getElementById(modalId) : currentModal;
+  if(!modal) return;
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+  modal.removeEventListener('keydown', trapFocus);
+  currentModal = null;
+  if(lastFocusedElement){ lastFocusedElement.focus(); lastFocusedElement = null; }
+}
+
+function trapFocus(e){
+  if(e.key !== 'Tab' || !currentModal) return;
+  const focusable = currentModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  const first = focusable[0], last = focusable[focusable.length-1];
+  if(e.shiftKey){
+    if(document.activeElement === first){ e.preventDefault(); last.focus(); }
+  } else {
+    if(document.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+}
+
+document.addEventListener('click', function(e){
+  const openBtn = e.target.closest('[data-modal]');
+  if(openBtn){ e.preventDefault(); openModal(openBtn.getAttribute('data-modal')); return; }
+
+  const closeBtn = e.target.closest('[data-close]');
+  if(closeBtn){ const modal = closeBtn.closest('.modal'); if(modal) closeModal(modal.id); return; }
+
+  if(e.target.classList.contains('modal')) closeModal(e.target.id);
+});
+
+document.addEventListener('keydown', function(e){
+  if(e.target.closest && e.target.closest('.tour-card') && (e.key === 'Enter' || e.key === ' ')){
+    e.preventDefault();
+    openModal(e.target.closest('.tour-card').getAttribute('data-modal'));
+  }
+  if(e.key === 'Escape'){
+    if(currentModal) closeModal(currentModal.id);
+    const menu = document.getElementById('mobileMenu');
+    if(menu.classList.contains('open')) toggleMenu(true);
+    const wrap = document.getElementById('searchResults');
+    if(wrap && wrap.classList.contains('open')){
+      wrap.classList.remove('open');
+      document.getElementById('tourSearch').setAttribute('aria-expanded','false');
+    }
+  }
+});
+
+document.getElementById('hamburger').addEventListener('click', ()=>toggleMenu());
+document.getElementById('mobileClose').addEventListener('click', ()=>toggleMenu(true));
+document.querySelectorAll('[data-close-menu]').forEach(el=>el.addEventListener('click', ()=>toggleMenu(true)));
+
+/* Search */
+(function(){
+  const input = document.getElementById('tourSearch');
+  const box = document.getElementById('searchBox');
+  const wrap = document.getElementById('searchResults');
+  const list = document.getElementById('srList');
+  const head = document.getElementById('srHead');
+  if(!input || !wrap || !list) return;
+
+  let activeIndex = -1;
+
+  function render(items){
+    list.innerHTML = '';
+    activeIndex = -1;
+    if(!items.length){
+      list.innerHTML = '<div class="sr-empty" role="option">No tours match your search.</div>';
+      return;
+    }
+    items.forEach((t,i)=>{
+      const li = document.createElement('li');
+      li.setAttribute('role','option');
+      li.setAttribute('id','sr-option-'+i);
+      li.setAttribute('tabindex','-1');
+      li.innerHTML = `<span class="sr-title">${t.title}</span><span class="sr-cat">${CATEGORIES[t.category].label}</span>`;
+      li.addEventListener('click', ()=>{ closeDropdown(); input.value=''; openModal('modal-'+t.id); });
+      list.appendChild(li);
+    });
+  }
+
+  function openDropdown(){ wrap.classList.add('open'); input.setAttribute('aria-expanded','true'); box.classList.add('focused'); }
+  function closeDropdown(){ wrap.classList.remove('open'); input.setAttribute('aria-expanded','false'); activeIndex=-1; box.classList.remove('focused'); }
+
+  function highlight(index){
+    const options = list.querySelectorAll('[role="option"]');
+    options.forEach((opt,i)=>{ opt.classList.toggle('highlighted', i===index); if(i===index) opt.focus(); });
+  }
+
+  input.addEventListener('focus', ()=>{ head.textContent='ALL TOURS'; render(TOURS); openDropdown(); });
+
+  input.addEventListener('input', ()=>{
+    const q = input.value.trim().toLowerCase();
+    const filtered = q ? TOURS.filter(t=>t.title.toLowerCase().includes(q) || CATEGORIES[t.category].label.toLowerCase().includes(q)) : TOURS;
+    head.textContent = q ? 'RESULTS' : 'ALL TOURS';
+    render(filtered);
+    openDropdown();
+  });
+
+  input.addEventListener('keydown', (e)=>{
+    const options = list.querySelectorAll('[role="option"]');
+    if(!options.length || !wrap.classList.contains('open')) return;
+    if(e.key === 'ArrowDown'){ e.preventDefault(); activeIndex = Math.min(activeIndex+1, options.length-1); highlight(activeIndex); }
+    else if(e.key === 'ArrowUp'){ e.preventDefault(); activeIndex = Math.max(activeIndex-1, 0); highlight(activeIndex); }
+    else if(e.key === 'Enter' && activeIndex >= 0){ e.preventDefault(); options[activeIndex].click(); }
+    else if(e.key === 'Escape'){ closeDropdown(); input.blur(); }
+  });
+
+  document.addEventListener('click', (e)=>{ if(!e.target.closest('.search')) closeDropdown(); });
+})();
+
+(function(){
+  const btn = document.getElementById('bookNowBtn');
+  const target = document.getElementById('tourGrid');
+  if(!btn || !target) return;
+  btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+    target.setAttribute('tabindex','-1');
+    target.focus({preventScroll:true});
+  });
+})();
+
+/* ============================================
+   FOOTER — dynamic year
+   ============================================ */
+(function(){
+  const y = document.getElementById('footerYear');
+  if(y) y.textContent = new Date().getFullYear();
+})();
+
+renderPage();
+</script>
+</body>
+</html>
