@@ -152,14 +152,18 @@ button { font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: tra
 
 .nav-pill-group {
   display: flex; align-items: center; gap: 4px;
-  background: rgba(120, 160, 165, 0.55);
+  background: rgba(0, 0, 0, 0.42);           /* was rgba(120,160,165,.55) */
   backdrop-filter: blur(var(--blur-strength));
   -webkit-backdrop-filter: blur(var(--blur-strength));
-  border: 1px solid rgba(250,246,236,.18);
+  border: 1px solid rgba(255, 255, 255, 0.10); /* was warm gold-tinted */
   border-radius: var(--r-full); padding: 6px;
   transition: background .4s ease, border-color .4s ease;
 }
-.navbar.scrolled .nav-pill-group { background: rgba(210, 220, 220, 0.75); }
+
+.navbar.scrolled .nav-pill-group {
+  background: rgba(210, 220, 220, 0.75);        /* keep as-is */
+  border-color: rgba(250, 246, 236, 0.18);
+}
 .navbar.scrolled .nav-pill-group a { color: var(--ink); }
 
 .nav-pill-group .brand {
@@ -512,11 +516,20 @@ button:focus-visible {
 .hero { position: relative; min-height: 100svh; overflow: hidden; background: var(--dusk); }
 .hero-media { position: absolute; inset: 0; z-index: 0; }
 .hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero { background: #000; }
+
 .hero-wash {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(72,114,122,.55) 0%, rgba(72,114,122,.28) 32%, rgba(15,42,46,.05) 55%, rgba(15,42,46,.55) 100%),
-              linear-gradient(0deg, var(--dusk-deep), transparent 35%);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.55) 0%,
+      rgba(0,0,0,.15) 40%,
+      rgba(0,0,0,.35) 65%,
+      rgba(0,0,0,.92) 100%
+    );
 }
+.hero-wash::after { display: none; }
 .hero-wash::after {
   content: '';
   position: absolute; inset: 0;
