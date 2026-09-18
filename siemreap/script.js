@@ -2,22 +2,73 @@
 'use strict';
 
 /* ---------- Loader + hero entrance ---------- */
-const overlay = document.getElementById('loadingOverlay');
-const wordmark = document.getElementById('heroWordmark');
-const annotA = document.getElementById('annotA');
-const annotB = document.getElementById('annotB');
+const overlay   = document.getElementById('loadingOverlay');
+const wordmark  = document.getElementById('heroWordmark');
+const annotA    = document.getElementById('annotA');
+const annotB    = document.getElementById('annotB');
+const heroVideo = document.getElementById('heroVideo');
+
 document.body.classList.add('no-scroll');
 
-setTimeout(function(){
+let dismissed = false;
+
+function dismissLoader(){
+  if (dismissed) return;
+  dismissed = true;
+
   overlay.classList.add('hidden');
+
   setTimeout(function(){
     wordmark.classList.add('animate');
     setTimeout(function(){ annotA.classList.add('animate'); }, 250);
     setTimeout(function(){ annotB.classList.add('animate'); }, 420);
     initReveal();
   }, 300);
-  setTimeout(function(){ overlay.style.display = 'none'; document.body.classList.remove('no-scroll'); }, 800);
-}, 1200);
+
+  setTimeout(function(){
+    overlay.style.display = 'none';
+    document.body.classList.remove('no-scroll');
+  }, 800);
+}
+
+/* Safety net — never trap the guest longer than 8s,
+   even if the video fails or the connection is terrible. */
+const MAX_WAIT = 8000;
+setTimeout(dismissLoader, MAX_WAIT);
+
+if (heroVideo) {
+  /* Fade the video in over the poster once it's actually playing */
+  heroVideo.style.transition = 'opacity .8s ease';
+  heroVideo.style.opacity = '0';
+  heroVideo.addEventListener('playing', function(){
+    heroVideo.style.opacity = '1';
+  }, { once: true });
+
+  if (heroVideo.readyState >= 4) {
+    /* Already fully buffered (e.g. cached) — brief pause so the
+       logo animation doesn't feel like a flash. */
+    setTimeout(dismissLoader, 400);
+  } else {
+    /* Fire as soon as the browser can play through without stalling */
+    heroVideo.addEventListener('canplaythrough', function(){
+      setTimeout(dismissLoader, 400);
+    }, { once: true });
+
+    /* Fallback: if canplaythrough never fires, use loadeddata */
+    heroVideo.addEventListener('loadeddata', function(){
+      setTimeout(dismissLoader, 1200);
+    }, { once: true });
+
+    /* If the video errors entirely, don't hang the guest */
+    heroVideo.addEventListener('error', dismissLoader, { once: true });
+
+    /* Nudge the browser to start loading */
+    try { heroVideo.load(); } catch(e){}
+  }
+} else {
+  /* No video element — dismiss after a short beat */
+  setTimeout(dismissLoader, 800);
+}
 
 /* ---------- Nav scrolled state ---------- */
 const navbar = document.getElementById('navbar');
@@ -91,7 +142,7 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && mobi
 
 /* ---------- Pause hero video when tab is hidden ---------- */
 (function(){
-  const video = document.querySelector('.hero-media video');
+  const video = document.getElementById('heroVideo') || document.querySelector('.hero-media video');
   if (!video) return;
   document.addEventListener('visibilitychange', function(){
     if (document.hidden) { video.pause(); } else { video.play().catch(function(){}); }
@@ -124,9 +175,7 @@ document.querySelectorAll('#navBookBtn, #mobileBookBtn, #bottomBookBtn').forEach
   });
 });
 
-/* Optional: per-room Book buttons inside the cards (add class="bc-book"
-   and data-accommodation-type="679025" to those buttons in the HTML).
-   .bc-link elements are NOT touched here — they keep their href navigation. */
+/* Optional: per-room Book buttons inside the cards */
 document.querySelectorAll('.bc-book').forEach(function(btn){
   btn.addEventListener('click', function(e){
     e.preventDefault();
@@ -140,7 +189,8 @@ if (contactBtn) contactBtn.addEventListener('click', function(){
   window.location.href = 'mailto:sonitoririverside.info@gmail.com';
 });
 
-document.getElementById('currentYear').textContent = new Date().getFullYear();
+const yearEl = document.getElementById('currentYear');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ---------- Smooth anchor scroll ---------- */
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
@@ -154,11 +204,13 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 });
 const conceptCta = document.getElementById('conceptCta');
 if (conceptCta) conceptCta.addEventListener('click', function(){
-  document.querySelector('#rooms').scrollIntoView({ behavior:'smooth', block:'start' });
+  const el = document.querySelector('#rooms');
+  if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
 });
 const guideDiscoverBtn = document.getElementById('guideDiscoverBtn');
 if (guideDiscoverBtn) guideDiscoverBtn.addEventListener('click', function(){
-  document.querySelector('#guide').scrollIntoView({ behavior:'smooth', block:'start' });
+  const el = document.querySelector('#guide');
+  if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
 });
 
 /* ---------- Experience card cycler (tours) ---------- */
@@ -223,5 +275,7 @@ function initReveal(){
   }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
   targets.forEach(function(t){ obs.observe(t); });
 }
-if (!overlay || overlay.style.display === 'none') initReveal();
+if (document.readyState !== 'loading') initReveal();
+else document.addEventListener('DOMContentLoaded', initReveal);
+
 })();
