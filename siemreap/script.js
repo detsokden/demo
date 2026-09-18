@@ -4,8 +4,6 @@
 /* ---------- Loader + hero entrance ---------- */
 const overlay   = document.getElementById('loadingOverlay');
 const wordmark  = document.getElementById('heroWordmark');
-const annotA    = document.getElementById('annotA');
-const annotB    = document.getElementById('annotB');
 const heroVideo = document.getElementById('heroVideo');
 
 document.body.classList.add('no-scroll');
@@ -20,8 +18,6 @@ function dismissLoader(){
 
   setTimeout(function(){
     wordmark.classList.add('animate');
-    setTimeout(function(){ annotA.classList.add('animate'); }, 250);
-    setTimeout(function(){ annotB.classList.add('animate'); }, 420);
     initReveal();
   }, 300);
 
@@ -214,11 +210,6 @@ document.querySelectorAll('.bc-book').forEach(function(btn){
     e.stopPropagation();
     goToCloudbeds(btn.getAttribute('data-accommodation-type') || '');
   });
-});
-
-const contactBtn = document.getElementById('contactBtn');
-if (contactBtn) contactBtn.addEventListener('click', function(){
-  window.location.href = 'mailto:sonitoririverside.info@gmail.com';
 });
 
 const yearEl = document.getElementById('currentYear');
