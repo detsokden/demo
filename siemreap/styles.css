@@ -1533,7 +1533,7 @@ button:focus-visible {
   .hw-sub {
     font-size: clamp(16px, 4vw, 26px);
     line-height: 1.2;
-    letter-spacing: 0.24em;
+    letter-spacing: 0.22em;
     font-weight: 400;
     padding-bottom: 0;
     padding-left: 0;
