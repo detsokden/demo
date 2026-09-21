@@ -607,9 +607,8 @@ button:focus-visible {
   display: flex; align-items: center; justify-content: end;
   line-height: 1;
   letter-spacing: .05em;
-  font-size: clamp(28px, 3.3vw, 52px);
+  font-size: clamp(10px, 3.3vw, 230px);
   color: var(--gold);
-  padding-bottom: clamp(10px, 2vw, 34px);
   opacity: 0.9;
 }
 
