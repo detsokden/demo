@@ -49,6 +49,7 @@
   --font-display: 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-logo: 'Segoe Print', cursive;
+  --font-river: 'Palatino Sans', cursive;
   --gutter: clamp(20px, 5vw, 64px);
   --pad-y: clamp(64px, 9vw, 130px);
   --blur-strength: 14px;
@@ -61,6 +62,14 @@
 @font-face {
   font-family: 'Segoe Print';
   src: url('../font/segoepr.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Palatino Sans';
+  src: url('../font/pala.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -573,32 +582,32 @@ button:focus-visible {
 .meta-pin p, .meta-note p { font-size: 11.5px; line-height: 1.55; color: var(--on-dark-muted); font-weight: 400; }
 
 .hero-wordmark {
-  position: absolute; left: 0; right: 0; bottom: clamp(330px, 19vw, 230px); z-index: 3;
+  position: absolute; left: 50%; top: 50%; z-index: 3;
   padding: 0 clamp(16px, 3.6vw, 40px);
-  display: flex; align-items: baseline; justify-content: center;
   gap: clamp(12px, 1.4vw, 24px);
   font-family: var(--font-display); color: var(--paper);
-  opacity: 0; transform: translateY(30px);
+  opacity: 0;
+  transform: translate(-50%, calc(-50% + 30px)); /* centered, pushed down 30px */
   transition: opacity 1s var(--ease), transform 1s var(--ease);
-  user-select: none; flex-wrap: wrap; text-align: center;
+  user-select: none; flex-wrap: wrap;
 }
-.hero-wordmark.animate { opacity: 1; transform: translateY(0); }
+.hero-wordmark.animate { opacity: 1; transform: translate(-50%, -50%); }
 
 .hw-main {
   font-family: var(--font-logo);
   font-weight: 300;
   font-style: italic;
   letter-spacing: -0.01em;
-  font-size: clamp(64px, 14vw, 230px);
+  line-height: 1;
+  font-size: clamp(64px, 9vw, 230px);
 }
 .hw-sub {
-  font-family: var(--font-logo);
+  font-family: var(--font-river);
   font-weight: 300;
-  font-style: italic;
+  display: flex; align-items: center; justify-content: end;
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: .05em;
   font-size: clamp(28px, 2.8vw, 52px);
-  text-transform: uppercase;
   color: var(--gold);
   padding-bottom: clamp(10px, 2vw, 34px);
   opacity: 0.9;
@@ -1518,14 +1527,14 @@ button:focus-visible {
 
 @media (max-width: 640px) {
   .hero-wordmark {
-    flex-direction: column; align-items: center;
     gap: 6px; padding-top: 6px;
   }
   .hw-main { font-size: clamp(58px, 15vw, 90px); }
   .hw-sub {
     font-size: clamp(16px, 4vw, 26px);
-    line-height: 1;
+    line-height: 1.2;
     letter-spacing: 0.24em;
+    font-weight: 400;
     padding-bottom: 0;
     padding-left: 0;
   }
