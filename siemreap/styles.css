@@ -777,7 +777,7 @@ button:focus-visible {
   font-size: clamp(26px, 3.6vw, 46px);
   color: var(--paper); margin-top: 16px;
   opacity: 0; transform: translateY(24px);
-  transition: opacity .9s var(--ease), transform .9s var(--ease);
+  transition: opacity .9s var(--ease), transform .9s var(--ease), filter .9s ease;
 }
 .concept-statement.reveal { opacity: 1; transform: translateY(0); }
 .concept-thumb {
@@ -860,7 +860,7 @@ button:focus-visible {
   border: 1px solid var(--line);
   opacity: 0; transform: translateY(24px);
   transition: opacity .7s var(--ease), transform .7s var(--ease),
-              box-shadow .3s ease, border-color .3s ease;
+              box-shadow .3s ease, border-color .3s ease, filter .7s ease;
 }
 .bento-card.reveal { opacity: 1; transform: translateY(0); }
 @media (hover: hover) {
@@ -1007,7 +1007,7 @@ button:focus-visible {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity .8s var(--ease), transform .3s var(--ease),
-              box-shadow .3s ease, border-color .3s ease;
+              box-shadow .3s ease, border-color .3s ease, filter .8s ease;
   text-decoration: none;
   color: inherit;
 }
@@ -1245,7 +1245,7 @@ button:focus-visible {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity .7s var(--ease), transform .7s var(--ease),
-              box-shadow .3s ease, border-color .3s ease;
+              box-shadow .3s ease, border-color .3s ease, filter .7s ease;
 }
 .review-card.reveal { opacity: 1; transform: translateY(0); }
 .review-card:nth-child(2) { transform: translateY(40px); }
@@ -1302,7 +1302,7 @@ button:focus-visible {
   border: 1px solid var(--line);
   opacity: 0; transform: scale(.94);
   transition: opacity .6s var(--ease), transform .6s var(--ease),
-              border-color .3s ease, box-shadow .3s ease;
+              border-color .3s ease, box-shadow .3s ease, filter .6s ease;
 }
 .guide-card.reveal { opacity: 1; transform: scale(1); }
 .guide-card img {
@@ -1357,7 +1357,7 @@ button:focus-visible {
   border: 1px solid var(--line);
   opacity: 0; transform: scale(.94);
   transition: opacity .6s var(--ease), transform .6s var(--ease),
-              border-color .3s ease;
+              border-color .3s ease, filter .6s ease;
 }
 .gallery-bento img.reveal { opacity: 1; transform: scale(1); }
 @media (hover: hover) {

@@ -284,6 +284,48 @@ if (guideDiscoverBtn) guideDiscoverBtn.addEventListener('click', function(){
 
 /* ---------- Scroll reveal ---------- */
 function initReveal(){
+  /* Elements that already have bespoke tilted/offset compositions in CSS —
+     leave their reveal fully class-driven so their designed resting
+     position (rotation, staggered height, etc.) isn't clobbered. */
+  const simpleTargets = document.querySelectorAll(
+    '.concept-thumb, .cs-main, .cs-chip, .collage-single, .amenity-node'
+  );
+
+  /* Everything else gets the livelier, direction-varied pop-in:
+     alternating sweep left / sweep right / rise+zoom / drop+settle,
+     each with a soft blur-to-sharp finish instead of a flat float-up. */
+  const dynamicTargets = document.querySelectorAll(
+    '.concept-statement, .bento-card, .exp-card, .review-card, .guide-card, .gallery-bento img'
+  );
+
+  const variants = [
+    { x: -90, y: 26, s: .82, r: -5, b: 11 },  // sweeps in from the left
+    { x:  90, y: 26, s: .82, r:  5, b: 11 },  // sweeps in from the right
+    { x:   0, y: 74, s: .76, r:  0, b: 14 },  // rises up while zooming in
+    { x:   0, y: -55, s: .88, r:  0, b: 8  }  // drops down and settles
+  ];
+
+  /* Cycle the variant by an element's position among siblings sharing its
+     parent, so neighbours in the same grid row/column alternate direction
+     instead of every card doing the same thing. */
+  const counters = new WeakMap();
+  dynamicTargets.forEach(function(el){
+    const key = el.parentElement || document.body;
+    const i = counters.get(key) || 0;
+    counters.set(key, i + 1);
+    const v = variants[i % variants.length];
+    const delay = (i % 4) * 0.08;
+
+    el.style.opacity = '0';
+    el.style.transform = 'translate3d(' + v.x + 'px,' + v.y + 'px,0) scale(' + v.s + ') rotate(' + v.r + 'deg)';
+    el.style.filter = 'blur(' + v.b + 'px)';
+    el.style.transition =
+      'opacity 1.05s cubic-bezier(.16,1,.3,1) ' + delay + 's, ' +
+      'transform 1.05s cubic-bezier(.16,1,.3,1) ' + delay + 's, ' +
+      'filter 1s ease-out ' + delay + 's';
+    el.style.willChange = 'transform, opacity, filter';
+  });
+
   const targets = document.querySelectorAll(
     '.concept-statement, .concept-thumb, .cs-main, .cs-chip, .collage-single, .exp-card, ' +
     '.bento-card, .amenity-node, .review-card, .guide-card, .gallery-bento img'
@@ -291,8 +333,17 @@ function initReveal(){
   const obs = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if (entry.isIntersecting){
-        setTimeout(function(){ entry.target.classList.add('reveal'); }, Math.random()*180);
-        obs.unobserve(entry.target);
+        const el = entry.target;
+        setTimeout(function(){
+          el.classList.add('reveal');
+          if (el.style.transform){
+            /* dynamic target: settle to identity transform + full clarity */
+            el.style.opacity = '1';
+            el.style.transform = 'translate3d(0,0,0) scale(1) rotate(0deg)';
+            el.style.filter = 'blur(0px)';
+          }
+        }, Math.random()*160);
+        obs.unobserve(el);
       }
     });
   }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
